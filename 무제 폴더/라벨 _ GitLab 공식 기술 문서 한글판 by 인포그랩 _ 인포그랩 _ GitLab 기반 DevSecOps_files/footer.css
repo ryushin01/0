@@ -1,0 +1,305 @@
+.landing-footer {
+  height: auto;
+  color: #525252;
+  display: flex;
+  flex-direction: column;
+  line-height: 20px;
+  font-size: 12px;
+  text-align: center;
+  font-family: "Pretendard", sans-serif;
+}
+.landing-footer img {
+  border: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+.landing-footer a {
+  border-bottom: 0;
+  color: white;
+}
+.landing-footer a:hover {
+  border-bottom: 0;
+  color: white;
+}
+.landing-footer .slick-list {
+  height: 110px;
+}
+.landing-footer .slick-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  cursor: pointer;
+}
+.landing-footer .slick-arrow.prev {
+  background: url("https://cdn.infograb.io/public/gitlab-docs/certification_left.png") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  left: -33%;
+  cursor: pointer;
+}
+.landing-footer .slick-arrow.next {
+  background: url("https://cdn.infograb.io/public/gitlab-docs/certification_right.png") no-repeat;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+  right: -33%;
+  cursor: pointer;
+}
+.landing-footer .footerWrapper {
+  padding: 0 32px;
+}
+.landing-footer .footerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  padding: 0 32px;
+}
+.landing-footer .footerTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
+  padding: 12px 0;
+}
+.landing-footer .footerTopLeft {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.landing-footer .footerTopRight {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+}
+.landing-footer .sliderContainer {
+  position: relative;
+  width: 1470px;
+  margin: 0 auto;
+}
+.landing-footer .sliderContainer img {
+  margin: 0 28px;
+}
+.landing-footer .footerBox {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+.landing-footer .links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.landing-footer .snsIcon {
+  display: block;
+  width: 28px;
+  height: 28px;
+  overflow: hidden;
+}
+.landing-footer .snsIcon > img {
+  width: 100%;
+  height: 100%;
+}
+.landing-footer .privacyPolicy {
+  color: #059669 !important;
+  font-weight: 700;
+  text-decoration-line: underline;
+}
+.landing-footer .privacyPolicy:hover {
+  color: #059669;
+}
+.landing-footer .termsUse {
+  color: #737373 !important;
+  font-weight: 700;
+  text-decoration-line: underline;
+}
+.landing-footer .termsUse:hover {
+  color: #737373 !important;
+  text-decoration: none;
+}
+.landing-footer .mailto {
+  color: #737373 !important;
+  text-decoration: underline;
+}
+.landing-footer .mailto:hover {
+  color: #737373 !important;
+  text-decoration: none;
+}
+.landing-footer .certification {
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  width: 700px;
+}
+.landing-footer .certificationLogo {
+  user-select: none;
+  width: 94px !important;
+  height: 98px;
+}
+.landing-footer .infoForDesktop {
+  color: #737373;
+  font-family: "Pretendard", sans-serif;
+  font-size: 14px;
+  padding-top: 32px;
+  margin: 0 auto;
+}
+.landing-footer .hr {
+  width: 100%;
+  height: 1px;
+  background-color: #efefef !important;
+  margin: 32px 0;
+  border: none;
+}
+.landing-footer .companyRegiNum {
+  white-space: nowrap;
+}
+.landing-footer .footerMenu {
+  list-style: none;
+  padding-left: 0;
+}
+.landing-footer .gitlabBadge {
+  height: 70px;
+}
+.landing-footer .badgeicon {
+  height: 70px;
+}
+.landing-footer .menuWrapper {
+  display: flex;
+  width: -moz-available;
+  width: -webkit-fill-available;
+  width: fill-available;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 28px;
+  text-align: left;
+  height: 358px;
+}
+.landing-footer .MenuTitle {
+  color: #404040;
+  font-family: "Pretendard", sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 28px;
+  margin-bottom: 8px;
+}
+.landing-footer .labelWrapper {
+  margin-bottom: 12px;
+}
+.landing-footer .label {
+  color: #404040;
+  font-size: 16px;
+  line-height: 28px;
+}
+.landing-footer .label:hover {
+  color: #059669;
+  text-decoration-line: underline;
+  text-shadow: 0.6px 0 0 #059669;
+}
+@media (max-width: 2500px) {
+  .landing-footer .sliderContainer {
+    width: 60%;
+    padding: 0;
+  }
+}
+@media (max-width: 1920px) {
+  .landing-footer .sliderContainer img {
+    margin: 0 12px;
+  }
+}
+@media (max-width: 1120px) {
+  .landing-footer .menuWrapper {
+    height: 650px;
+  }
+}
+@media (max-width: 670px) {
+  .landing-footer .menuWrapper {
+    height: auto;
+  }
+}
+@media (max-width: 1288px) {
+  .landing-footer .footerTopLeft {
+    margin-bottom: 12px;
+  }
+}
+@media (max-width: 996px) {
+  .landing-footer .footerWrapper {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .landing-footer .footerContainer {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+  .landing-footer .sliderContainer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  .landing-footer .footerTopRight {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 53px;
+  }
+  .landing-footer .sliderContainer img {
+    margin: 0px;
+  }
+  .landing-footer .footerTop {
+    flex-direction: column;
+    width: auto;
+  }
+  .landing-footer .footerTopLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .landing-footer .logo {
+    text-align: center;
+  }
+  .landing-footer .links {
+    gap: 20px;
+  }
+  .landing-footer .certification {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
+  .landing-footer .gitlabBadge {
+    height: 47px;
+  }
+  .landing-footer .badgeicon {
+    height: 60px;
+  }
+  .landing-footer .hr {
+    margin: 20px 0;
+  }
+  .landing-footer .menuWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .landing-footer .contentWrapper {
+    white-space: wrap;
+    width: 160px;
+  }
+  .landing-footer .label {
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
+
+/*# sourceMappingURL=footer.css.map */

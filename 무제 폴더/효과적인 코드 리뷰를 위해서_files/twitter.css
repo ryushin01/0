@@ -1,0 +1,17 @@
+.post_meta .link_sns a .la-x-com::after {
+  background: url('../img/logo_x.svg')  no-repeat left center;
+  background-size:19px 19px!important;
+  content: "";
+  display: block;
+  width: 19px;
+  height: 19px!important;
+}
+
+.footer_sns .sns_item a .la-x-com::after {
+  background: url('../img/logo_x.svg')  no-repeat left center;
+  background-size:21px 30px!important;
+  content: "";
+  display: block;
+  width: 21px;
+  height: 30px!important;
+}

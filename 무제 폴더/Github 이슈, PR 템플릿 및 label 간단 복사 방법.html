@@ -1,0 +1,1337 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://soooom.tistory.com/418 -->
+<html lang="ko" data-phocus-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/f.txt"></script><script type="text/javascript">if (!window.T) { window.T = {} }
+window.T.config = {"TOP_SSL_URL":"https://www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"","NEXT_PAGE":"","BLOG":{"id":4679019,"name":"soooom","title":"기록방","isDormancy":false,"nickName":"Soom_1n","status":"open","profileStatus":"normal"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https://www.tistory.com/auth/login/?redirectUrl=https://soooom.tistory.com/418","DEFAULT_URL":"https://soooom.tistory.com","USER":{"name":null,"homepage":null,"id":0,"profileImage":null},"SUBSCRIPTION":{"status":"none","isConnected":false,"isPending":false,"isWait":false,"isProcessing":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"IS_SUPPORT":false,"IS_SCRAPABLE":false,"TOP_URL":"http://www.tistory.com","JOIN_URL":"https://www.tistory.com/member/join","PHASE":"prod","ROLE_GROUP":"visitor"};
+window.T.entryInfo = {"entryId":418,"isAuthor":false,"categoryId":947236,"categoryLabel":"CS/Git"};
+window.appInfo = {"domain":"tistory.com","topUrl":"https://www.tistory.com","loginUrl":"https://www.tistory.com/auth/login","logoutUrl":"https://www.tistory.com/auth/logout"};
+window.initData = {};
+
+window.TistoryBlog = {
+    basePath: "",
+    url: "https://soooom.tistory.com",
+    tistoryUrl: "https://soooom.tistory.com",
+    manageUrl: "https://soooom.tistory.com/manage",
+    token: "JpBqZGNJEFcBc/GSqbXr69Wlpeok5Dm8jdgtt8xyzu4lrMD1nihSeY/cKr3PTCWG"
+};
+var servicePath = "";
+var blogURL = "";</script>
+
+                
+                
+                
+                        <!-- BusinessLicenseInfo - START -->
+        
+            <link href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/style.css" rel="stylesheet" type="text/css">
+
+            <script>function switchFold(entryId) {
+    var businessLayer = document.getElementById("businessInfoLayer_" + entryId);
+
+    if (businessLayer) {
+        if (businessLayer.className.indexOf("unfold_license") > 0) {
+            businessLayer.className = "business_license_layer";
+        } else {
+            businessLayer.className = "business_license_layer unfold_license";
+        }
+    }
+}
+</script>
+
+        
+        <!-- BusinessLicenseInfo - END -->
+        <!-- DaumShow - START -->
+        <style type="text/css">#daumSearchBox {
+    height: 21px;
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+    margin: 5px auto;
+    padding: 0;
+}
+
+#daumSearchBox input {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#daumSearchBox #daumLogo {
+    width: 34px;
+    height: 21px;
+    float: left;
+    margin-right: 5px;
+    background-image: url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+}
+
+#daumSearchBox #show_q {
+    background-color: transparent;
+    border: none;
+    font: 12px Gulim, Sans-serif;
+    color: #555;
+    margin-top: 4px;
+    margin-right: 15px;
+    float: left;
+}
+
+#daumSearchBox #show_btn {
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+    width: 37px;
+    height: 21px;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    text-indent: -1000em;
+}
+</style>
+
+        <!-- DaumShow - END -->
+
+<!-- PreventCopyContents - START -->
+<meta content="no" http-equiv="imagetoolbar">
+
+<!-- PreventCopyContents - END -->
+
+<!-- System - START -->
+
+<!-- System - END -->
+
+        <!-- TistoryProfileLayer - START -->
+        <link href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/style(1).css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/script.js"></script>
+
+        <!-- TistoryProfileLayer - END -->
+
+                
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="format-detection" content="telephone=no">
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/tiara.min.js"></script><meta name="referrer" content="always">
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338">
+<meta name="google-adsense-platform-domain" content="tistory.com">
+<meta name="description" content="github에서 여러 리포지토리를 생성 할 때, 이슈/PR 템플릿 및 커스텀 label을 복사하는 방법을 정리하고자 한다. 우선 임시 리포지토리를 하나 만들고 이슈/PR 템플릿 생성, label 수정을 진행하자 🔷 이슈 템플릿 생성 이슈 템플릿은 직접 리포지토리에 파일을 저장해두어야 하는데, 손쉽게 만들 수 있도록 github가 도와준다. 수동으로 만드려면 리포지토리의 &#39;./github/ISSUE_TEMPLATE/&#39; 디렉터리 하위로 &#39;bug-report.md&#39; 같은 마크다운 파일을 만들면 된다. 자세한 내용은 Github Docs의 이슈 템플릿 설명을 참고하자. 여기서는 github가 제공해주는 양식에 따라 쉽게 만들자. 리포지토리의 setting - 바로 나오는 General에서 쭉 내려서 Featur..">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://soooom.tistory.com/418">
+<meta property="og.article.author" content="Soom_1n">
+<meta property="og:site_name" content="기록방">
+<meta property="og:title" content="Github 이슈, PR 템플릿 및 label 간단 복사 방법">
+<meta name="by" content="Soom_1n">
+<meta property="og:description" content="github에서 여러 리포지토리를 생성 할 때, 이슈/PR 템플릿 및 커스텀 label을 복사하는 방법을 정리하고자 한다. 우선 임시 리포지토리를 하나 만들고 이슈/PR 템플릿 생성, label 수정을 진행하자 🔷 이슈 템플릿 생성 이슈 템플릿은 직접 리포지토리에 파일을 저장해두어야 하는데, 손쉽게 만들 수 있도록 github가 도와준다. 수동으로 만드려면 리포지토리의 &#39;./github/ISSUE_TEMPLATE/&#39; 디렉터리 하위로 &#39;bug-report.md&#39; 같은 마크다운 파일을 만들면 된다. 자세한 내용은 Github Docs의 이슈 템플릿 설명을 참고하자. 여기서는 github가 제공해주는 양식에 따라 쉽게 만들자. 리포지토리의 setting - 바로 나오는 General에서 쭉 내려서 Featur..">
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbCzZrR%2FbtsA4cpOUEz%2FAAAAAAAAAAAAAAAAAAAAAOo8AKTk1mkVHT1QMWqr2PbGEgYFWukJi8Yjxcwoc90P%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DnOdyFESM%252F0Ckp6F94bPOgKKcGL0%253D">
+<meta property="article:section" content="&#39;IT 인터넷&#39;">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TISTORY">
+<meta name="twitter:title" content="Github 이슈, PR 템플릿 및 label 간단 복사 방법">
+<meta name="twitter:description" content="github에서 여러 리포지토리를 생성 할 때, 이슈/PR 템플릿 및 커스텀 label을 복사하는 방법을 정리하고자 한다. 우선 임시 리포지토리를 하나 만들고 이슈/PR 템플릿 생성, label 수정을 진행하자 🔷 이슈 템플릿 생성 이슈 템플릿은 직접 리포지토리에 파일을 저장해두어야 하는데, 손쉽게 만들 수 있도록 github가 도와준다. 수동으로 만드려면 리포지토리의 &#39;./github/ISSUE_TEMPLATE/&#39; 디렉터리 하위로 &#39;bug-report.md&#39; 같은 마크다운 파일을 만들면 된다. 자세한 내용은 Github Docs의 이슈 템플릿 설명을 참고하자. 여기서는 github가 제공해주는 양식에 따라 쉽게 만들자. 리포지토리의 setting - 바로 나오는 General에서 쭉 내려서 Featur..">
+<meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbCzZrR%2FbtsA4cpOUEz%2FAAAAAAAAAAAAAAAAAAAAAOo8AKTk1mkVHT1QMWqr2PbGEgYFWukJi8Yjxcwoc90P%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DnOdyFESM%252F0Ckp6F94bPOgKKcGL0%253D">
+<meta content="https://soooom.tistory.com/418" property="dg:plink">
+<meta name="plink">
+<meta name="title" content="Github 이슈, PR 템플릿 및 label 간단 복사 방법">
+<meta name="article:media_name" content="기록방">
+<meta property="article:mobile_url" content="https://soooom.tistory.com/m/418">
+<meta property="article:pc_url" content="https://soooom.tistory.com/418">
+<meta property="article:mobile_view_url" content="https://soooom.tistory.com/m/418">
+<meta property="article:pc_view_url" content="https://soooom.tistory.com/418">
+<meta property="article:talk_channel_view_url" content="https://soooom.tistory.com/m/418">
+<meta property="article:pc_service_home" content="https://www.tistory.com">
+<meta property="article:mobile_service_home" content="https://www.tistory.com/m">
+<meta property="article:txid" content="4679019_418">
+<meta property="article:published_time" content="2023-11-28T00:06:30+09:00">
+<meta property="og:regDate" content="20231128120630">
+<meta property="article:modified_time" content="2023-11-28T00:06:30+09:00">
+<script type="module" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/index.js" defer=""></script>
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/index-legacy.js" defer="" nomodule="true"></script>
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/polyfills-legacy.js" defer="" nomodule="true"></script>
+<link rel="stylesheet" type="text/css" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/font.css">
+<link rel="stylesheet" type="text/css" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/content.css">
+<link rel="stylesheet" type="text/css" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/index.css">
+<link rel="stylesheet" type="text/css" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/uselessPMargin.css">
+<script type="text/javascript">(function() {
+    var tjQuery = jQuery.noConflict(true);
+    window.tjQuery = tjQuery;
+    window.orgjQuery = window.jQuery; window.jQuery = tjQuery;
+    window.jQuery = window.orgjQuery; delete window.orgjQuery;
+})()</script>
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/base.js"></script>
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/kakao.min.js"></script>
+
+                
+	
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width">
+	<title>Github 이슈, PR 템플릿 및 label 간단 복사 방법</title>
+	<link rel="alternate" type="application/rss+xml" title="기록방" href="https://soooom.tistory.com/rss">
+
+	<link rel="stylesheet" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/style(2).css">
+	<link rel="stylesheet" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/font(1).css">
+	<style>
+		
+		.wrap_sub {
+			background-image: url('https://t1.daumcdn.net/tistory/0/Ray2/images/header_default.jpg');
+		}
+		
+	</style>
+
+	<!--[if lt IE 9]>
+	<script src="//t1.daumcdn.net/tistory_admin/lib/jquery/jquery-1.12.4.min.js"></script>
+	<![endif]-->
+	<!--[if gte IE 9]><!-->
+	<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+	<!--<![endif]-->
+
+                
+                
+                <style type="text/css">.another_category {
+    border: 1px solid #E5E5E5;
+    padding: 10px 10px 5px;
+    margin: 10px 0;
+    clear: both;
+}
+
+.another_category h4 {
+    font-size: 12px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #E5E5E5 !important;
+    padding: 2px 0 6px !important;
+}
+
+.another_category h4 a {
+    font-weight: bold !important;
+}
+
+.another_category table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+
+* html .another_category table {
+    width: auto !important;
+}
+
+*:first-child + html .another_category table {
+    width: auto !important;
+}
+
+.another_category th, .another_category td {
+    padding: 0 0 4px !important;
+}
+
+.another_category th {
+    text-align: left;
+    font-size: 12px !important;
+    font-weight: normal;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.another_category td {
+    text-align: right;
+    width: 80px;
+    font-size: 11px;
+}
+
+.another_category th a {
+    font-weight: normal;
+    text-decoration: none;
+    border: none !important;
+}
+
+.another_category th a.current {
+    font-weight: bold;
+    text-decoration: none !important;
+    border-bottom: 1px solid !important;
+}
+
+.another_category th span {
+    font-weight: normal;
+    text-decoration: none;
+    font: 10px Tahoma, Sans-serif;
+    border: none !important;
+}
+
+.another_category_color_gray, .another_category_color_gray h4 {
+    border-color: #E5E5E5 !important;
+}
+
+.another_category_color_gray * {
+    color: #909090 !important;
+}
+
+.another_category_color_gray th a.current {
+    border-color: #909090 !important;
+}
+
+.another_category_color_gray h4, .another_category_color_gray h4 a {
+    color: #737373 !important;
+}
+
+.another_category_color_red, .another_category_color_red h4 {
+    border-color: #F6D4D3 !important;
+}
+
+.another_category_color_red * {
+    color: #E86869 !important;
+}
+
+.another_category_color_red th a.current {
+    border-color: #E86869 !important;
+}
+
+.another_category_color_red h4, .another_category_color_red h4 a {
+    color: #ED0908 !important;
+}
+
+.another_category_color_green, .another_category_color_green h4 {
+    border-color: #CCE7C8 !important;
+}
+
+.another_category_color_green * {
+    color: #64C05B !important;
+}
+
+.another_category_color_green th a.current {
+    border-color: #64C05B !important;
+}
+
+.another_category_color_green h4, .another_category_color_green h4 a {
+    color: #3EA731 !important;
+}
+
+.another_category_color_blue, .another_category_color_blue h4 {
+    border-color: #C8DAF2 !important;
+}
+
+.another_category_color_blue * {
+    color: #477FD6 !important;
+}
+
+.another_category_color_blue th a.current {
+    border-color: #477FD6 !important;
+}
+
+.another_category_color_blue h4, .another_category_color_blue h4 a {
+    color: #1960CA !important;
+}
+
+.another_category_color_violet, .another_category_color_violet h4 {
+    border-color: #E1CEEC !important;
+}
+
+.another_category_color_violet * {
+    color: #9D64C5 !important;
+}
+
+.another_category_color_violet th a.current {
+    border-color: #9D64C5 !important;
+}
+
+.another_category_color_violet h4, .another_category_color_violet h4 a {
+    color: #7E2CB5 !important;
+}
+</style>
+
+                
+                <link rel="stylesheet" type="text/css" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/revenue.css">
+<link rel="canonical" href="https://soooom.tistory.com/418">
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https://soooom.tistory.com/418","name":null},"url":"https://soooom.tistory.com/418","headline":"Github 이슈, PR 템플릿 및 label 간단 복사 방법","description":"github에서 여러 리포지토리를 생성 할 때, 이슈/PR 템플릿 및 커스텀 label을 복사하는 방법을 정리하고자 한다. 우선 임시 리포지토리를 하나 만들고 이슈/PR 템플릿 생성, label 수정을 진행하자 🔷 이슈 템플릿 생성 이슈 템플릿은 직접 리포지토리에 파일을 저장해두어야 하는데, 손쉽게 만들 수 있도록 github가 도와준다. 수동으로 만드려면 리포지토리의 './github/ISSUE_TEMPLATE/' 디렉터리 하위로 'bug-report.md' 같은 마크다운 파일을 만들면 된다. 자세한 내용은 Github Docs의 이슈 템플릿 설명을 참고하자. 여기서는 github가 제공해주는 양식에 따라 쉽게 만들자. 리포지토리의 setting - 바로 나오는 General에서 쭉 내려서 Featur..","author":{"@type":"Person","name":"Soom_1n","logo":null},"image":{"@type":"ImageObject","url":"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbCzZrR%2FbtsA4cpOUEz%2FAAAAAAAAAAAAAAAAAAAAAOo8AKTk1mkVHT1QMWqr2PbGEgYFWukJi8Yjxcwoc90P%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DnOdyFESM%252F0Ckp6F94bPOgKKcGL0%253D","width":"800px","height":"800px"},"datePublished":"2023-11-28T00:06:30+09:00","dateModified":"2023-11-28T00:06:30+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png","width":"800px","height":"800px"}}}
+</script>
+<!-- END STRUCTURED_DATA -->
+<link rel="stylesheet" type="text/css" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/dialog.css">
+<link rel="stylesheet" type="text/css" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/font(2).css">
+<link rel="stylesheet" type="text/css" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/postBtn.css">
+<link rel="stylesheet" type="text/css" href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/tistory.css">
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/common.js"></script>
+
+                
+                <style type="text/css">#DragSchLayer{display:block;position:absolute;z-index:1000;width:61px;height:31px;margin:-30px 0px 0px -5px;background:url(//search1.daumcdn.net/search/statics/common/pi/btn_drag_rect.png);cursor:pointer}             @media             only screen and (-webkit-min-device-pixel-ratio: 1.5),             only screen and (min-device-pixel-ratio: 1.5),             only screen and (min-resolution: 1.5dppx) {             #DragSchLayer{background-image:url(//search1.daumcdn.net/search/statics/common/pi/r2/btn_drag_rect.png);background-size:61px 31px}}            </style><meta http-equiv="origin-trial" content="AlK2UR5SkAlj8jjdEc9p3F3xuFYlF6LYjAML3EOqw1g26eCwWPjdmecULvBH5MVPoqKYrOfPhYVL71xAXI1IBQoAAAB8eyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="Amm8/NmvvQfhwCib6I7ZsmUxiSCfOxWxHayJwyU1r3gRIItzr7bNQid6O8ZYaE1GSQTa69WwhPC9flq/oYkRBwsAAACCeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiV2ViVmlld1hSZXF1ZXN0ZWRXaXRoRGVwcmVjYXRpb24iLCJleHBpcnkiOjE3NTgwNjcxOTksImlzU3ViZG9tYWluIjp0cnVlfQ=="><meta http-equiv="origin-trial" content="A9wSqI5i0iwGdf6L1CERNdmsTPgVu44ewj8QxTBYgsv1LCPUVF7YmWOvTappqB1139jAymxUW/RO8zmMqo4zlAAAAACNeyJvcmlnaW4iOiJodHRwczovL2RvdWJsZWNsaWNrLm5ldDo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="A+d7vJfYtay4OUbdtRPZA3y7bKQLsxaMEPmxgfhBGqKXNrdkCQeJlUwqa6EBbSfjwFtJWTrWIioXeMW+y8bWAgQAAACTeyJvcmlnaW4iOiJodHRwczovL2dvb2dsZXN5bmRpY2F0aW9uLmNvbTo0NDMiLCJmZWF0dXJlIjoiRmxlZGdlQmlkZGluZ0FuZEF1Y3Rpb25TZXJ2ZXIiLCJleHBpcnkiOjE3MzY4MTI4MDAsImlzU3ViZG9tYWluIjp0cnVlLCJpc1RoaXJkUGFydHkiOnRydWV9"></head>
+
+                                                <body id="tt-body-page">
+                
+                
+                
+
+
+	<div id="dkIndex">
+		<!--웹접근성용 바로가기 링크 모음-->
+		<a href="https://soooom.tistory.com/418#dkBody">본문 바로가기</a>
+	</div>
+	<div id="dkWrap" class="wrap_skin">
+		<!-- 카테고리버튼 클릭시 'navi_on' 클래스 부여 -->
+		<div id="dkHead" role="banner" class="area_head">
+			<h1 class="screen_out">기록방</h1>
+			<button type="button" class="btn_cate">
+				<span class="ico_skin ico_cate">카테고리</span>
+			</button>
+			<div class="area_search ">
+				<button type="button" class="btn_search">
+					<span class="ico_skin ico_search">검색하기</span>
+				</button>
+				
+					<form action="https://soooom.tistory.com/418#" method="get" class="frm_search box_search" onsubmit="try {
+    window.location.href = &#39;/search&#39; + &#39;/&#39; + looseURIEncode(document.getElementsByName(&#39;search&#39;)[0].value);
+    document.getElementsByName(&#39;search&#39;)[0].value = &#39;&#39;;
+    return false;
+} catch (e) {}">
+						<fieldset>
+							<legend class="screen_out">검색하기</legend>
+							<label for="search" class="lab_search screen_out">블로그 내 검색</label>
+							<input type="text" name="search" id="search" class="tf_search" placeholder="Search" value="" data-value="">
+							<span class="ico_skin ico_search"></span>
+						</fieldset>
+					</form>
+				
+			</div>
+			<div class="area_profile">
+				<div class="tit_post">
+					<a href="https://soooom.tistory.com/" class="link_post">기록방</a>
+				</div>
+				<span class="thumb_profile">
+                <img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/ddd44e997cd64f8c94ae6cfa4e8abc59" class="img_profile" alt="프로필사진">
+            </span>
+				<span class="txt_profile">Soom_1n</span>
+			</div>
+		</div>
+		<hr class="hide">
+		<div id="dkContent" class="cont_skin" role="main">
+			<div id="cMain">
+				<div id="mFeature" class="wrap_sub">
+					<div class="cont_sub">
+						<div class="inner_sub">
+							<div class="area_sub">
+								<div role="navigation" class="area_navi">
+									<ul class="tt_category"><li class=""><a href="https://soooom.tistory.com/category" class="link_tit"> 모두 보기 <span class="c_cnt">(514)</span> </a>
+  <ul class="category_list"><li class=""><a href="https://soooom.tistory.com/category/Tips" class="link_item"> Tips <span class="c_cnt">(4)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/CodingTest" class="link_item"> CodingTest <span class="c_cnt">(430)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://soooom.tistory.com/category/CodingTest/Java" class="link_sub_item"> Java <span class="c_cnt">(342)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/CodingTest/Python" class="link_sub_item"> Python <span class="c_cnt">(74)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/CodingTest/C%2B%2B" class="link_sub_item"> C++ <span class="c_cnt">(13)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/CodingTest/SQL" class="link_sub_item"> SQL <span class="c_cnt">(1)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="https://soooom.tistory.com/category/CS" class="link_item"> CS <span class="c_cnt">(39)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://soooom.tistory.com/category/CS/Java" class="link_sub_item"> Java <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/CS/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="link_sub_item"> 자료구조 <span class="c_cnt">(4)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/CS/%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98" class="link_sub_item"> 알고리즘 <span class="c_cnt">(17)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/CS/DataBase" class="link_sub_item"> DataBase <span class="c_cnt">(10)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/CS/Git" class="link_sub_item"> Git <span class="c_cnt">(5)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="https://soooom.tistory.com/category/Tool" class="link_item"> Tool <span class="c_cnt">(1)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://soooom.tistory.com/category/Tool/IntelliJ" class="link_sub_item"> IntelliJ <span class="c_cnt">(1)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="https://soooom.tistory.com/category/FrameWork" class="link_item"> FrameWork <span class="c_cnt">(25)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://soooom.tistory.com/category/FrameWork/Spring" class="link_sub_item"> Spring <span class="c_cnt">(25)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="https://soooom.tistory.com/category/AWS" class="link_item"> AWS <span class="c_cnt">(3)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/%EC%9B%B9%20%ED%81%AC%EB%A1%A4%EB%A7%81" class="link_item"> 웹 크롤링 <span class="c_cnt">(5)</span> </a></li>
+<li class=""><a href="https://soooom.tistory.com/category/Linux" class="link_item"> Linux <span class="c_cnt">(3)</span> </a>
+  <ul class="sub_category_list"><li class=""><a href="https://soooom.tistory.com/category/Linux/Ubuntu%2018.04.6%20LTS" class="link_sub_item"> Ubuntu 18.04.6 LTS <span class="c_cnt">(3)</span> </a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+									<a href="https://soooom.tistory.com/guestbook" class="link_guestbook">Guestbook</a>
+								</div>
+								<div class="wrap_etc">
+									<div class="col_aside left_side">
+										            
+												<!-- 링크 -->
+												<div class="box_aside">
+													<strong class="tit_aside">Link</strong>
+													<ul class="list_board">
+														
+															<li><a href="https://github.com/BreathIN423" class="link_board" target="_blank">Github</a></li>
+														
+															<li><a href="https://solved.ac/profile/kangsm423" class="link_board" target="_blank">Solved.AC</a></li>
+														
+													</ul>
+												</div>
+											
+												<!-- 최근에 올라온 글 -->
+												<div class="box_aside">
+													<strong class="tit_aside">Recent Posts</strong>
+													<ul class="list_board">
+														
+															<li><a href="https://soooom.tistory.com/523" class="link_board">BOJ_28470 : 슥~빡! 빡~슥!</a></li>
+														
+															<li><a href="https://soooom.tistory.com/522" class="link_board">BOJ_11068 : 회문인 수</a></li>
+														
+															<li><a href="https://soooom.tistory.com/521" class="link_board">BOJ_1854 : K번째 최단경로 찾기</a></li>
+														
+															<li><a href="https://soooom.tistory.com/520" class="link_board">BOJ_1948 : 임계경로</a></li>
+														
+													</ul>
+												</div>
+											
+												<!-- 최근에 달린 댓글 -->
+												<div class="box_aside">
+													<strong class="tit_aside">Recent Comments</strong>
+													<ul class="list_board">
+														
+															<li><a href="https://soooom.tistory.com/454#comment16485071" class="link_board">감사합니다</a></li>
+														
+															<li><a href="https://soooom.tistory.com/454#comment16376316" class="link_board">이미지가 깨지는거 같아용</a></li>
+														
+															<li><a href="https://soooom.tistory.com/419#comment15273769" class="link_board">맞습니다 ㅎㅎㅎ 프로젝트 진행에 따라서 또 포스팅 하겠⋯</a></li>
+														
+															<li><a href="https://soooom.tistory.com/419#comment15262950" class="link_board">헉 또 재밌는 프로젝트 하시는가 보군요!!! 기대하고 ⋯</a></li>
+														
+													</ul>
+												</div>
+											
+												<!-- 방문자수 -->
+												<div class="box_aside box_visitor">
+													<dl class="list_visitor">
+														<dt>Today</dt>
+														<dd>24</dd>
+													</dl>
+													<dl class="list_total">
+														<dt>Total</dt>
+														<dd>39,332</dd>
+													</dl>
+												</div>
+											
+									</div>
+
+
+									<div class="col_aside right_side">
+										
+												<!-- 태그 클라우드 -->
+												<div class="box_aside box_tag">
+													<strong class="tit_aside">Tags</strong>
+													<ul class="list_tag">
+														
+															<li><a href="https://soooom.tistory.com/tag/greedy" class="link_tag cloud4">greedy</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EC%A0%95%EC%88%98%EB%A1%A0" class="link_tag cloud4">정수론</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/stack" class="link_tag cloud4">stack</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/Brute%20Force%20Algorithm" class="link_tag cloud4">Brute Force Algorithm</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/CodingTest" class="link_tag cloud1">CodingTest</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EB%84%88%EB%B9%84%20%EC%9A%B0%EC%84%A0%20%ED%83%90%EC%83%89" class="link_tag cloud4">너비 우선 탐색</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/sort" class="link_tag cloud4">sort</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/Java" class="link_tag cloud2">Java</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EA%B5%AC%ED%98%84" class="link_tag cloud4">구현</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/Python" class="link_tag cloud4">Python</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/queue" class="link_tag cloud4">queue</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/BFS" class="link_tag cloud4">BFS</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/BOJ" class="link_tag cloud2">BOJ</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/PGM" class="link_tag cloud4">PGM</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EC%A0%95%EB%A0%AC" class="link_tag cloud4">정렬</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/SpringBoot" class="link_tag cloud4">SpringBoot</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/dfs" class="link_tag cloud4">dfs</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EC%8B%9C%EB%AE%AC%EB%A0%88%EC%9D%B4%EC%85%98" class="link_tag cloud4">시뮬레이션</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EA%B7%B8%EB%9E%98%ED%94%84%20%ED%83%90%EC%83%89" class="link_tag cloud4">그래프 탐색</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/LV2" class="link_tag cloud4">LV2</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EA%B5%90%EC%9E%AC" class="link_tag cloud4">교재</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EB%AC%B8%EC%9E%90%EC%97%B4" class="link_tag cloud4">문자열</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EC%88%98%ED%95%99" class="link_tag cloud4">수학</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EA%B9%8A%EC%9D%B4%20%EC%9A%B0%EC%84%A0%20%ED%83%90%EC%83%89" class="link_tag cloud4">깊이 우선 탐색</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/Dynamic%20Programming" class="link_tag cloud4">Dynamic Programming</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EC%9E%90%EB%A3%8C%EA%B5%AC%EC%A1%B0" class="link_tag cloud4">자료구조</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EB%B0%B1%ED%8A%B8%EB%9E%98%ED%82%B9" class="link_tag cloud4">백트래킹</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/%EA%B7%B8%EB%9E%98%ED%94%84%20%EC%9D%B4%EB%A1%A0" class="link_tag cloud4">그래프 이론</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/Study" class="link_tag cloud4">Study</a></li>
+														
+															<li><a href="https://soooom.tistory.com/tag/DP" class="link_tag cloud4">DP</a></li>
+														
+													</ul>
+													<a href="https://soooom.tistory.com/tag" class="link_more">more</a>
+												</div>
+											
+												<!-- 글 보관함 -->
+												<div class="box_aside box_archive">
+													<strong class="tit_aside">Archives</strong>
+													<ul class="list_keep">
+														
+													</ul>
+												</div>
+											
+									</div>
+								</div>
+							</div>
+						</div>
+						<button type="button" class="ico_skin btn_close">닫기</button>
+
+						<strong class="screen_out">관리 메뉴</strong>
+						<ul class="list_control">
+							<li><a href="https://soooom.tistory.com/manage/entry/post" class="ico_skin link_write" title="글쓰기">글쓰기</a></li>
+							<li><a href="https://soooom.tistory.com/guestbook" class="ico_skin link_memo" title="방명록">방명록</a></li>
+							<li><a href="https://soooom.tistory.com/rss" class="ico_skin link_rss" title="RSS">RSS</a></li>
+							<li><a href="https://soooom.tistory.com/manage" class="ico_skin link_manage" title="관리">관리</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div id="mArticle" class="article_skin">
+
+					
+
+					<div class="index_title">
+						<h2 class="tit_skin"><span class="txt_title">기록방</span></h2>
+					</div>
+
+					           
+               
+	
+
+
+	
+		<h2 id="dkBody" class="screen_out">Github 이슈, PR 템플릿 및 label 간단 복사 방법 본문</h2>
+		<div class="area_title">
+			<strong class="tit_category"><a href="https://soooom.tistory.com/category/CS/Git">CS/Git</a></strong>
+			<h3 class="tit_post">Github 이슈, PR 템플릿 및 label 간단 복사 방법</h3>
+			<span class="info_post">Soom_1n
+                           <span class="txt_bar"></span>2023. 11. 28. 00:06
+			
+		</span>
+		</div>
+
+		<div class="area_view">
+			
+            <!-- System - START -->
+
+<!-- System - END -->
+
+            <div class="tt_article_useless_p_margin contents_style"><blockquote data-ke-style="style3">github에서 여러 리포지토리를 생성 할 때, 이슈/PR 템플릿 및 커스텀 label을 복사하는 방법을 정리하고자 한다.</blockquote>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">우선 임시 리포지토리를 하나 만들고 이슈/PR 템플릿 생성, label 수정을 진행하자&nbsp;</p>
+<hr data-ke-style="style7" data-ke-type="horizontalRule">
+<p style="color: #333333; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<h3 style="color: #000000; text-align: start;" data-ke-size="size23">🔷 이슈 템플릿 생성</h3>
+<p data-ke-size="size16">이슈 템플릿은 직접 리포지토리에 파일을 저장해두어야 하는데, 손쉽게 만들 수 있도록 github가 도와준다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">수동으로 만드려면 리포지토리의 './github/ISSUE_TEMPLATE/' 디렉터리 하위로 'bug-report.md' 같은 마크다운 파일을 만들면 된다. 자세한 내용은 <a href="https://docs.github.com/ko/communities/using-templates-to-encourage-useful-issues-and-pull-requests/manually-creating-a-single-issue-template-for-your-repository" target="_blank" rel="noopener">Github Docs의 이슈 템플릿 설명</a>을 참고하자.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">여기서는 github가 제공해주는 양식에 따라 쉽게 만들자.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p></p><figure class="imagegridblock">
+  <div class="image-container"><span data-url="https://blog.kakaocdn.net/dna/bCzZrR/btsA4cpOUEz/AAAAAAAAAAAAAAAAAAAAAOo8AKTk1mkVHT1QMWqr2PbGEgYFWukJi8Yjxcwoc90P/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=nOdyFESM%2F0Ckp6F94bPOgKKcGL0%3D" data-phocus="https://blog.kakaocdn.net/dna/bCzZrR/btsA4cpOUEz/AAAAAAAAAAAAAAAAAAAAAOo8AKTk1mkVHT1QMWqr2PbGEgYFWukJi8Yjxcwoc90P/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=nOdyFESM%2F0Ckp6F94bPOgKKcGL0%3D" data-origin-width="1172" data-origin-height="840" data-is-animation="false" style="width: 43.3543%; margin-right: 10px;" data-widthpercent="43.86"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img.png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbCzZrR%2FbtsA4cpOUEz%2FAAAAAAAAAAAAAAAAAAAAAOo8AKTk1mkVHT1QMWqr2PbGEgYFWukJi8Yjxcwoc90P%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DnOdyFESM%252F0Ckp6F94bPOgKKcGL0%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1172" height="840" data-phocus-index="0"></span><span data-url="https://blog.kakaocdn.net/dna/drjyHc/btsAWgUA94W/AAAAAAAAAAAAAAAAAAAAAAelQyNmNqzmmQ0MRZbTJlEWJBIvph3NrPgQIvvUoMIi/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=wPnyj54racNgleZLvjgSDr6fQUw%3D" data-phocus="https://blog.kakaocdn.net/dna/drjyHc/btsAWgUA94W/AAAAAAAAAAAAAAAAAAAAAAelQyNmNqzmmQ0MRZbTJlEWJBIvph3NrPgQIvvUoMIi/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=wPnyj54racNgleZLvjgSDr6fQUw%3D" data-origin-width="841" data-origin-height="471" data-is-animation="false" data-widthpercent="56.14" style="width: 55.4829%;"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(1).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FdrjyHc%2FbtsAWgUA94W%2FAAAAAAAAAAAAAAAAAAAAAAelQyNmNqzmmQ0MRZbTJlEWJBIvph3NrPgQIvvUoMIi%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DwPnyj54racNgleZLvjgSDr6fQUw%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="841" height="471" data-phocus-index="1"></span></div>
+</figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">리포지토리의 setting - 바로 나오는 General에서 쭉 내려서 Features란에서 이슈의 [ Set up templates ]를 누른다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="978" data-origin-height="648"><span data-url="https://blog.kakaocdn.net/dna/ciR7yI/btsA3yfFaco/AAAAAAAAAAAAAAAAAAAAAMxaaUU2YT-dQtRaGzUqdX8glh4wy3X1I5wx1aN0lujF/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=OpSVycsZXjsVGi7qfeDW%2BOlrytU%3D" data-phocus="https://blog.kakaocdn.net/dna/ciR7yI/btsA3yfFaco/AAAAAAAAAAAAAAAAAAAAAMxaaUU2YT-dQtRaGzUqdX8glh4wy3X1I5wx1aN0lujF/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=OpSVycsZXjsVGi7qfeDW%2BOlrytU%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(2).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FciR7yI%2FbtsA3yfFaco%2FAAAAAAAAAAAAAAAAAAAAAMxaaUU2YT-dQtRaGzUqdX8glh4wy3X1I5wx1aN0lujF%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DOpSVycsZXjsVGi7qfeDW%252BOlrytU%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="978" height="648" data-origin-width="978" data-origin-height="648" data-phocus-index="2"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">이슈 템플릿을 바로 만들어 등록 할 수 있는데, Bug report와 Feature request 양식을 제공해준다.</p>
+<p data-ke-size="size16">템플릿은 그냥 MarkDown으로 작성하면 되므로, 크게 어려울 건 없다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p style="color: #333333; text-align: start;" data-ke-size="size16"><b>Bug Report 이슈 템플릿</b></p>
+<pre id="code_1701094906604" class="java" data-ke-language="java" data-ke-type="codeblock"><code class="hljs">---
+name: Bug Report
+about: 버그 발생 보고 및 해결 방안 기록
+title: <span class="hljs-string">"[BUG] {로그인 후 리다이렉트 실패}"</span>
+labels: <span class="hljs-string">"\U0001F41E Bug"</span>
+assignees: <span class="hljs-string">''</span>
+
+---
+
+### 버그 현상 설명
+{버그 현상을 설명해주세요.}
+
+---
+
+### 발생 과정
+{ 버그를 발생 시키는 행동 과정을 적어주세요.
+<span class="hljs-number">1.</span> Go to <span class="hljs-string">'...'</span>
+<span class="hljs-number">2.</span> Click on <span class="hljs-string">'....'</span>
+<span class="hljs-number">3.</span> Scroll down to <span class="hljs-string">'....'</span>
+<span class="hljs-number">4.</span> See error
+}
+
+---
+
+### 예상 대책
+{예상되는 대책을 적어주세요. 없다면 없다고 적어주세요.}
+
+---
+
+### 스크린샷
+{버그 발생 화면을 스크린샷으로 남겨주세요.}
+
+---
+
+### 개발 환경
+{ 현재 환경을 적어주세요. 버그 재현시 필요한 부분은 필수로 자세히 적어주세요. }
+| 속성 | 값 |
+| :----: | :--: |
+| OS | Window <span class="hljs-number">10</span> |
+| Tool | IntelliJ Ultimate |
+| Framework | SpringBoot <span class="hljs-number">3.0</span><span class="hljs-number">.13</span>|
+
+
+---
+
+### 기타 주석
+{끝으로 남기고 싶은 기타 주석을 적어주세요. 없다면 지워주세요.}</code></pre>
+<p style="color: #333333; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<p style="color: #333333; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<p style="color: #333333; text-align: start;" data-ke-size="size16"><b>Feature request 이슈 템플릿</b></p>
+<pre id="code_1701094989003" class="java" data-ke-language="java" data-ke-type="codeblock"><code class="hljs">---
+name: Feature request
+about: 메인 기능 개발 Todo 리스트
+title: <span class="hljs-string">"[Feat] {소셜 로그인 기능 추가}"</span>
+labels: <span class="hljs-string">"✨ Feat"</span>
+assignees: <span class="hljs-string">''</span>
+
+---
+
+### 구현 기능 설명
+{현재 개발하고자 하는 기능의 배경 및 주 기능 간략 설명 (ex. 회원 관련 소셜 로그인 기능 구현) }
+
+### 예상 소요 시간
+{최소 <span class="hljs-number">2</span>시간, 최대 <span class="hljs-number">3</span>일로 명세}</code></pre>
+<p style="color: #333333; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<p style="color: #333333; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<p style="color: #333333; text-align: start;" data-ke-size="size16"><b>템플릿 미리보기</b></p>
+<p></p><figure class="imageblock widthContent" data-ke-mobilestyle="widthOrigin" data-origin-width="804" data-origin-height="813"><span data-url="https://blog.kakaocdn.net/dna/sxj3j/btsAXg7XzEz/AAAAAAAAAAAAAAAAAAAAAB_6vxXOeAG43fyz0OWAtHuvF15jfmlzU7WPKE5XvU1G/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=9MsDEvraDrWxAnwTtXhCi8wh34U%3D" data-phocus="https://blog.kakaocdn.net/dna/sxj3j/btsAXg7XzEz/AAAAAAAAAAAAAAAAAAAAAB_6vxXOeAG43fyz0OWAtHuvF15jfmlzU7WPKE5XvU1G/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=9MsDEvraDrWxAnwTtXhCi8wh34U%3D" data-alt="bug-report.md"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(3).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fsxj3j%2FbtsAXg7XzEz%2FAAAAAAAAAAAAAAAAAAAAAB_6vxXOeAG43fyz0OWAtHuvF15jfmlzU7WPKE5XvU1G%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D9MsDEvraDrWxAnwTtXhCi8wh34U%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="804" height="813" data-origin-width="804" data-origin-height="813" data-phocus-index="3"></span><figcaption>bug-report.md</figcaption>
+</figure>
+<figure class="imageblock widthContent" data-ke-mobilestyle="widthOrigin" data-origin-width="758" data-origin-height="266"><span data-url="https://blog.kakaocdn.net/dna/tu1q3/btsATBZsjAC/AAAAAAAAAAAAAAAAAAAAABNMxPLRQjnEr62KjIvxUWslgDDS85wlKcbI7Na_cOek/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=GZ%2Bsk4daPBhj0Com9vLdk3g0fK8%3D" data-phocus="https://blog.kakaocdn.net/dna/tu1q3/btsATBZsjAC/AAAAAAAAAAAAAAAAAAAAABNMxPLRQjnEr62KjIvxUWslgDDS85wlKcbI7Na_cOek/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=GZ%2Bsk4daPBhj0Com9vLdk3g0fK8%3D" data-alt="feature_request.md"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(4).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Ftu1q3%2FbtsATBZsjAC%2FAAAAAAAAAAAAAAAAAAAAABNMxPLRQjnEr62KjIvxUWslgDDS85wlKcbI7Na_cOek%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DGZ%252Bsk4daPBhj0Com9vLdk3g0fK8%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="758" height="266" data-origin-width="758" data-origin-height="266" data-phocus-index="4"></span><figcaption>feature_request.md</figcaption>
+</figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">이렇게 만들어 두면 이슈 생성 시 다음과 같이 나타난다.</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1154" data-origin-height="214"><span data-url="https://blog.kakaocdn.net/dna/bMtWc3/btsA319LENj/AAAAAAAAAAAAAAAAAAAAAGjOOOL-w7IsajkrPglbSN1ZF71tU-gps7BEwatykgJu/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=8jFgb9Z3698NutTGyEG4qRO8LpU%3D" data-phocus="https://blog.kakaocdn.net/dna/bMtWc3/btsA319LENj/AAAAAAAAAAAAAAAAAAAAAGjOOOL-w7IsajkrPglbSN1ZF71tU-gps7BEwatykgJu/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=8jFgb9Z3698NutTGyEG4qRO8LpU%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(5).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbMtWc3%2FbtsA319LENj%2FAAAAAAAAAAAAAAAAAAAAAGjOOOL-w7IsajkrPglbSN1ZF71tU-gps7BEwatykgJu%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D8jFgb9Z3698NutTGyEG4qRO8LpU%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1154" height="214" data-origin-width="1154" data-origin-height="214" data-phocus-index="5"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<hr data-ke-style="style7" data-ke-type="horizontalRule">
+<p style="color: #333333; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<h3 style="color: #000000; text-align: start;" data-ke-size="size23">🔷 PR 템플릿 생성</h3>
+<p data-ke-size="size16">PR 템플릿은 이슈와 달리 직접 생성해줘야한다.</p>
+<p data-ke-size="size16">여기서는 간단히 생성 방법을 알아보고, 자세한 내용은 <a href="https://docs.github.com/ko/communities/using-templates-to-encourage-useful-issues-and-pull-requests/creating-a-pull-request-template-for-your-repository" target="_blank" rel="noopener">Github Docs의 PR 탬플릿 생성 설명</a>을 참고하자.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">리포지토리의 './github/' 디렉터리 바로 아래에 ' pull_request_template.md' 를 생성하자.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b>PR 템플릿 코드</b></p>
+<pre id="code_1701095630305" class="java" data-ke-language="java" data-ke-type="codeblock"><code class="hljs">## 코드 변경 이유  
+- 객체들의 연관관계를 기준으로 엔티티를 초기 설계했습니다.
+- 엔티티 설계 후 테이블 생성했을때 MySQL테이블과 동일한 형태를 얻고자 했습니다.  
+
+&lt;br&gt;
+
+## 구현 사항  
+- 스크린 샷을 보면 이러이런 식으로 설계했습니다.
+- 스크린샷
+  - 자세히 설명하면 이러이러한 겁니다.  
+
+&lt;br&gt;
+
+## 발견 위험/장애  
+- 잘 안 된 부분이 있었는데, 이런 이유였고 지금은 해결됐습니다.
+
+&lt;br&gt;
+
+## 테스트 완료 및 계획  
+- 테스트는 이러이러한 부분을 진행했고, 추가로 무슨무슨 기능이 완성되면 통합 테스트 이슈를 생성할 예정입니다.  
+
+&lt;br&gt;
+
+## To Reviewers  
+- MySQL 테이블과 비교하면서 검토하고 리뷰해주세요.
+- 코드 구현이 깔끔했는지와 목적에 맞는지 확인해주세요.</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b>PR 템플릿 미리보기</b></p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="909" data-origin-height="798"><span data-url="https://blog.kakaocdn.net/dna/PLe6I/btsA4PusVfi/AAAAAAAAAAAAAAAAAAAAAJBjY2wVSqC11wpTxEbGD7spMmWc_cePJbauKPpYV65-/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=tZTh0IPAan5nsszehLen01kRbn0%3D" data-phocus="https://blog.kakaocdn.net/dna/PLe6I/btsA4PusVfi/AAAAAAAAAAAAAAAAAAAAAJBjY2wVSqC11wpTxEbGD7spMmWc_cePJbauKPpYV65-/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=tZTh0IPAan5nsszehLen01kRbn0%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(6).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FPLe6I%2FbtsA4PusVfi%2FAAAAAAAAAAAAAAAAAAAAAJBjY2wVSqC11wpTxEbGD7spMmWc_cePJbauKPpYV65-%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DtZTh0IPAan5nsszehLen01kRbn0%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="909" height="798" data-origin-width="909" data-origin-height="798" data-phocus-index="6"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<hr data-ke-style="style7" data-ke-type="horizontalRule">
+<p style="color: #333333; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<h3 style="color: #000000; text-align: start;" data-ke-size="size23">🔷 label 변경하기</h3>
+<p data-ke-size="size16">github 이슈마다 label을 설정 할 수 있는데, 프로젝트에 맞게 커스텀 할 수 있다.</p>
+<p data-ke-size="size16">프로젝트 진행 시 필요 할 것 같은 것들로 수정하였다.</p>
+<p data-ke-size="size16">리포지토리 상단 탭에서 Issues - Labels 에서 확인 할 수 있다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1242" data-origin-height="1012"><span data-url="https://blog.kakaocdn.net/dna/Wg6am/btsAYHRU82s/AAAAAAAAAAAAAAAAAAAAADi_giMdq27wDD6h7PGkWgdm3wzMuQp09rY9Zbiq90bf/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=JeDvx1LX8YfvA0EOGTfVk8QUyfY%3D" data-phocus="https://blog.kakaocdn.net/dna/Wg6am/btsAYHRU82s/AAAAAAAAAAAAAAAAAAAAADi_giMdq27wDD6h7PGkWgdm3wzMuQp09rY9Zbiq90bf/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=JeDvx1LX8YfvA0EOGTfVk8QUyfY%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(7).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FWg6am%2FbtsAYHRU82s%2FAAAAAAAAAAAAAAAAAAAAADi_giMdq27wDD6h7PGkWgdm3wzMuQp09rY9Zbiq90bf%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJeDvx1LX8YfvA0EOGTfVk8QUyfY%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1242" height="1012" data-origin-width="1242" data-origin-height="1012" data-phocus-index="7"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<hr data-ke-type="horizontalRule" data-ke-style="style7">
+<p style="color: #333333; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<h3 style="color: #000000; text-align: start;" data-ke-size="size23">🔷 template repository 설정하기</h3>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1166" data-origin-height="570"><span data-url="https://blog.kakaocdn.net/dna/UOtqT/btsA3BXKQwx/AAAAAAAAAAAAAAAAAAAAAC6yD71AraPWL-8iIbbVlfxofMcs5M14jEOCt0BkRF5D/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=s4Fa3BWzA3I%2BL4ONH1%2FUVAsMPeE%3D" data-phocus="https://blog.kakaocdn.net/dna/UOtqT/btsA3BXKQwx/AAAAAAAAAAAAAAAAAAAAAC6yD71AraPWL-8iIbbVlfxofMcs5M14jEOCt0BkRF5D/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=s4Fa3BWzA3I%2BL4ONH1%2FUVAsMPeE%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(8).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FUOtqT%2FbtsA3BXKQwx%2FAAAAAAAAAAAAAAAAAAAAAC6yD71AraPWL-8iIbbVlfxofMcs5M14jEOCt0BkRF5D%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3Ds4Fa3BWzA3I%252BL4ONH1%252FUVAsMPeE%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1166" height="570" data-origin-width="1166" data-origin-height="570" data-phocus-index="8"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">리포지토리의 Settings에 가면 현재 리포지토리를 템플릿으로 만들 수 있다.</p>
+<p data-ke-size="size16">지금 만들어둔 설정을 그대로 복사해 기본 골자로 가져가게 되는데, 파일 구조 말고도 브렌치 구조 또한 복사 가능한 것 같다. 지금은 이슈/PR 템플릿과 label 수정을 마쳤으니 템플릿으로 만들고, 다른 파트의 리포지토리를 생성하자.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="919" data-origin-height="359"><span data-url="https://blog.kakaocdn.net/dna/b3wtYD/btsA0afktGh/AAAAAAAAAAAAAAAAAAAAAMdhHFhilFk9kC672xKXTnJUZDAzKQ8pXn5woLYMzYrI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=BqTkpaDgTVxq2OwsOsn9PT0TBF4%3D" data-phocus="https://blog.kakaocdn.net/dna/b3wtYD/btsA0afktGh/AAAAAAAAAAAAAAAAAAAAAMdhHFhilFk9kC672xKXTnJUZDAzKQ8pXn5woLYMzYrI/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=BqTkpaDgTVxq2OwsOsn9PT0TBF4%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(9).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb3wtYD%2FbtsA0afktGh%2FAAAAAAAAAAAAAAAAAAAAAMdhHFhilFk9kC672xKXTnJUZDAzKQ8pXn5woLYMzYrI%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DBqTkpaDgTVxq2OwsOsn9PT0TBF4%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="919" height="359" data-origin-width="919" data-origin-height="359" data-phocus-index="9"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">템플릿 리포지토리는 Use this template라는 버튼으로 변경되어서 나타난다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="229" data-origin-height="151"><span data-url="https://blog.kakaocdn.net/dna/zS4LG/btsA2vDxepe/AAAAAAAAAAAAAAAAAAAAAOZvoH1pxY5E2w4peTSZQqGc30qWr-1ozP0-GZEGJfSD/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=ypv6l%2FKO8LxFDpCO23ECFFI26jY%3D" data-phocus="https://blog.kakaocdn.net/dna/zS4LG/btsA2vDxepe/AAAAAAAAAAAAAAAAAAAAAOZvoH1pxY5E2w4peTSZQqGc30qWr-1ozP0-GZEGJfSD/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=ypv6l%2FKO8LxFDpCO23ECFFI26jY%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(10).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FzS4LG%2FbtsA2vDxepe%2FAAAAAAAAAAAAAAAAAAAAAOZvoH1pxY5E2w4peTSZQqGc30qWr-1ozP0-GZEGJfSD%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3Dypv6l%252FKO8LxFDpCO23ECFFI26jY%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="229" height="151" data-origin-width="229" data-origin-height="151" data-phocus-index="10"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">Create a new repository를 선택하면 리포지토리 생성 페이지로 이동한다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="874" data-origin-height="783"><span data-url="https://blog.kakaocdn.net/dna/cIBQN5/btsAUKazFnj/AAAAAAAAAAAAAAAAAAAAAAeK3pHPwE2TAYOgCjj0JU7QFC2W0pFATqo-tA6BFokF/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=s3lK9PGcKs%2B0sGe7drTlhmixXJQ%3D" data-phocus="https://blog.kakaocdn.net/dna/cIBQN5/btsAUKazFnj/AAAAAAAAAAAAAAAAAAAAAAeK3pHPwE2TAYOgCjj0JU7QFC2W0pFATqo-tA6BFokF/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=s3lK9PGcKs%2B0sGe7drTlhmixXJQ%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(11).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcIBQN5%2FbtsAUKazFnj%2FAAAAAAAAAAAAAAAAAAAAAAeK3pHPwE2TAYOgCjj0JU7QFC2W0pFATqo-tA6BFokF%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3Ds3lK9PGcKs%252B0sGe7drTlhmixXJQ%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="874" height="783" data-origin-width="874" data-origin-height="783" data-phocus-index="11"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">여기서 부터는 일반적인 리포지토리 생성 페이지와 같은데, Repository template에서 방금 변경한 템플릿 리포지토리가 나타난다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="965" data-origin-height="507"><span data-url="https://blog.kakaocdn.net/dna/puHFa/btsATCxkgcI/AAAAAAAAAAAAAAAAAAAAAMLP-GDgGgooCIOzimG6rugSTsr_wBwSlREPCiBO9yV_/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=2k7r34xkfSlrpgoyrf4Sxy1o3iA%3D" data-phocus="https://blog.kakaocdn.net/dna/puHFa/btsATCxkgcI/AAAAAAAAAAAAAAAAAAAAAMLP-GDgGgooCIOzimG6rugSTsr_wBwSlREPCiBO9yV_/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=2k7r34xkfSlrpgoyrf4Sxy1o3iA%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(12).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FpuHFa%2FbtsATCxkgcI%2FAAAAAAAAAAAAAAAAAAAAAMLP-GDgGgooCIOzimG6rugSTsr_wBwSlREPCiBO9yV_%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D2k7r34xkfSlrpgoyrf4Sxy1o3iA%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="965" height="507" data-origin-width="965" data-origin-height="507" data-phocus-index="12"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">리포지토리를 생성하면 다음과 같이 '.github' 디렉터리의 이슈/PR 템플릿들이 잘 복사된 것을 알 수 있다.</p>
+<p data-ke-size="size16"><b>하지만 label 수정한 것들은 변경되지 않는다.</b></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">알아보니 label은 복사가 되지 않아서 직접 변경해줘야 한다고 한다.</p>
+<p data-ke-size="size16">다행히 npm에 변경해주는 라이브러리가 있다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<hr data-ke-style="style7" data-ke-type="horizontalRule">
+<p style="color: #333333; text-align: start;" data-ke-size="size16">&nbsp;</p>
+<h3 style="color: #000000; text-align: start;" data-ke-size="size23">🔷 label 복사하기</h3>
+<h4 data-ke-size="size20">라이브러리 설치</h4>
+<p data-ke-size="size16">먼저 기존 리포지토리의 label 데이터를 JSON 파일로 만들어야 한다.</p>
+<p data-ke-size="size16">npm 라이브러리인 <a href="https://github.com/Financial-Times/github-label-sync#configuration" target="_blank" rel="noopener">github-label-sync</a> 를 사용 할 것이다.</p>
+<pre class="javascript" style="color: #000000; text-align: left;" data-ke-language="javascript"><code class="hljs">npm i github-label-sync</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<h4 style="color: #000000; text-align: start;" data-ke-size="size20">label JSON 생성</h4>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b>github-label-sync</b> 라이브러리를 설치하고,&nbsp;<b>label.js</b> 라는 이름으로 스크립트를 만든다.</p>
+<pre id="code_1701096639011" class="javascript" data-ke-language="javascript" data-ke-type="codeblock"><code class="hljs"><span class="hljs-keyword">const</span> githubLabelSync = <span class="hljs-built_in">require</span>(<span class="hljs-string">'github-label-sync'</span>);
+
+githubLabelSync({
+  <span class="hljs-attr">accessToken</span>: <span class="hljs-string">'토큰'</span>,
+  <span class="hljs-attr">repo</span>: <span class="hljs-string">'계정명/저장소이름'</span>,
+  <span class="hljs-attr">labels</span>: [],
+  <span class="hljs-attr">dryRun</span>: <span class="hljs-literal">true</span>,
+}).then(<span class="hljs-function"><span class="hljs-params">diff</span> =&gt;</span> {
+  <span class="hljs-built_in">console</span>.log(diff);
+});</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">본인의 github accessToken 을 발급받고 넣는다. 토큰 권한은 repo 전체 정도만 있으면 된다.</p>
+<p data-ke-size="size16">repo도 알맞게 수정한다. 계정명 대신 organization 이름을 넣어도 된다.</p>
+<p data-ke-size="size16">dryRun : true를 넣지 않으면 기존 리포지토리의 label이 날라갈 수 있다.</p>
+<pre class="crmsh" style="color: #000000; text-align: left;"><code class="hljs css">node <span class="hljs-selector-tag">label</span><span class="hljs-selector-class">.js</span></code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">다음 명령어로 스크립트를 실행하자. node가 설치되어 있어야 한다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p></p><figure class="imageblock widthContent" data-ke-mobilestyle="widthOrigin" data-origin-width="766" data-origin-height="830"><span data-url="https://blog.kakaocdn.net/dna/bqStdS/btsAXh6T2EK/AAAAAAAAAAAAAAAAAAAAAHa_3jTZIthYO_H6GzPsgWOr0J1fTjrLcDCwdunftiil/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=J%2Fet8daj1pIbmq2qrjnoxJAa0HA%3D" data-phocus="https://blog.kakaocdn.net/dna/bqStdS/btsAXh6T2EK/AAAAAAAAAAAAAAAAAAAAAHa_3jTZIthYO_H6GzPsgWOr0J1fTjrLcDCwdunftiil/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=J%2Fet8daj1pIbmq2qrjnoxJAa0HA%3D" data-alt="label.js 실행 결과"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(13).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbqStdS%2FbtsAXh6T2EK%2FAAAAAAAAAAAAAAAAAAAAAHa_3jTZIthYO_H6GzPsgWOr0J1fTjrLcDCwdunftiil%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJ%252Fet8daj1pIbmq2qrjnoxJAa0HA%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="766" height="830" data-origin-width="766" data-origin-height="830" data-phocus-index="13"></span><figcaption>label.js 실행 결과</figcaption>
+</figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">여기서 actual 에 있는 name, color, description 데이터만 사용한다.</p>
+<p data-ke-size="size16">다음은 변환한 <b>label.json</b> 파일이다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<pre id="code_1701097032085" class="javascript" data-ke-language="javascript" data-ke-type="codeblock"><code class="hljs">[
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"☕ Chore"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"4D6A8B"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">".gitignore 처럼 외부 사용자가 관심없는 파일, 빌드 혹은 패키지 매니저 수정 사항"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"⚙ Setting"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"424242"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"환경 설정"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"✒ Docs"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"C5DEF5"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"문서 생성 및 수정"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"❗ Invalid"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"FEF2C0"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"잘못된 부분이 있어보임"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"✅ Test"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"FFFFFF"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"테스트 관련 수정, 빌드 업무 및 패키지 매니저 수정"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"✨ Feat"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"C2E0C6"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"새 기능 추가"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"🎨 Design"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"D0F5A9"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"CSS 등 사용자 UI, 디자인 변경"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"🏷 Rename"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"F5D0A9"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"파일/폴더 명 변경 혹은 이동 등 구조 변경"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"🐞 Bug"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"F9D0C4"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"버그 발생 보고 및 해결 기록"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"💡 Question"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"D4C5F9"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"질문"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"🗑 Remove"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"D8D8D8"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"파일삭제"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"🚀 Refactor"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"E2A9F3"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"기존 코드의 입출력 값은 일치, 코드 내부 성능 개선 및 클린업"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"🛠 Fix"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"CEF6D8"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"기능 수정"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"🧨 HotFix"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"FBCA04"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"급하게 치명적인 버그를 고쳐야 하는 경우"</span>
+  },
+  {
+    <span class="hljs-string">"name"</span>: <span class="hljs-string">"🧵 Style"</span>,
+    <span class="hljs-string">"color"</span>: <span class="hljs-string">"A9F5A9"</span>,
+    <span class="hljs-string">"description"</span>: <span class="hljs-string">"코드 포맷 변경, 세미콜론 누락 등 스타일과 관련된 코드 수정, 그러나 코드 수정은 없는 경우"</span>
+  }
+]</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">label을 꾸미고싶어서 이모지을 사용했는데, console.log() 출력에서 깨지는 현상이 발생했다.</p>
+<p data-ke-size="size16">폰트를 바꾸면 된다고 하는데, 그냥 이모지 부분만 직접 수정해주었다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<h4 style="color: #000000; text-align: start;" data-ke-size="size20">리포지토리에 label 수정 적용</h4>
+<pre class="bash" style="color: #000000; text-align: left;" data-ke-language="bash"><code class="hljs">github-label-sync --access-token [액세스 토큰] --labels labels.json [계정명]/[저장소 이름]</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">계정명 대신 organization 이름을 적어도 된다.</p>
+<p data-ke-size="size16">위 명령어를 실행하면 다음과 같은 결과가 나타나야 성공이다.</p>
+<p></p><figure class="imageblock widthContent" data-ke-mobilestyle="widthOrigin" data-origin-width="799" data-origin-height="624"><span data-url="https://blog.kakaocdn.net/dna/nfIPy/btsATloTAIU/AAAAAAAAAAAAAAAAAAAAADDor9iQMn29FgqN0kFAAdZjypz_Kzq8zeMtRC55SPNC/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=sSn%2BnA%2B9GtnmA4qwG13xl8J22i0%3D" data-phocus="https://blog.kakaocdn.net/dna/nfIPy/btsATloTAIU/AAAAAAAAAAAAAAAAAAAAADDor9iQMn29FgqN0kFAAdZjypz_Kzq8zeMtRC55SPNC/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=sSn%2BnA%2B9GtnmA4qwG13xl8J22i0%3D"><img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/img(14).png" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FnfIPy%2FbtsATloTAIU%2FAAAAAAAAAAAAAAAAAAAAADDor9iQMn29FgqN0kFAAdZjypz_Kzq8zeMtRC55SPNC%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DsSn%252BnA%252B9GtnmA4qwG13xl8J22i0%253D" onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="799" height="624" data-origin-width="799" data-origin-height="624" data-phocus-index="14"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">해당 label이 없으면 생성 하고, json에 없는 label은 지워주는 것 같다.</p>
+<p data-ke-size="size16">repository를 변경해가며 설정해주면 된다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 style="color: #000000; text-align: start;" data-ke-size="size23">🔶 기타 에러</h3>
+<h4 style="color: #000000; text-align: start;" data-ke-size="size20">1. 404 에러&nbsp; : Not Found</h4>
+<p data-ke-size="size16">access token을 누락하거나 경로를 잘못 기입해서 에러가 났다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<h4 style="color: #000000; text-align: start;" data-ke-size="size20">2. 401 에러&nbsp; : Bad credentials</h4>
+<p style="color: #333333; text-align: start;" data-ke-size="size16">access token에 오타가 들어가서 에러가 났다. 토큰도 새로 만들고, 권한이 repo 모두 선택되어있는지도 확인하자.</p></div>
+                    <!-- System - START -->
+        <div class="revenue_unit_wrap">
+  <div class="revenue_unit_item adfit">
+    <div class="revenue_unit_info">728x90</div>
+    <ins class="kakao_ad_area" style="display: inline-block; position: relative; text-decoration: none; min-width: 728px; min-height: 90px; width: 728px; height: 90px;" data-ad-unit="DAN-B0TFseDqTBANXUbt" data-ad-width="728px" data-ad-height="90px" id="kakao_ad_cRUpAc"><div data-ad-creative-wrap="outer" style="position: absolute; max-height: inherit; inset: 0px;"><div data-ad-creative-wrap="inner" id="6c128b4a-4197-4550-a948-c40188881897" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; max-height: inherit; border: 0px;"><iframe id="1986974e-effd-44d1-a611-904e2beeddab" name="{&quot;id&quot;:&quot;6c128b4a-4197-4550-a948-c40188881897&quot;,&quot;meta&quot;:{&quot;shared&quot;:{&quot;sf_ver&quot;:&quot;1-1-0&quot;,&quot;ck_on&quot;:0,&quot;flash_ver&quot;:0,&quot;unitId&quot;:&quot;DAN-B0TFseDqTBANXUbt&quot;,&quot;requestId&quot;:&quot;7486de09-4754-4fa2-a070-1e9f2ba071d5&quot;,&quot;usePrefersColorScheme&quot;:false},&quot;conversionTracking&quot;:{&quot;etxId&quot;:&quot;MOMENT:conversion_id:mIT_y3tVgYPwEHI-Pw6PoSPgmQ93u1kteeW-EJalK_oiX8MOgnEdIxOfqJ6iHDlaEWK4QmlTmy0NvZoXHg0E8vFEhAyPCaWnw4uNgb12DaQ&quot;},&quot;adAttributes&quot;:{&quot;unit&quot;:&quot;DAN-B0TFseDqTBANXUbt&quot;,&quot;width&quot;:&quot;728px&quot;,&quot;height&quot;:&quot;90px&quot;}},&quot;supports&quot;:{&quot;exp-ovr&quot;:true,&quot;exp-push&quot;:true,&quot;read-cookie&quot;:false,&quot;write-cookie&quot;:false},&quot;geom&quot;:{&quot;win&quot;:{&quot;t&quot;:0,&quot;b&quot;:934,&quot;l&quot;:0,&quot;r&quot;:960,&quot;w&quot;:960,&quot;h&quot;:934},&quot;self&quot;:{&quot;t&quot;:17164.0234375,&quot;b&quot;:17254.0234375,&quot;l&quot;:108.5,&quot;r&quot;:836.5,&quot;w&quot;:728,&quot;h&quot;:90,&quot;xiv&quot;:0,&quot;yiv&quot;:0,&quot;iv&quot;:0,&quot;z&quot;:&quot;auto&quot;},&quot;exp&quot;:{&quot;t&quot;:17164.0234375,&quot;b&quot;:0,&quot;l&quot;:108.5,&quot;r&quot;:108.5,&quot;xs&quot;:0,&quot;ys&quot;:0}},&quot;winHasFocus&quot;:false,&quot;html&quot;:&quot;&lt;!DOCTYPE html&gt;\n&lt;html lang=\&quot;ko\&quot;&gt;\n&lt;head&gt;\n&lt;meta http-equiv=\&quot;Content-Type\&quot; content=\&quot;text/html;charset=utf-8\&quot;&gt;\n&lt;meta http-equiv=\&quot;X-UA-Compatible\&quot; content=\&quot;ie=edge\&quot;&gt;\n&lt;meta http-equiv=\&quot;imagetoolbar\&quot; content=\&quot;no\&quot;&gt;\n&lt;meta http-equiv=\&quot;imagetoolbar\&quot; content=\&quot;false\&quot;&gt;\n&lt;meta name=\&quot;viewport\&quot; content=\&quot;width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0\&quot;&gt;\n&lt;meta name=\&quot;robots\&quot; content=\&quot;noarchive\&quot;&gt;\n&lt;meta name=\&quot;robots\&quot; content=\&quot;nosnippet\&quot;&gt;\n&lt;meta name=\&quot;robots\&quot; content=\&quot;noindex\&quot;&gt;\n&lt;meta name=\&quot;robots\&quot; content=\&quot;nofollow\&quot;&gt;\n&lt;meta name=\&quot;robots\&quot; content=\&quot;noodp\&quot;&gt;\n&lt;meta name=\&quot;google\&quot; content=\&quot;notranslate\&quot;&gt;\n&lt;meta name=\&quot;referrer\&quot; content=\&quot;unsafe-url\&quot;&gt;\n\n\n&lt;meta name=\&quot;ad.unitId\&quot; content=\&quot;DAN-B0TFseDqTBANXUbt\&quot;&gt;\n\n&lt;meta name=\&quot;dsp.name\&quot; content=\&quot;MOMENT\&quot;&gt;\n\n&lt;meta name=\&quot;dsp.cId\&quot; content=\&quot;599187\&quot;&gt;\n&lt;meta name=\&quot;dsp.adId\&quot; content=\&quot;2678311\&quot;&gt;\n&lt;meta name=\&quot;dsp.crId\&quot; content=\&quot;21659135\&quot;&gt;\n&lt;title&gt;MOMENT 광고&lt;/title&gt;\n&lt;link rel=\&quot;preload\&quot; as=\&quot;image\&quot; href=\&quot;https://t1.daumcdn.net/cmp/imageEditor/MOMENT/81077/536fc49e363a80f43b54a328844a4cb4\&quot;&gt;\n&lt;link rel=\&quot;preload\&quot; as=\&quot;image\&quot; href=\&quot;https://img1.daumcdn.net/thumb/S300x300/?scode=b2_01&amp;x-twg-thumb-fname=https%3A%2F%2Ft1.daumcdn.net%2Fcmp%2FimageEditor%2FMOMENT%2F81077%2Fa33e04bc24a6795440d21ed6a95f19eb&amp;TWGServiceId=b2&amp;Expires=1751875200&amp;Signature=wHDfqgtKQklgBnCFYn1fOoWEbUM%3D\&quot;&gt;\n\n\n&lt;style&gt;/* reset */\nbody,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,textarea,p,blockquote,th,td,input,select,button{margin:0;padding:0}\nfieldset,img{border:0 none}\ndl,ul,ol,menu,li{list-style:none}\nblockquote, q{quotes: none}\nblockquote:before, blockquote:after,q:before, q:after{content:&#39;&#39;;content:none}\ninput,select,textarea,button{vertical-align:middle}\ninput::-ms-clear{display:none}\nbutton{border:0 none;background-color:transparent;cursor:pointer}\nbody{background:#fff}\nbody,th,td,input,select,textarea,button{font-size:12px;line-height:1.5;font-family:&#39;Apple SD Gothic Neo&#39;,&#39;Malgun Gothic&#39;,&#39;맑은 고딕&#39;,&#39;돋움&#39;,dotum,sans-serif;color:#333} /* color값은 디자인가이드에 맞게사용 */\na{color:#333;text-decoration:none}\na:active, a:hover{text-decoration:underline}\na:active{background-color:transparent}\naddress,caption,cite,code,dfn,em,var{font-style:normal;font-weight:normal}\n\n/* global */\n.ir_pm{display:block;overflow:hidden;font-size:0;line-height:0;text-indent:-9999px} /* PC용 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */\n.ir_pm{display:block;overflow:hidden;font-size:1px;line-height:0;color:transparent}/* Mobile용 사용된 이미지내 의미있는 텍스트의 대체텍스트를 제공할때 */\n.ir_wa{display:block;overflow:hidden;position:relative;z-index:-1;width:100%;height:100%} /* 중요한 이미지 대체텍스트로 이미지off시에도 대체 텍스트를 보여주고자 할때 */\n.ir_caption{overflow:hidden;width:1px;font-size:1px;line-height:0;text-indent:-9999px} /* Table caption에 숨김텍스트를 제공할때 */\n.screen_out{overflow:hidden;position:absolute;width:0;height:0;line-height:0;text-indent:-9999px} /* 대체텍스트가 아닌 접근성을 위한 숨김텍스트를 제공할때 */\n.show{display:block}\n.hide{display:none}\n\n/* style */\n/* 2021-04-22 수정 시작 */\n/*.ico_adcm{display:inline-block;overflow:hidden;font-size:1px;line-height:0;background:url(https://t1.daumcdn.net/biz/ui/ad/adcm/ico_adcmpc.png) no-repeat 0 0;background-size:100px 100px;text-indent:-9999px;vertical-align:top}*/\n.cm_ad{position:relative;width:728px;height:90px;background-color:#F5F5F5;letter-spacing:0}/*2024-01-23 수정 */\n.cm_ad .frame_g{position:absolute;left:0;top:0;right:0;bottom:0;border:1px solid rgba(0,0,0,.03)}/*2024-01-23 수정 *//*2024-01-24 수정 */\n.cm_ad .link_ad{display:block;position:relative;height:100%;padding:0 85px 0 210px;text-decoration:none} /*2024-01-23 수정 */\n.cm_ad .area_ad{display:flex;flex-direction:column;justify-content:center;height:100%;padding:12px 0 11px;box-sizing:border-box}/*2024-01-23 추가 */\n.cm_ad .thumb_img{overflow:hidden;position:absolute;left:0;top:0;width:180px;height:90px} /* 2021-05-17 수정 */\n.cm_ad .thumb_img .img_thumb{display:block;width:100%;height:100%;vertical-align:top}\n.cm_ad .thumb_img .frame_g{border:none;border-right:1px solid rgba(0,0,0,.03)}/*2024-01-23 수정 *//*2024-01-24 수정 */\n.cm_ad .tit_ad{display:block;overflow:hidden;padding-top:3px;font-weight:bold;font-size:20px;line-height:24px;color:#222;text-overflow:ellipsis;white-space:nowrap}/*2024-01-23 수정 */\n/* 2024-01-23 추가 시작  */\n.cm_ad .tit_cm{display:block;height:14px}\n.cm_ad .tit_cm .thumb_logo{overflow:hidden;float:left;width:16px;height:16px;margin-top:-2px;border-radius:2px}\n.cm_ad .tit_cm .thumb_logo .frame_g{border:1px solid transparent}\n.cm_ad .tit_cm .img_logo{width:100%}\n.cm_ad .tit_cm .tit_adcm{display:block;overflow:hidden;font-weight:normal;font-size:12px;line-height:14px;color:rgba(0,0,0,0.5);text-overflow:ellipsis;white-space:nowrap}\n.cm_ad .tit_cm .thumb_logo + .tit_adcm{padding-left:6px}/*2024-01-25 수정 */\n.cm_ad .tit_cm + .tit_ad{padding-top:7px}/*2024-01-24 수정 */\n.cm_ad .tit_ad + .tit_cm{height:17px;padding-top:6px}\n.cm_ad .tit_ad + .tit_cm .tit_adcm{font-size:14px;line-height:17px}\n/* //2024-01-23 추가 끝 */\n/*.os_mac .adbnrpc_style2 .tit_adbnr{padding-top:19px;letter-spacing:0}*/\n.cm_ad .desc_ad{display:block;overflow:hidden;padding-top:5px;font-size:14px;line-height:17px;color:rgba(0,0,0,0.7);text-overflow:ellipsis;white-space:nowrap}/*2024-01-23 수정 */\n/*.os_mac .adbnrpc_style2 .txt_profile{margin-top:-1px;font-size:14px;letter-spacing:0}*/\n.cm_ad .btn_ad{position:absolute;right:29px;top:50%;width:38px;height:38px;transform:translateY(-50%);border-radius:8px;font-size:0;background:#fff}/*2024-01-23 수정 *//*2024-01-24 수정 *//* 2024-01-25 수정 */\n.cm_ad .btn_ad:after{position:absolute;left:-1px;top:-1px;right:-1px;bottom:-1px;width:100%;height:100%;border-radius:9px;border:1px solid rgba(0,0,0,0.06);content:&#39;&#39;}/* 2024-01-25 추가 */\n.cm_ad .btn_ad .ico_ad{display:block;width:8px;height:14px;margin:12px 0 0 16px;background:url(https://t1.daumcdn.net/biz/ui/ad/ico_cm72890_1.png) no-repeat 0 0;background-size:8px 14px}/*2024-01-23 수정 *//*2024-01-24 수정 *//*2024-01-25 수정 */\n\n/*.os_mac .adbnrpc_style2 .btn_go{margin-left:15px;font-size:13px;line-height:32px;letter-spacing:0}\n.adbnrpc_style2 .btn_adbnr .img_adbnr{display:block;width:17px;height:15px;margin:12px auto 0}*/\n\n/*admark*/\n.cm_ad .icon_ad{overflow:hidden;position:absolute;right:0;top:0;width:33px;height:24px;font-size:0px}\n.cm_ad .icon_ad .img_mark{display:block;width:25px;height:16px;margin:4px auto;background:url(https://t1.daumcdn.net/biz/ui/ad/ico_adlogo2.png) no-repeat 0 0;background-size:25px 16px}\n/*imark*/\n.cm_ad .icon_ad.imark{overflow:hidden;position:absolute;right:-1px;top:-1px;width:22px;height:22px;font-size:0px}/*2024-01-25_v2 수정 */\n.cm_ad .imark .img_mark{display:block;width:14px;height:14px;margin:4px auto;background:url(https://t1.daumcdn.net/biz/ui/ad/ADmark/i_mark_231227.png) no-repeat 0 0;background-size:14px 14px}/*2024-01-23 수정 *//*2024-01-25_v2 수정 *//*2024-01-30 수정 */\n/* 2021-04-22 수정 끝 */\n\n/* 2024-01-23 추가 시작  */\n/* 다크모드 */\n@media (prefers-color-scheme:dark) {\n  .themed{background:#2D2E33}\n  .themed .frame_g,\n  .themed .thumb_img .frame_g{border-color:rgba(255,255,255,0.08)}\n  .themed .tit_cm .tit_adcm{color:rgba(255,255,255,0.36)}\n  .themed .desc_ad{color:rgba(255,255,255,0.48)}\n  .themed .tit_ad{color:#fff}\n  .themed .btn_ad{background:transparent}/* 2024-01-25 수정 */\n  .themed .btn_ad:after{border-color:rgba(255,255,255,0.08)}/* 2024-01-25 추가 */\n}\n.dark{background:#2D2E33}\n.dark .frame_g,\n.dark .thumb_img .frame_g{border-color:rgba(255,255,255,0.08)}\n.dark .tit_cm .tit_adcm{color:rgba(255,255,255,0.36)}\n.dark .desc_ad{color:rgba(255,255,255,0.48)}\n.dark .tit_ad{color:#fff}\n.dark .btn_ad{background:transparent}/* 2024-01-25 수정 */\n.dark .btn_ad:after{border-color:rgba(255,255,255,0.08)}/* 2024-01-25 추가 */\n/* //2024-01-23 추가 끝 */\n\n/*2021-04-22 추가 : window 분기*/\n.os_windows .cm_ad .tit_ad{padding-top:2px;letter-spacing:-2.7px}/* 2024-01-23 수정 */\n.os_windows .cm_ad .tit_cm{letter-spacing:-1.5px}/* 2024-01-23 추가 */\n.os_windows .tit_ad + .tit_cm{letter-spacing:-1.8px}/* 2024-01-23 추가 */\n.os_windows .cm_ad .desc_ad{letter-spacing:-1.9px}/* 2024-01-23 수정 */\n.os_windows .cm_ad .tit_cm + .tit_ad{padding-top:8px}/* 2024-01-23 추font-size:13px;letter-spacing:-1px}\n&lt;/style&gt;\n&lt;style&gt;* {-webkit-touch-callout: none;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}&lt;/style&gt;\n&lt;script&gt;!function(){var e={40:function(e,t,n){e.exports=function(e){function t(r){if(n[r])return n[r].exports;var o=n[r]={exports:{},id:r,loaded:!1};return e[r].call(o.exports,o,o.exports,t),o.loaded=!0,o.exports}var n={};return t.m=e,t.c=n,t.p=\&quot;\&quot;,t(0)}([function(e,t,r){\&quot;use strict\&quot;;function o(e){this.name=\&quot;JackdawError\&quot;,this.message=e}function i(e,t){function n(e,t){t=t||{};var n=w(e);return U=L(U,{project:n.projectId}),(U=L(U,t||{})).maxBreadcrumbs=Math.max(0,Math.min(U.maxBreadcrumbs,100)),H=n.endpoint,$=U.transport=t.transport||_,this}function r(e){return\&quot;[object DOMError]\&quot;===Object.prototype.toString.call(e)}function l(e){return\&quot;[object DOMException]\&quot;===Object.prototype.toString.call(e)}function d(e,t){U.debug&amp;&amp;console.log(t)}function f(){q=0,B=null}function h(){return q&amp;&amp;N()-B&lt;q}function p(e){if(h())d(\&quot;warn\&quot;,\&quot;Should back off\&quot;);else{var t=e.status;if(400===t||401===t||429===t){var n;try{n=e.getResponseHeader(\&quot;Retry-After\&quot;),n=1e3*parseInt(n,10)}catch(e){}q=n||2*q||1e3,B=N()}}}function v(e){return!!P&amp;&amp;(e.stacktrace||P.stacktrace?x(e.stacktrace,P.stacktrace):e.exception||P.exception?E(e.exception,P.exception):e.fingerprint||P.fingerprint?Boolean(e.fingerprint&amp;&amp;P.fingerprint)&amp;&amp;O(e.fingerprint)===O(P.fingerprint):k(e.message,P.message))}function m(e,t,n){if(h())t&amp;&amp;t(new o(\&quot;Should back off\&quot;));else{if(v(e))return d(\&quot;warn\&quot;,\&quot;Jackdaw dropped repeat event: \&quot;,e),void(t&amp;&amp;t(new o(\&quot;Dropped repeat event\&quot;)));(e=L(U,e)).tag=e.tag||{},e.extra=e.extra||{},e.extra[\&quot;session:duration\&quot;]=N()-M,V&amp;&amp;V.length&gt;0&amp;&amp;(e.breadcrumbs={values:[].slice.call(V,0)}),F=e.event_id=S(),P=e,d(\&quot;debug\&quot;,\&quot;Jackdaw about to send:\&quot;,e);var r=j=e.exception&amp;&amp;e.exception.values[0];D.addBreadcrumb({category:\&quot;sentry\&quot;,message:r?(r.type?r.type+\&quot;: \&quot;:\&quot;\&quot;)+r.value:e.message,event_id:F,level:e.level||\&quot;error\&quot;});try{n({url:H,data:e,onSuccess:function(){f(),t&amp;&amp;t()},onError:function(e){d(\&quot;error\&quot;,\&quot;Jackdaw transport failed to send: \&quot;,e),e.request&amp;&amp;p(e.request),t&amp;&amp;t(e)}})}catch(e){t&amp;&amp;t(e)}}}function w(e){var t,n=/^(?:(\\w+):)\\/\\/(?:(\\w+)(?::(\\w+))?@)([\\w.-]+)(?::(\\d+))?\\/(.+)/.exec(e);return n?((t={protocol:n[1],user:n[2],pass:n[3]||\&quot;\&quot;,host:n[4],port:n[5]||\&quot;\&quot;,projectId:n[6]}).endpoint=t.protocol+\&quot;://\&quot;+t.host+(t.port?\&quot;:\&quot;+t.port:\&quot;\&quot;)+\&quot;/api/\&quot;+t.projectId+\&quot;/store/?sentry_version=7&amp;sentry_key=\&quot;+t.user+(t.pass?\&quot;&amp;sentry_secret=\&quot;+t.pass:\&quot;\&quot;),t):\&quot;\&quot;}function g(e,t){function n(){try{return c.location.href}catch(e){}return\&quot;\&quot;}function r(e,t,n,r){var o={url:t,line:n};if(o.url&amp;&amp;o.line){if(e.incomplete=!1,o.func||(o.func=\&quot;?\&quot;),e.stack.length&gt;0&amp;&amp;e.stack[0].url===o.url){if(e.stack[0].line===o.line)return!1;if(!e.stack[0].line&amp;&amp;e.stack[0].func===o.func)return e.stack[0].line=o.line,!1}return e.stack.unshift(o),e.partial=!0,!0}return e.incomplete=!0,!1}function o(e,t){for(var i,a,s=/function\\s+([_$a-zA-Z\\xA0-\\uFFFF][_$a-zA-Z0-9\\xA0-\\uFFFF]*)?\\s*\\(/i,c=[],u={},l=!1,d=o.caller;d&amp;&amp;!l;d=d.caller)if(d!==g){if(a={url:null,func:\&quot;?\&quot;,line:null,column:null},d.name?a.func=d.name:(i=s.exec(d.toString()))&amp;&amp;(a.func=i[1]),void 0===a.func)try{a.func=i.input.substring(0,i.input.indexOf(\&quot;{\&quot;))}catch(e){}u[\&quot;\&quot;+d]?l=!0:u[\&quot;\&quot;+d]=!0,c.push(a)}t&amp;&amp;c.splice(0,t);var f={name:e.name,message:e.message,url:n(),stack:c};return r(f,e.sourceURL||e.fileName,e.line||e.lineNumber,e.message||e.description),f}var i=null;t=null==t?0:+t;try{if(i=function(e){if(void 0!==e.stack&amp;&amp;e.stack){for(var t,r,o,i=/^\\s*at (?:(.*?) ?\\()?((?:file|https?|blob|chrome-extension|native|eval|webpack|&lt;anonymous&gt;|[a-z]:|\\/).*?)(?::(\\d+))?(?::(\\d+))?\\)?\\s*$/i,a=/^\\s*at (?:((?:\\[object object\\])?.+) )?\\(?((?:file|ms-appx(?:-web)|https?|webpack|blob):.*?):(\\d+)(?::(\\d+))?\\)?\\s*$/i,s=/^\\s*(.*?)(?:\\((.*?)\\))?(?:^|@)((?:file|https?|blob|chrome|webpack|resource|moz-extension).*?:\\/.*?|\\[native code\\]|[^@]*bundle)(?::(\\d+))?(?::(\\d+))?\\s*$/i,c=/(\\S+) line (\\d+)(?: &gt; eval line \\d+)* &gt; eval/i,u=/\\((\\S*)(?::(\\d+))(?::(\\d+))\\)/,l=e.stack.split(\&quot;\\n\&quot;),d=[],f=0,h=l.length;f&lt;h;++f){if(r=i.exec(l[f])){var p=r[2]&amp;&amp;0===r[2].indexOf(\&quot;native\&quot;);r[2]&amp;&amp;0===r[2].indexOf(\&quot;eval\&quot;)&amp;&amp;(t=u.exec(r[2]))&amp;&amp;(r[2]=t[1],r[3]=t[2],r[4]=t[3]),o={url:p?null:r[2],func:r[1]||\&quot;?\&quot;,args:p?[r[2]]:[],line:r[3]?+r[3]:null,column:r[4]?+r[4]:null}}else if(r=a.exec(l[f]))o={url:r[2],func:r[1]||\&quot;?\&quot;,args:[],line:+r[3],column:r[4]?+r[4]:null};else{if(!(r=s.exec(l[f])))continue;r[3]&amp;&amp;r[3].indexOf(\&quot; &gt; eval\&quot;)&gt;-1&amp;&amp;(t=c.exec(r[3]))?(r[3]=t[1],r[4]=t[2],r[5]=null):0!==f||r[5]||void 0===e.columnNumber||(d[0].column=e.columnNumber+1),o={url:r[3],func:r[1]||\&quot;?\&quot;,args:r[2]?r[2].split(\&quot;,\&quot;):[],line:r[4]?+r[4]:null,column:r[5]?+r[5]:null}}!o.func&amp;&amp;o.line&amp;&amp;(o.func=\&quot;?\&quot;),d.push(o)}return d.length?{name:e.name,message:e.message,url:n(),stack:d}:null}}(e))return i}catch(e){}try{if(i=o(e,t+1))return i}catch(e){}return{name:e.name,message:e.message,url:n()}}function b(e,t){function n(e,t){var n={filename:e.url,lineno:e.line,colno:e.column,function:e.func||\&quot;?\&quot;};return e.url||(n.filename=t),n}var r=[];if(e.stack&amp;&amp;e.stack.length&amp;&amp;(A(e.stack,(function(t,o){var i=n(o,e.url);i&amp;&amp;r.push(i)})),t&amp;&amp;t.trimHeadFrames))for(var o=0;o&lt;t.trimHeadFrames&amp;&amp;o&lt;r.length;o++)r[o].in_app=!1;return r=r.slice(0,50)}function y(e,t,n,r,o,i){var a;o&amp;&amp;o.length?(n=o[0].filename||n,o.reverse(),a={frames:o}):n&amp;&amp;(a={frames:[{filename:n,lineno:r,in_app:!0}]});var s=L({exception:{values:[{type:e,value:t,stacktrace:a}]}},i),c=s.exception.values[0];return null==c.type&amp;&amp;\&quot;\&quot;===c.value&amp;&amp;(c.value=\&quot;Unrecoverable error caught\&quot;),s}function E(e,t){return!I(e,t)&amp;&amp;(e=e.values[0],t=t.values[0],e.type===t.type&amp;&amp;e.value===t.value&amp;&amp;!T(e.stacktrace,t.stacktrace)&amp;&amp;x(e.stacktrace,t.stacktrace))}function x(e,t){if(I(e,t))return!1;var n=e.frames,r=t.frames;if(void 0===n||void 0===r)return!1;if(n.length!==r.length)return!1;for(var o,i,a=0;a&lt;n.length;a++)if(o=n[a],i=r[a],o.filename!==i.filename||o.lineno!==i.lineno||o.colno!==i.colno||o.function!==i.function)return!1;return!0}function k(e,t){return!(!e&amp;&amp;!t||e&amp;&amp;!t||!e&amp;&amp;t||e!==t)}function _(e){var t=e.url,n=s.XMLHttpRequest&amp;&amp;new s.XMLHttpRequest;if(!n)return!1;var r=\&quot;withCredentials\&quot;in n;if(!r&amp;&amp;void 0===s.XDomainRequest)return!1;r?n.onreadystatechange=function(){if(4!==n.readyState);else if(200===n.status)e.onSuccess&amp;&amp;e.onSuccess();else if(e.onError){var t=new o(\&quot;Transport error code: \&quot;+n.status);t.request=n,e.onError(t)}}:(n=new s.XDomainRequest,t=t.replace(/^https?:/,\&quot;\&quot;),e.onSuccess&amp;&amp;(n.onload=e.onSuccess),e.onError&amp;&amp;(n.onerror=function(){var t=new o(\&quot;Transport error code: XDomainRequest\&quot;);t.request=n,e.onError(t)})),n.open(\&quot;POST\&quot;,t,!0),n.send(O(e.data))}function I(e,t){return!!(!!e^!!t)}function T(e,t){return C(e)&amp;&amp;C(t)}function C(e){return void 0===e}function S(){return\&quot;xxxxxxxxxxxx4xxxyxxxxxxxxxxxxxxx\&quot;.replace(/[xy]/g,(function(e){var t=16*Math.random()|0;return(\&quot;x\&quot;===e?t:3&amp;t|8).toString(16)}))}function O(e){return(JSON.stringify||function e(t){var n=void 0===t?\&quot;undefined\&quot;:a(t);if(\&quot;object\&quot;!==n||null===t)return\&quot;string\&quot;===n&amp;&amp;(t=&#39;\&quot;&#39;+t+&#39;\&quot;&#39;),String(t);var r,o,i=[],s=t&amp;&amp;t.constructor===Array;for(r in t)\&quot;string\&quot;===(n=void 0===(o=t[r])?\&quot;undefined\&quot;:a(o))?o=&#39;\&quot;&#39;+o+&#39;\&quot;&#39;:\&quot;object\&quot;===n&amp;&amp;null!==o&amp;&amp;(o=e(o)),i.push((s?\&quot;\&quot;:&#39;\&quot;&#39;+r+&#39;\&quot;:&#39;)+String(o));return(s?\&quot;[\&quot;:\&quot;{\&quot;)+String(i)+(s?\&quot;]\&quot;:\&quot;}\&quot;)})(e)}function L(e,t){return t?(A(t,(function(t,n){e[t]=n})),e):e}function A(e,t){var n,r;if(\&quot;function\&quot;==typeof t)if(e.length){if(r=e.length)for(n=0;n&lt;r;n++)t.call(null,n,e[n])}else for(n in e)Object.prototype.hasOwnProperty.call(e,n)&amp;&amp;t.call(null,n,e[n])}function N(){return+new Date}if(this instanceof i==0)return new i(e,t);if(!e)throw new o(\&quot;All I want is a public DSN string\&quot;);var R=i._instanceMap=i._instanceMap||{};if(R[e])return t&amp;&amp;R[e].config(e,t),R[e];R[e]=this;var D=this,M=N(),V=[],F=null,P=null,j=null,q=0,B=null,H=null,U={logger:\&quot;javascript\&quot;,platform:\&quot;javascript\&quot;,request:{headers:{\&quot;User-Agent\&quot;:u.userAgent},url:c.location.href,referrer:c.referrer},sdk:{name:\&quot;@kakao/jackdaw-js\&quot;,version:\&quot;1.0.5\&quot;},level:\&quot;error\&quot;,maxBreadcrumbs:100,debug:!1},$=_;this.config=n,this.addBreadcrumb=function(e){var t=L({timestamp:N()/1e3},e);return V.push(t),V.length&gt;U.maxBreadcrumbs&amp;&amp;V.splice(0,V.length-U.maxBreadcrumbs),this},this.captureMessage=function(e,t,n){var r=$;if(!e)throw new o(\&quot;Need something to send message\&quot;);return t&amp;&amp;\&quot;function\&quot;==typeof t.transport&amp;&amp;(r=t.transport,delete t.transport),m(L({message:e+\&quot;\&quot;},t||{}),n,r),this},this.captureException=function(e,t,n){var i=$;if(!e)throw new o(\&quot;Need something to send exception or error\&quot;);if(t&amp;&amp;\&quot;function\&quot;==typeof t.transport&amp;&amp;(i=t.transport,delete t.transport),e.error&amp;&amp;(e=e.error),r(e)||l(e)){var a=e.name||(r(e)?\&quot;DOMError\&quot;:\&quot;DOMException\&quot;),s=e.message?a+\&quot;: \&quot;+e.message:a;return this.captureMessage(s,L(t,{stacktrace:!0,trimHeadFrames:t.trimHeadFrames+1}))}j=e,(t=L({trimHeadFrames:0},t||{})).level=t.level||\&quot;error\&quot;;var c=g(e),u=b(c);return m(y(c.name,c.message,c.url,c.lineno,u,t),n,i),this},this.lastException=function(){return j},this.lastData=function(){return P},this.lastEventId=function(){return F},n(e,t)}var a=\&quot;function\&quot;==typeof Symbol&amp;&amp;\&quot;symbol\&quot;==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&amp;&amp;\&quot;function\&quot;==typeof Symbol&amp;&amp;e.constructor===Symbol&amp;&amp;e!==Symbol.prototype?\&quot;symbol\&quot;:typeof e},s=\&quot;undefined\&quot;!=typeof window?window:void 0!==n.g?n.g:\&quot;undefined\&quot;!=typeof self?self:{},c=s.document,u=s.navigator;s.Jackdaw||(s.Jackdaw=i),o.prototype=new Error,o.prototype.constructor=o,e.exports=i}])},130:function(e,t,n){e.exports=n(40)},706:function(){var e,t,n,r,o,i,a;Element.prototype.matches||(Element.prototype.matches=Element.prototype.msMatchesSelector||Element.prototype.webkitMatchesSelector),Element.prototype.closest||(Element.prototype.closest=function(e){var t=this;do{if(Element.prototype.matches.call(t,e))return t;t=t.parentElement||t.parentNode}while(null!==t&amp;&amp;1===t.nodeType);return null}),\&quot;isConnected\&quot;in Node.prototype||Object.defineProperty(Node.prototype,\&quot;isConnected\&quot;,{get:function(){return!(this.ownerDocument&amp;&amp;this.ownerDocument.compareDocumentPosition(this)&amp;this.DOCUMENT_POSITION_DISCONNECTED)}}),!window.addEventListener&amp;&amp;(e=Window.prototype,t=HTMLDocument.prototype,n=Element.prototype,o=\&quot;removeEventListener\&quot;,i=\&quot;dispatchEvent\&quot;,a=[],e[r=\&quot;addEventListener\&quot;]=t[r]=n[r]=function(e,t){var n=this;a.unshift([n,e,t,function(e){e.currentTarget=n,e.preventDefault=function(){e.returnValue=!1},e.stopPropagation=function(){e.cancelBubble=!0},e.target=e.srcElement||n,t.call(n,e)}]),this.attachEvent(\&quot;on\&quot;+e,a[0][3])},e[o]=t[o]=n[o]=function(e,t){for(var n,r=0;n=a[r];++r)if(n[0]==this&amp;&amp;n[1]==e&amp;&amp;n[2]==t)return this.detachEvent(\&quot;on\&quot;+e,a.splice(r,1)[0][3])},e[i]=t[i]=n[i]=function(e){return this.fireEvent(\&quot;on\&quot;+e.type,e)}),document.getElementsByClassName||(document.getElementsByClassName=function(e){var t,n,r,o=document,i=[];if(o.querySelectorAll)return o.querySelectorAll(\&quot;.\&quot;+e);if(o.evaluate)for(n=\&quot;.//*[contains(concat(&#39; &#39;, @class, &#39; &#39;), &#39; \&quot;+e+\&quot; &#39;)]\&quot;,t=o.evaluate(n,o,null,0,null);r=t.iterateNext();)i.push(r);else for(t=o.getElementsByTagName(\&quot;*\&quot;),n=new RegExp(\&quot;(^|\\\\s)\&quot;+e+\&quot;(\\\\s|$)\&quot;),r=0;r&lt;t.length;r++)n.test(t[r].className)&amp;&amp;i.push(t[r]);return i}),function(){if(\&quot;function\&quot;==typeof window.CustomEvent)return!1;function e(e,t){t=t||{bubbles:!1,cancelable:!1,detail:void 0};var n=document.createEvent(\&quot;CustomEvent\&quot;);return n.initCustomEvent(e,t.bubbles,t.cancelable,t.detail),n}e.prototype=window.Event.prototype,window.CustomEvent=e}(),window.localStorage||(window.localStorage={getItem:function(e){return e&amp;&amp;this.hasOwnProperty(e)?unescape(document.cookie.replace(new RegExp(\&quot;(?:^|.*;\\\\s*)\&quot;+escape(e).replace(/[\\-\\.\\+\\*]/g,\&quot;\\\\$&amp;\&quot;)+\&quot;\\\\s*\\\\=\\\\s*((?:[^;](?!;))*[^;]?).*\&quot;),\&quot;$1\&quot;)):null},key:function(e){return unescape(document.cookie.replace(/\\s*\\=(?:.(?!;))*$/,\&quot;\&quot;).split(/\\s*\\=(?:[^;](?!;))*[^;]?;\\s*/)[e])},setItem:function(e,t){e&amp;&amp;(document.cookie=escape(e)+\&quot;=\&quot;+escape(t)+\&quot;; expires=Tue, 19 Jan 2099 03:14:07 GMT; path=/\&quot;,this.length=document.cookie.match(/\\=/g).length)},length:0,removeItem:function(e){e&amp;&amp;this.hasOwnProperty(e)&amp;&amp;(document.cookie=escape(e)+\&quot;=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/\&quot;,this.length--)},hasOwnProperty:function(e){return new RegExp(\&quot;(?:^|;\\\\s*)\&quot;+escape(e).replace(/[\\-\\.\\+\\*]/g,\&quot;\\\\$&amp;\&quot;)+\&quot;\\\\s*\\\\=\&quot;).test(document.cookie)}},window.localStorage.length=(document.cookie.match(/\\=/g)||window.localStorage).length)},406:function(){function e(t){return e=\&quot;function\&quot;==typeof Symbol&amp;&amp;\&quot;symbol\&quot;==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&amp;&amp;\&quot;function\&quot;==typeof Symbol&amp;&amp;e.constructor===Symbol&amp;&amp;e!==Symbol.prototype?\&quot;symbol\&quot;:typeof e},e(t)}!function(){\&quot;use strict\&quot;;if(\&quot;object\&quot;===(\&quot;undefined\&quot;==typeof window?\&quot;undefined\&quot;:e(window)))if(\&quot;IntersectionObserver\&quot;in window&amp;&amp;\&quot;IntersectionObserverEntry\&quot;in window&amp;&amp;\&quot;intersectionRatio\&quot;in window.IntersectionObserverEntry.prototype)\&quot;isIntersecting\&quot;in window.IntersectionObserverEntry.prototype||Object.defineProperty(window.IntersectionObserverEntry.prototype,\&quot;isIntersecting\&quot;,{get:function(){return this.intersectionRatio&gt;0}});else{var t=function(e){for(var t=window.document,n=i(t);n;)n=i(t=n.ownerDocument);return t}(),n=[],r=null,o=null;s.prototype.THROTTLE_TIMEOUT=100,s.prototype.POLL_INTERVAL=null,s.prototype.USE_MUTATION_OBSERVER=!0,s._setupCrossOriginUpdater=function(){return r||(r=function(e,t){o=e&amp;&amp;t?f(e,t):{top:0,bottom:0,left:0,right:0,width:0,height:0},n.forEach((function(e){e._checkForIntersections()}))}),r},s._resetCrossOriginUpdater=function(){r=null,o=null},s.prototype.observe=function(e){if(!this._observationTargets.some((function(t){return t.element===e}))){if(!e||1!==e.nodeType)throw new Error(\&quot;target must be an Element\&quot;);this._registerInstance(),this._observationTargets.push({element:e,entry:null}),this._monitorIntersections(e.ownerDocument),this._checkForIntersections()}},s.prototype.unobserve=function(e){this._observationTargets=this._observationTargets.filter((function(t){return t.element!==e})),this._unmonitorIntersections(e.ownerDocument),0===this._observationTargets.length&amp;&amp;this._unregisterInstance()},s.prototype.disconnect=function(){this._observationTargets=[],this._unmonitorAllIntersections(),this._unregisterInstance()},s.prototype.takeRecords=function(){var e=this._queuedEntries.slice();return this._queuedEntries=[],e},s.prototype._initThresholds=function(e){var t=e||[0];return Array.isArray(t)||(t=[t]),t.sort().filter((function(e,t,n){if(\&quot;number\&quot;!=typeof e||isNaN(e)||e&lt;0||e&gt;1)throw new Error(\&quot;threshold must be a number between 0 and 1 inclusively\&quot;);return e!==n[t-1]}))},s.prototype._parseRootMargin=function(e){var t=(e||\&quot;0px\&quot;).split(/\\s+/).map((function(e){var t=/^(-?\\d*\\.?\\d+)(px|%)$/.exec(e);if(!t)throw new Error(\&quot;rootMargin must be specified in pixels or percent\&quot;);return{value:parseFloat(t[1]),unit:t[2]}}));return t[1]=t[1]||t[0],t[2]=t[2]||t[0],t[3]=t[3]||t[1],t},s.prototype._monitorIntersections=function(e){var n=e.defaultView;if(n&amp;&amp;-1===this._monitoringDocuments.indexOf(e)){var r=this._checkForIntersections,o=null,a=null;this.POLL_INTERVAL?o=n.setInterval(r,this.POLL_INTERVAL):(c(n,\&quot;resize\&quot;,r,!0),c(e,\&quot;scroll\&quot;,r,!0),this.USE_MUTATION_OBSERVER&amp;&amp;\&quot;MutationObserver\&quot;in n&amp;&amp;(a=new n.MutationObserver(r)).observe(e,{attributes:!0,childList:!0,characterData:!0,subtree:!0})),this._monitoringDocuments.push(e),this._monitoringUnsubscribes.push((function(){var t=e.defaultView;t&amp;&amp;(o&amp;&amp;t.clearInterval(o),u(t,\&quot;resize\&quot;,r,!0)),u(e,\&quot;scroll\&quot;,r,!0),a&amp;&amp;a.disconnect()}));var s=this.root&amp;&amp;(this.root.ownerDocument||this.root)||t;if(e!==s){var l=i(e);l&amp;&amp;this._monitorIntersections(l.ownerDocument)}}},s.prototype._unmonitorIntersections=function(e){var n=this._monitoringDocuments.indexOf(e);if(-1!==n){var r=this.root&amp;&amp;(this.root.ownerDocument||this.root)||t,o=this._observationTargets.some((function(t){var n=t.element.ownerDocument;if(n===e)return!0;for(;n&amp;&amp;n!==r;){var o=i(n);if((n=o&amp;&amp;o.ownerDocument)===e)return!0}return!1}));if(!o){var a=this._monitoringUnsubscribes[n];if(this._monitoringDocuments.splice(n,1),this._monitoringUnsubscribes.splice(n,1),a(),e!==r){var s=i(e);s&amp;&amp;this._unmonitorIntersections(s.ownerDocument)}}}},s.prototype._unmonitorAllIntersections=function(){var e=this._monitoringUnsubscribes.slice(0);this._monitoringDocuments.length=0,this._monitoringUnsubscribes.length=0;for(var t=0;t&lt;e.length;t++)e[t]()},s.prototype._checkForIntersections=function(){if(this.root||!r||o){var e=this._rootIsInDom(),t=e?this._getRootRect():{top:0,bottom:0,left:0,right:0,width:0,height:0};this._observationTargets.forEach((function(n){var o=n.element,i=l(o),s=this._rootContainsTarget(o),c=n.entry,u=e&amp;&amp;s&amp;&amp;this._computeTargetAndRootIntersection(o,i,t),d=null;this._rootContainsTarget(o)?r&amp;&amp;!this.root||(d=t):d={top:0,bottom:0,left:0,right:0,width:0,height:0};var f=n.entry=new a({time:window.performance&amp;&amp;performance.now&amp;&amp;performance.now(),target:o,boundingClientRect:i,rootBounds:d,intersectionRect:u});c?e&amp;&amp;s?this._hasCrossedThreshold(c,f)&amp;&amp;this._queuedEntries.push(f):c&amp;&amp;c.isIntersecting&amp;&amp;this._queuedEntries.push(f):this._queuedEntries.push(f)}),this),this._queuedEntries.length&amp;&amp;this._callback(this.takeRecords(),this)}},s.prototype._computeTargetAndRootIntersection=function(e,n,i){if(\&quot;none\&quot;!==window.getComputedStyle(e).display){for(var a,s,c,u,d,h,v,m,w=n,g=p(e),b=!1;!b&amp;&amp;g;){var y=null,E=1===g.nodeType?window.getComputedStyle(g):{};if(\&quot;none\&quot;===E.display)return null;if(g===this.root||9===g.nodeType)if(b=!0,g===this.root||g===t)r&amp;&amp;!this.root?!o||0===o.width&amp;&amp;0===o.height?(g=null,y=null,w=null):y=o:y=i;else{var x=p(g),k=x&amp;&amp;l(x),_=x&amp;&amp;this._computeTargetAndRootIntersection(x,k,i);k&amp;&amp;_?(g=x,y=f(k,_)):(g=null,w=null)}else{var I=g.ownerDocument;g!==I.body&amp;&amp;g!==I.documentElement&amp;&amp;\&quot;visible\&quot;!==E.overflow&amp;&amp;(y=l(g))}if(y&amp;&amp;(a=y,s=w,c=void 0,u=void 0,d=void 0,h=void 0,v=void 0,m=void 0,c=Math.max(a.top,s.top),u=Math.min(a.bottom,s.bottom),d=Math.max(a.left,s.left),h=Math.min(a.right,s.right),m=u-c,w=(v=h-d)&gt;=0&amp;&amp;m&gt;=0&amp;&amp;{top:c,bottom:u,left:d,right:h,width:v,height:m}||null),!w)break;g=g&amp;&amp;p(g)}return w}},s.prototype._getRootRect=function(){var e;if(this.root&amp;&amp;!v(this.root))e=l(this.root);else{var n=v(this.root)?this.root:t,r=n.documentElement,o=n.body;e={top:0,left:0,right:r.clientWidth||o.clientWidth,width:r.clientWidth||o.clientWidth,bottom:r.clientHeight||o.clientHeight,height:r.clientHeight||o.clientHeight}}return this._expandRectByRootMargin(e)},s.prototype._expandRectByRootMargin=function(e){var t=this._rootMarginValues.map((function(t,n){return\&quot;px\&quot;===t.unit?t.value:t.value*(n%2?e.width:e.height)/100})),n={top:e.top-t[0],right:e.right+t[1],bottom:e.bottom+t[2],left:e.left-t[3]};return n.width=n.right-n.left,n.height=n.bottom-n.top,n},s.prototype._hasCrossedThreshold=function(e,t){var n=e&amp;&amp;e.isIntersecting?e.intersectionRatio||0:-1,r=t.isIntersecting?t.intersectionRatio||0:-1;if(n!==r)for(var o=0;o&lt;this.thresholds.length;o++){var i=this.thresholds[o];if(i===n||i===r||i&lt;n!=i&lt;r)return!0}},s.prototype._rootIsInDom=function(){return!this.root||h(t,this.root)},s.prototype._rootContainsTarget=function(e){var n=this.root&amp;&amp;(this.root.ownerDocument||this.root)||t;return h(n,e)&amp;&amp;(!this.root||n===e.ownerDocument)},s.prototype._registerInstance=function(){n.indexOf(this)&lt;0&amp;&amp;n.push(this)},s.prototype._unregisterInstance=function(){var e=n.indexOf(this);-1!==e&amp;&amp;n.splice(e,1)},window.IntersectionObserver=s,window.IntersectionObserverEntry=a}function i(e){try{return e.defaultView&amp;&amp;e.defaultView.frameElement||null}catch(e){return null}}function a(e){this.time=e.time,this.target=e.target,this.rootBounds=d(e.rootBounds),this.boundingClientRect=d(e.boundingClientRect),this.intersectionRect=d(e.intersectionRect||{top:0,bottom:0,left:0,right:0,width:0,height:0}),this.isIntersecting=!!e.intersectionRect;var t=this.boundingClientRect,n=t.width*t.height,r=this.intersectionRect,o=r.width*r.height;this.intersectionRatio=n?Number((o/n).toFixed(4)):this.isIntersecting?1:0}function s(e,t){var n,r,o,i=t||{};if(\&quot;function\&quot;!=typeof e)throw new Error(\&quot;callback must be a function\&quot;);if(i.root&amp;&amp;1!==i.root.nodeType&amp;&amp;9!==i.root.nodeType)throw new Error(\&quot;root must be a Document or Element\&quot;);this._checkForIntersections=(n=this._checkForIntersections.bind(this),r=this.THROTTLE_TIMEOUT,o=null,function(){o||(o=setTimeout((function(){n(),o=null}),r))}),this._callback=e,this._observationTargets=[],this._queuedEntries=[],this._rootMarginValues=this._parseRootMargin(i.rootMargin),this.thresholds=this._initThresholds(i.threshold),this.root=i.root||null,this.rootMargin=this._rootMarginValues.map((function(e){return e.value+e.unit})).join(\&quot; \&quot;),this._monitoringDocuments=[],this._monitoringUnsubscribes=[]}function c(e,t,n,r){\&quot;function\&quot;==typeof e.addEventListener?e.addEventListener(t,n,r||!1):\&quot;function\&quot;==typeof e.attachEvent&amp;&amp;e.attachEvent(\&quot;on\&quot;.concat(t),n)}function u(e,t,n,r){\&quot;function\&quot;==typeof e.removeEventListener?e.removeEventListener(t,n,r||!1):\&quot;function\&quot;==typeof e.detatchEvent&amp;&amp;e.detatchEvent(\&quot;on\&quot;.concat(t),n)}function l(e){var t;try{t=e.getBoundingClientRect()}catch(e){}return t?(t.width&amp;&amp;t.height||(t={top:t.top,right:t.right,bottom:t.bottom,left:t.left,width:t.right-t.left,height:t.bottom-t.top}),t):{top:0,bottom:0,left:0,right:0,width:0,height:0}}function d(e){return!e||\&quot;x\&quot;in e?e:{top:e.top,y:e.top,bottom:e.bottom,left:e.left,x:e.left,right:e.right,width:e.width,height:e.height}}function f(e,t){var n=t.top-e.top,r=t.left-e.left;return{top:n,left:r,height:t.height,width:t.width,bottom:n+t.height,right:r+t.width}}function h(e,t){for(var n=t;n;){if(n===e)return!0;n=p(n)}return!1}function p(e){var n=e.parentNode;return 9===e.nodeType&amp;&amp;e!==t?i(e):(n&amp;&amp;n.assignedSlot&amp;&amp;(n=n.assignedSlot.parentNode),n&amp;&amp;11===n.nodeType&amp;&amp;n.host?n.host:n)}function v(e){return e&amp;&amp;9===e.nodeType}}()}},t={};function n(r){var o=t[r];if(void 0!==o)return o.exports;var i=t[r]={exports:{}};return e[r].call(i.exports,i,i.exports,n),i.exports}n.n=function(e){var t=e&amp;&amp;e.__esModule?function(){return e.default}:function(){return e};return n.d(t,{a:t}),t},n.d=function(e,t){for(var r in t)n.o(t,r)&amp;&amp;!n.o(e,r)&amp;&amp;Object.defineProperty(e,r,{enumerable:!0,get:t[r]})},n.g=function(){if(\&quot;object\&quot;==typeof globalThis)return globalThis;try{return this||new Function(\&quot;return this\&quot;)()}catch(e){if(\&quot;object\&quot;==typeof window)return window}}(),n.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},function(){\&quot;use strict\&quot;;n(706);function e(e,t){return e&amp;&amp;e.className.indexOf(t)&gt;=0}function t(t,n){t&amp;&amp;(\&quot;classList\&quot;in t?t.classList.add(n):e(t,n)||(t.className+=(t.className?\&quot; \&quot;:\&quot;\&quot;)+n))}function r(t,n){t&amp;&amp;(\&quot;classList\&quot;in t?t.classList.remove(n):e(t,n)&amp;&amp;(t.className=t.className.replace(new RegExp(\&quot;\\\\s*\&quot;.concat(n,\&quot;\\\\s*\&quot;),\&quot;i\&quot;),\&quot;\&quot;)))}function o(e){return o=\&quot;function\&quot;==typeof Symbol&amp;&amp;\&quot;symbol\&quot;==typeof Symbol.iterator?function(e){return typeof e}:function(e){return e&amp;&amp;\&quot;function\&quot;==typeof Symbol&amp;&amp;e.constructor===Symbol&amp;&amp;e!==Symbol.prototype?\&quot;symbol\&quot;:typeof e},o(e)}function i(e){try{return e.detail.source||e.target}catch(t){return e.srcElement||e.target}}function a(e){try{for(var t=arguments.length,n=new Array(t&gt;1?t-1:0),r=1;r&lt;t;r++)n[r-1]=arguments[r];e.apply(void 0,n)}catch(e){}}var s=function(){try{return void 0!==window.$sf.ext.inViewPercentage}catch(e){return!1}}();!function(){var e=window.navigator.userAgent,t=e.indexOf(\&quot;MSIE \&quot;);if(t&gt;-1)return parseInt(e.substring(t+5,e.indexOf(\&quot;.\&quot;,t)),10);if(e.indexOf(\&quot;Trident/\&quot;)&gt;0){var n=e.indexOf(\&quot;rv:\&quot;);return parseInt(e.substring(n+3,e.indexOf(\&quot;.\&quot;,n)),10)}var r=e.indexOf(\&quot;Edge/\&quot;);r&gt;0&amp;&amp;parseInt(e.substring(r+5,e.indexOf(\&quot;.\&quot;,r)),10)}();function c(e,t){for(var n=t.length,r=0;r&lt;n;)e(t[r],r,t),r+=1;return t}function u(e,n,o){e=e||document.body.firstElementChild;try{n||\&quot;system\&quot;===o?(t(e,\&quot;themed\&quot;),r(e,\&quot;dark\&quot;)):\&quot;dark\&quot;===o?(t(e,\&quot;dark\&quot;),r(e,\&quot;themed\&quot;)):(r(e,\&quot;themed\&quot;),r(e,\&quot;dark\&quot;))}catch(e){}}function l(e,t){if(-1!==navigator.userAgent.toLowerCase().indexOf(\&quot;firefox\&quot;)){var n=e.getElementsByClassName(t);window.addEventListener(\&quot;resize\&quot;,r),r()}function r(){!function(e){for(var t=arguments.length&gt;1&amp;&amp;void 0!==arguments[1]?arguments[1]:[],n=[],r=0,o=t.length;r!==o;r++)try{n.push(e(t[r],r,t))}catch(e){console&amp;&amp;(console.error||console.log)(e)}}((function(e){var t=e.getBoundingClientRect();e.style.width=\&quot;\&quot;.concat(t.height,\&quot;px\&quot;)}),n)}}function d(){return/daumapps/i.test(window.navigator.userAgent.toLowerCase())}function f(){return/kakaotalk/i.test(window.navigator.userAgent.toLowerCase())}function h(){if(\&quot;currentZoomRatio\&quot;in h==!1){var e=document.createElement(\&quot;span\&quot;);e.style.display=\&quot;none\&quot;,e.style.fontSize=\&quot;16px\&quot;,e.innerText=\&quot;hello\&quot;,document.body.appendChild(e);var t=window.getComputedStyle(e).getPropertyValue(\&quot;font-size\&quot;);document.body.removeChild(e),h.currentZoomRatio=16/parseFloat(t)}return h.currentZoomRatio}function p(e){var t=function(e){for(var t=0;t&lt;e.childNodes.length;t++){var n=e.childNodes[t];if(n.nodeType===Node.TEXT_NODE&amp;&amp;\&quot;\&quot;!==n.textContent.trim())return n}}(e);if(t){var n=t.textContent,r=Math.min(Math.ceil(n.length/30),2),o=window.getComputedStyle(e),i=parseFloat(o.getPropertyValue(\&quot;width\&quot;)),a=parseFloat(o.getPropertyValue(\&quot;height\&quot;)),s=parseFloat(o.getPropertyValue(\&quot;font-size\&quot;)),c=parseFloat(o.getPropertyValue(\&quot;line-height\&quot;)),u=h(),l=window.devicePixelRatio||3,d=l/u,f=s*l,p=c*l,v=o.getPropertyValue(\&quot;font-family\&quot;),m=o.getPropertyValue(\&quot;font-weight\&quot;),w=o.getPropertyValue(\&quot;color\&quot;),g=parseFloat(o.getPropertyValue(\&quot;letter-spacing\&quot;))*l,b=p-f,y=document.createElement(\&quot;canvas\&quot;),E=y.getContext(\&quot;2d\&quot;);y.width=i*d,y.height=a*d,E.font=\&quot;\&quot;.concat(m,\&quot; \&quot;).concat(f,\&quot;px \&quot;).concat(v),E.letterSpacing=g,E.fillStyle=w,E.textBaseline=\&quot;top\&quot;,E.textAlign=\&quot;left\&quot;;for(var x=0;x&lt;r;x++){var k=n.substring(30*x,30*(x+1));E.fillText(k,0,b+p*x,y.width)}y.style.width=\&quot;100%\&quot;,y.style.height=\&quot;100%\&quot;,e.replaceChild(y,t)}}function v(e){try{return\&quot;\&quot;.concat(window.$sf.ext.meta(e))}catch(e){return\&quot;\&quot;}}function m(e){try{return document.head.querySelector(&#39;meta[name=\&quot;&#39;.concat(e,&#39;\&quot;]&#39;)).content}catch(e){return\&quot;\&quot;}}d()&amp;&amp;(window.addEventListener(\&quot;daumapps:tab_activation_change\&quot;,(function(e){window.isCurrentWebViewActivated=e.detail.isActivated,window.dispatchEvent(new CustomEvent(\&quot;adfit:isCurrentWebViewActivated\&quot;,{detail:e.detail}))})),window.addEventListener(\&quot;daumapps:update_browser_info\&quot;,(function(e){window.useMediaAutoPlay=e.detail.mediaAutoPlayEnabled,window.dispatchEvent(new CustomEvent(\&quot;adfit:useMediaAutoPlay\&quot;,{detail:e.detail}))}))),f()&amp;&amp;(window.addEventListener(\&quot;kakaotalk:activationChange\&quot;,(function(e){window.isCurrentWebViewActivated=e.detail.isActivated,window.dispatchEvent(new CustomEvent(\&quot;adfit:isCurrentWebViewActivated\&quot;,{detail:e.detail}))})),window.addEventListener(\&quot;kakaotalk:autoPlayAvailableStatus\&quot;,(function(e){window.useMediaAutoPlay=e.detail.isAvailable,window.dispatchEvent(new CustomEvent(\&quot;adfit:useMediaAutoPlay\&quot;,{detail:e.detail}))})));var w=v(\&quot;requestId\&quot;),g=m(\&quot;ad.unitId\&quot;)||v(\&quot;unitId\&quot;),b=m(\&quot;ad.templateId\&quot;),y=m(\&quot;ad.size\&quot;),E=m(\&quot;dsp.name\&quot;),x=(m(\&quot;dsp.etxId\&quot;),m(\&quot;dsp.cId\&quot;)),k=m(\&quot;dsp.adId\&quot;),_=m(\&quot;dsp.crId\&quot;),I=([E,x,k,_].join(\&quot;:\&quot;),n(406),function(){try{return window.localStorage&amp;&amp;/^adfit/.test(window.localStorage.getItem(\&quot;debug\&quot;))||!0===window._ADFIT_NAS_LOGGER_}catch(e){return!0===window._ADFIT_NAS_LOGGER_}}());function T(){try{var e=Array.prototype.slice.call(arguments);e.unshift(\&quot;[\&quot;.concat(\&quot;@adfit-template/nas-web-layout\&quot;,\&quot;@\&quot;).concat(\&quot;undefined\&quot;,\&quot;]\&quot;).concat([g,w,b].join(\&quot;:\&quot;))),I&amp;&amp;window.console.log.apply(window.console,e)}catch(e){}}function C(e){return function(){var t=Array.prototype.slice.call(arguments);return t.unshift(\&quot;\&quot;.concat(e,\&quot;:\&quot;)),T.apply(null,t)}}const S=T;var O=\&quot;ad-viewable\&quot;,L=C(\&quot;viewableObserverFactory\&quot;),A=d()&amp;&amp;document.referrer.indexOf(\&quot;m.daum.net\&quot;)&gt;-1,N=f()&amp;&amp;document.referrer.indexOf(\&quot;search.daum.net/kakao\&quot;)&gt;-1;IntersectionObserver._setupCrossOriginUpdater&amp;&amp;(L(\&quot;IntersectionObserver._setupCrossOriginUpdater detected \&quot;),window.addEventListener(\&quot;frameIntersectionRect\&quot;,(function(e){L(\&quot;incoming frameIntersectionRect message: \&quot;.concat(JSON.stringify(e.detail))),IntersectionObserver._setupCrossOriginUpdater()(e.detail.boundingClientRect,e.detail.intersectionRect)})));var R=s?D:M;function D(e,t){try{var n=parseFloat(window.$sf.ext.inViewPercentage()/100);return L(\&quot;parseFloat(window.$sf.ext.inViewPercentage() / 100): \&quot;.concat(n)),n&gt;=t}catch(e){return!1}}function M(e,t){try{return L(\&quot;entry.isIntersecting: \&quot;.concat(e.isIntersecting)),L(\&quot;entry.intersectionRatio: \&quot;.concat(e.intersectionRatio)),e.isIntersecting&amp;&amp;e.intersectionRatio&gt;=t}catch(e){return!1}}var V=n(130),F=n.n(V);function P(e){this.message=e||\&quot;\&quot;}function j(e){this.message=e||\&quot;\&quot;}function q(e){this.message=e||\&quot;\&quot;}function B(e){var t={addBreadcrumb:function(){return t},captureException:function(){}};try{return F()&amp;&amp;F()(e)}catch(e){return t}}P.prototype=new Error,P.prototype.name=\&quot;ImageRatioError\&quot;,P.prototype.constructor=P,j.prototype=new Error,j.prototype.name=\&quot;ResourceFetchError\&quot;,j.prototype.constructor=j,q.prototype=new Error,q.prototype.name=\&quot;RuntimeError\&quot;,q.prototype.constructor=q;var H={unitId:g,bidRequestId:w,templateId:b,adSize:y,dspName:E,dspCampaignId:x,dspAdGroupId:k,dspCreativeId:_,referrer:document.referrer};function U(e){var t=localStorage.getItem(e);if(!t)return null;var n=JSON.parse(t);return(new Date).getTime()&gt;n.expiry?(window.localStorage.removeItem(e),null):n.value}window.onerror=function(e,t,n,r,o){S(\&quot;window.onerror: \&quot;.concat(e,\&quot; \&quot;).concat(t,\&quot; \&quot;).concat(n,\&quot; \&quot;).concat(r,\&quot; \&quot;).concat(o)),B(\&quot;https://d54bf56b8d5d42bdbce087ab8c96163c@aem-kakao-collector.onkakao.net/3078\&quot;).captureException(o,{tags:H})},window.addEventListener(\&quot;DOMContentLoaded\&quot;,(function(){try{for(var e=0,t=window.localStorage.length;e&lt;t;++e)0===window.localStorage.key(e).indexOf(\&quot;adfit:event:\&quot;)&amp;&amp;U(window.localStorage.key(e))}catch(e){}}));try{/^mac/.test(navigator.platform.toLowerCase())&amp;&amp;(document.head.parentNode.className=\&quot;os_mac\&quot;)||/^win/.test(navigator.platform.toLowerCase())&amp;&amp;(document.head.parentNode.className=\&quot;os_windows\&quot;)||navigator.userAgent.match(/Android/i)&amp;&amp;(document.head.parentNode.className=\&quot;os_android\&quot;)}catch(e){}var $=function(){var n=arguments.length&gt;0&amp;&amp;void 0!==arguments[0]?arguments[0]:{},o=n.log,i=void 0===o?function(e){return e}:o,u=n.viewableContinuousTime,l=void 0===u?1e3:u,d=n.viewableThreshold,f=void 0===d?.5:d,h=n.viewableTimerIdAttribute,p=function(){var n=arguments.length&gt;0&amp;&amp;void 0!==arguments[0]?arguments[0]:{},o=n.log,i=void 0===o?function(){}:o,u=n.onViewableCallback,l=void 0===u?function(e,t){}:u,d=n.onDismissCallback,f=void 0===d?function(e,t){}:d,h=n.viewableThreshold,p=void 0===h?.5:h,v=n.viewableContinuousTime,m=void 0===v?1e3:v,w=n.viewableTimerIdAttribute,g=void 0===w?\&quot;data-ad-viewable-timer-id\&quot;:w,b=function n(r,o){if(!e(r.target,\&quot;viewable\&quot;)){var s=r.target.getAttribute(g);if(s&amp;&amp;(i(\&quot;reset timer\&quot;),clearTimeout(Number(s)),r.target.removeAttribute(g)),R(r,p)){i(\&quot;first visible!\&quot;);var c=setTimeout((function(){i(\&quot;still visible?\&quot;),R(r,p)?(i(\&quot;fire viewable callback\&quot;),t(r.target,\&quot;viewable\&quot;),r.target.removeAttribute(g),clearTimeout(Number(s)),o.unobserve(r.target),a(l,r,o)):M(r,p)&amp;&amp;n(r,o)}),m);r.target.setAttribute(g,String(c))}else M(r,p)&amp;&amp;setTimeout((function(){return n(r,o)}),100)}};return function(){var e=arguments.length&gt;0&amp;&amp;void 0!==arguments[0]?arguments[0]:{},t=e.log,n=void 0===t?function(){}:t,r=e.onVisibleCallback,o=void 0===r?function(e,t){}:r,i=e.onDismissCallback,u=void 0===i?function(e,t){}:i,l=e.threshold,d=void 0===l?.5:l;return new IntersectionObserver((function(e,t){c((function(e){if(M(e,d))if(s)if(n(\&quot;safe frame api detected\&quot;),D(e,d))a(o,e,t);else var r=setInterval((function(){D(e,d)&amp;&amp;(a(o,e,t),clearInterval(r))}),100);else a(o,e,t);else a(u,e,t)}),e)}),{threshold:d})}({log:i,threshold:p,onVisibleCallback:b,onDismissCallback:function(e,t){try{var n=e.target.getAttribute(g);n&amp;&amp;(i(\&quot;reset timer\&quot;),clearTimeout(Number(n)),e.target.removeAttribute(g)),r(e.target,\&quot;viewable\&quot;),a(f,e,t)}catch(e){}}})}({log:i,viewableThreshold:f,viewableContinuousTime:l,viewableTimerIdAttribute:void 0===h?\&quot;data-ad-viewable-timer-id\&quot;:h,onViewableCallback:function(e){i(\&quot;dispatch internal viewable event\&quot;),e.target.dispatchEvent(new CustomEvent(O))},onDismissCallback:function(e){i(\&quot;dispatch internal dismiss event\&quot;),e.target.dispatchEvent(new CustomEvent(\&quot;ad-dismiss\&quot;))}});return function(e,t){try{var n=function(e){e&amp;&amp;!e._attachedViewableEventListener&amp;&amp;(i(\&quot;add event listener once\&quot;),e._attachedViewableEventListener=!0,e.addEventListener(O,(function n(){i(\&quot;remove event listener once\&quot;),e.removeEventListener(O,n);try{i(\&quot;run viewable event\&quot;),\&quot;function\&quot;==typeof t&amp;&amp;t(e)}catch(e){}})),p.observe(e))};if(A||N)if(window.isCurrentWebViewActivated)n(e);else{window.addEventListener(\&quot;adfit:isCurrentWebViewActivated\&quot;,(function t(r){r.detail.isActivated&amp;&amp;(window.removeEventListener(\&quot;adfit:isCurrentWebViewActivated\&quot;,t),n(e))}))}else n(e)}catch(e){i(e)}return{unobserve:function(){return p.unobserve(e)}}}}({log:S,viewableContinuousTime:1e3,viewableThreshold:.5});window.$sf=window.$sf||{ext:{inViewPercentage:function(){return S(\&quot;cannot use $sf.ext.inViewPercentage\&quot;),-1},register:function(){S(\&quot;cannot use $sf.ext.register api\&quot;)},meta:function(){return S(\&quot;cannot use $sf.ext.meta api\&quot;),null}}},window.addEventListener(\&quot;message\&quot;,(function(e){try{var t=JSON.parse(e.data);if(\&quot;adfit\&quot;!==t.from)return!1;S(\&quot;dispatch global event: \&quot;.concat(t.type,\&quot; \&quot;).concat(JSON.stringify(t.detail))),window.dispatchEvent(new CustomEvent(t.type,{detail:t.detail}))}catch(e){}})),window.addEventListener(\&quot;message\&quot;,(function e(t){t&amp;&amp;\&quot;ad-fit-viewable-fired\&quot;===t.data&amp;&amp;!window.isViewableFired&amp;&amp;(window.removeEventListener(\&quot;message\&quot;,e),window.isViewableFired=!0)})),window.addEventListener(\&quot;adfit:rendered\&quot;,(function n(r){var o=i(r);o&amp;&amp;!e(o,\&quot;rendered\&quot;)&amp;&amp;(window.removeEventListener(\&quot;adfit:rendered\&quot;,n),t(o,\&quot;rendered\&quot;))})),window.addEventListener(\&quot;adfit:rendered\&quot;,(function e(t){window.removeEventListener(\&quot;adfit:rendered\&quot;,e);var n=i(t);if(!n)return B(\&quot;https://d54bf56b8d5d42bdbce087ab8c96163c@aem-kakao-collector.onkakao.net/3078\&quot;).captureException(new Error(\&quot;installViewableObserver: no event target\&quot;)),!1;var r=function(){$(n,(function(){S(\&quot;dispatch viewable event: \&quot;),window.dispatchEvent(new CustomEvent(\&quot;adfit:viewable\&quot;))}))};s?window.addEventListener(\&quot;safeframe:geom\&quot;,(function e(t){window.removeEventListener(\&quot;safeframe:geom\&quot;,e),r()})):r()})),window.addEventListener(\&quot;adfit:assetFetchLoad\&quot;,(function(e){var t=C(\&quot;assetFetchLoadDocumentEventHandler\&quot;),n=i(e);if(!n)return t(\&quot;no event target\&quot;),!1;if(r(n.parentNode,\&quot;spinner\&quot;),n.tagName&amp;&amp;\&quot;IMG\&quot;===n.tagName.toUpperCase()&amp;&amp;\&quot;naturalWidth\&quot;in n){var o=n.naturalWidth,a=n.naturalHeight,s=n.width,c=n.height,u=o/a,l=s/c,d=parseInt(n.getAttribute(\&quot;data-asset-width\&quot;),10),f=parseInt(n.getAttribute(\&quot;data-asset-height\&quot;),10),h=d/f,p=u===h||l===h;if(n.complete&amp;&amp;!1===p){var v=new P(n.src);B(\&quot;https://830b454857374cdf9f8ff20eccc5901b@aem-kakao-collector.onkakao.net/3081\&quot;).addBreadcrumb({category:\&quot;renderedEventHandler\&quot;,message:\&quot;\\uc774\\ubbf8\\uc9c0 \\ube44\\uc728 \\ub9de\\uc9c0 \\uc54a\\uc74c\&quot;,level:\&quot;warn\&quot;}).captureException(v,{tags:Object.assign({assetUrl:n.src,assetImageWidth:d,assetImageHeight:f,imageNaturalWidth:o,imageNaturalHeight:a,imageDomWidth:s,imageDomHeight:c},H)})}}})),window.addEventListener(\&quot;adfit:assetFetchError\&quot;,(function(e){var n=C(\&quot;assetFetchErrorEventHandler\&quot;),o=i(e);if(!o)return n(\&quot;no event target\&quot;),!1;var a=o.src,s=parseInt(o.getAttribute(\&quot;data-asset-fetch-retry-cnt\&quot;)||0),c=parseInt(o.getAttribute(\&quot;data-asset-fetch-retry-max-count\&quot;)||3),u=parseInt(o.getAttribute(\&quot;data-asset-fetch-retry-interval\&quot;)||2e3);if(o.style.visibility=\&quot;hidden\&quot;,t(o.parentNode,\&quot;spinner\&quot;),s&lt;c)return o.setAttribute(\&quot;data-asset-fetch-retry-cnt\&quot;,s+1),setTimeout((function(){n(\&quot;retry to load asset: \&quot;,s,a),o.style.visibility=\&quot;visible\&quot;,o.src=a}),u),!1;if(r(o.parentNode,\&quot;spinner\&quot;),a!==window.location.href){n(\&quot;send asset loading event: \&quot;,a);var l=new j(a);B(\&quot;https://d54bf56b8d5d42bdbce087ab8c96163c@aem-kakao-collector.onkakao.net/3078\&quot;).addBreadcrumb({category:\&quot;errorEventHandler\&quot;,message:\&quot;asset \\ub85c\\ub529 \\uc5d0\\ub7ec\&quot;,level:\&quot;error\&quot;}).captureException(l,{tags:Object.assign({tagName:o instanceof Node&amp;&amp;o.tagName,assetUrl:o.src,assetWidth:o.width,assetHeight:o.height},H)})}})),window.addEventListener(\&quot;adfit:addTrackingEventListener\&quot;,(function e(t){var n=C(\&quot;addTrackingWindowEventListener\&quot;),r=t.detail,o=r.eventType,i=r.eventUrl,a=r.once;if(n(\&quot;current event:\&quot;,o,i,a),o&amp;&amp;i){var s=parseInt(v(\&quot;expiredTime\&quot;),10)||0,c=s&gt;0,u=[\&quot;adfit\&quot;,g,w,r.eventType].join(\&quot;:\&quot;),l=U(u);if(c&amp;&amp;!l&amp;&amp;void 0===e.expiredDate&amp;&amp;(e.expiredDate=new Date(Date.now()+1e3*s),n(\&quot;bidRequestId: \&quot;.concat(w,\&quot;, expiredTime: \&quot;).concat(s,\&quot;, hasExpireTime: \&quot;).concat(c)),n(\&quot;storage key: \&quot;.concat(u,\&quot;, storage value: \&quot;).concat(l)),n(\&quot;set expired date to &#39;\&quot;.concat(e.expiredDate,\&quot;&#39;\&quot;))),\&quot;viewable\&quot;!==o&amp;&amp;window.addEventListener(\&quot;adfit:viewable\&quot;,(function e(){var t;window.removeEventListener(\&quot;adfit:viewable\&quot;,e),t=u,window.localStorage.removeItem(t)})),l)return n(\&quot;tracking &#39;\&quot;.concat(o,\&quot;&#39; event listener has not been set due to &#39;\&quot;).concat(u,\&quot;&#39; storage\&quot;)),!1;window.addEventListener(\&quot;adfit:\&quot;.concat(o),(function t(){var r,s,c;n(\&quot;fire \&quot;.concat(o,\&quot; event beacon: \&quot;),i),!0===a&amp;&amp;window.removeEventListener(\&quot;adfit:\&quot;.concat(o),t),s=function(t,r){var i,a,s,c;t?n(t,r):\&quot;viewable\&quot;!==o&amp;&amp;e.expiredDate&amp;&amp;(i=u,a=Date.now(),s=e.expiredDate,c={value:a,expiry:(s||new Date).getTime()},window.localStorage.setItem(i,JSON.stringify(c)))},s=(c=s)&amp;&amp;\&quot;function\&quot;==typeof c?s:function(){},(r=i)&amp;&amp;/^https?:\\/\\//.test(r)?\&quot;fetch\&quot;in window&amp;&amp;!function(e){return/\\.daum\\.net/i.test(e)||/\\.kakao\\.com/i.test(e)}(r)?function(e,t){window.fetch(e,{mode:\&quot;no-cors\&quot;,cache:\&quot;no-cache\&quot;}).then((function(){return t(null,e)})).catch((function(e){return t(e,null)}))}(r,s):function(e,t){setTimeout((function(){var n=new Image;n.onerror=function(){return t(new j(\&quot;resource fetch error: \&quot;.concat(e)),null)},n.onload=function(){return t(null,e)},n.src=e}),1)}(r,s):s(new q(\&quot;url is not provided\&quot;))}))}})),window.addEventListener(\&quot;DOMContentLoaded\&quot;,(function(){try{var e=document.body.querySelector(\&quot;[data-ad-node]\&quot;)||document.getElementById(\&quot;ad-0\&quot;)||document.body;S(\&quot;DOMContentLoaded: \&quot;,e),a=e,\&quot;addEventListener\&quot;in window&amp;&amp;window.addEventListener(\&quot;message\&quot;,(function(e){var n=a||document.body.firstElementChild;\&quot;fontChange:big\&quot;===e.data?t(n,\&quot;fs_big\&quot;):\&quot;fontChange:normal\&quot;===e.data&amp;&amp;r(n,\&quot;fs_big\&quot;)})),l(e),u(e,window.$sf.ext.meta(\&quot;usePrefersColorScheme\&quot;),window.$sf.ext.meta(\&quot;theme\&quot;)),n=e,/^https?:\\/\\/([a-zA-Z0-9-_.]+\\.)?daum\\.net/.test(document.referrer)&amp;&amp;window.addEventListener(\&quot;message\&quot;,(function(e){\&quot;object\&quot;===o(e.data)&amp;&amp;\&quot;action\&quot;in e.data&amp;&amp;\&quot;value\&quot;in e.data&amp;&amp;\&quot;colorTheme\&quot;===e.data.action&amp;&amp;u(n,!1,e.data.value)})),c((function(e){!function(e){var t=h(),n=window.getComputedStyle(e),r=n.getPropertyValue(\&quot;font-size\&quot;),o=n.getPropertyValue(\&quot;line-height\&quot;);if(1!==t){var i=t*t;e.style.fontSize=\&quot;\&quot;.concat(parseFloat(r)*i,\&quot;px\&quot;),e.style.lineHeight=\&quot;\&quot;.concat(parseFloat(o)*i,\&quot;px\&quot;)}}(e)}),e.querySelectorAll(\&quot;[data-adjust-font-size]\&quot;)),function(e){c((function(e){p(e)}),e.querySelectorAll(\&quot;[data-replace-text-to-image]\&quot;))}(e),function(e){var t=e.querySelectorAll(\&quot;[data-adfit-click]\&quot;);c((function(e){e&amp;&amp;e.addEventListener(\&quot;click\&quot;,(function(){if(!e.hasAttribute(\&quot;data-ad-clicked\&quot;))return S(\&quot;try click\&quot;,e),e.setAttribute(\&quot;data-ad-clicked\&quot;,\&quot;true\&quot;),window.dispatchEvent(new CustomEvent(\&quot;adfit:click\&quot;)),void setTimeout((function(){S(\&quot;release click\&quot;,e),e.removeAttribute(\&quot;data-ad-clicked\&quot;)}),500);S(\&quot;prevent click\&quot;,e),event.preventDefault()}))}),t)}(e),function(e){c((function(e){var t=e.getAttribute(\&quot;data-ad-onviewable\&quot;).split(\&quot;|\&quot;),n=function(){return $(e,(function(){S(\&quot;dispatch viewable event: \&quot;),c((function(e){(e=e&amp;&amp;e.trim())&amp;&amp;window.fetch&amp;&amp;window.fetch(e,{mode:\&quot;no-cors\&quot;,cache:\&quot;no-cache\&quot;})}),t)}))};s?window.addEventListener(\&quot;safeframe:geom\&quot;,(function e(t){window.removeEventListener(\&quot;safeframe:geom\&quot;,e),n()})):n()}),e.querySelectorAll(\&quot;[data-ad-onviewable]\&quot;))}(e),function(e){var t=e.querySelector(\&quot;[data-adfit-render]\&quot;);t&amp;&amp;\&quot;src\&quot;in t?\&quot;IMG\&quot;===t.tagName&amp;&amp;t.complete?window.dispatchEvent(new CustomEvent(\&quot;adfit:rendered\&quot;,{detail:{source:e}})):t.addEventListener(\&quot;VIDEO\&quot;===t.tagName?\&quot;loadstart\&quot;:\&quot;load\&quot;,(function(){window.dispatchEvent(new CustomEvent(\&quot;adfit:rendered\&quot;,{detail:{source:e}}))})):window.dispatchEvent(new CustomEvent(\&quot;adfit:rendered\&quot;,{detail:{source:e}}))}(e),function(e){c((function(e){var t=\&quot;VIDEO\&quot;===e.tagName?\&quot;loadedposter\&quot;:\&quot;load\&quot;;\&quot;IMG\&quot;===e.tagName&amp;&amp;e.complete?window.dispatchEvent(new CustomEvent(\&quot;adfit:assetFetchLoad\&quot;,{detail:{url:e.src,source:e}})):(e.addEventListener(\&quot;error\&quot;,(function(e){var t=i(e);window.dispatchEvent(new CustomEvent(\&quot;adfit:assetFetchError\&quot;,{detail:{url:t.src,source:t}}))})),e.addEventListener(t,(function(e){var t=i(e);window.dispatchEvent(new CustomEvent(\&quot;adfit:assetFetchLoad\&quot;,{detail:{url:t.src,source:t}}))})))}),e.querySelectorAll(\&quot;[data-asset-width][data-asset-height]\&quot;))}(e)}catch(e){S(e),B(\&quot;https://d54bf56b8d5d42bdbce087ab8c96163c@aem-kakao-collector.onkakao.net/3078\&quot;).captureException(e)}var n,a}))}()}();&lt;/script&gt;&lt;/head&gt;\n&lt;body style=\&quot;margin:0;padding:0;background-color:transparent;width:100%;\&quot;&gt;\n&lt;script&gt;window.dispatchEvent(new CustomEvent(&#39;adfit:addTrackingEventListener&#39;, {\&quot;detail\&quot;: {eventType: \&quot;viewable\&quot;,  eventUrl: \&quot;https://tr.ad.daum.net/vimp?wa=T9Odkyh39jIMzGvISxdP85KE6jZXItt7eN_DyfAq7uo&amp;enc=LsEkTYG4IP7rw0E4DYrEFPQRIxx767fwwGeM5cvdD37lcDOaXEmC5_tLNMOgRSzn2VeIl9loTyyHquea2X1UA0Yljpbj3BfXee00yCUhPz6N9twF_1D-NWnxuE_7lekddB7Gn2pb50Q5sN0FAdBQ6pJB7oNxwRpoTrptuBkF7udUsNTC2LShmMfKjR6IikBttS8goAYGMNze4sS316_pMtFDBcXwCVaN2mjP9hZ3WsQLYakXEtU4NEOVrHrBWwm1b_oObLoaTzSTT1DpbUIqL8gDOku8bfZ_PvBZoAk93xZA-DFOgZA8iDwMCywVpbwzDHDe7AWAY5ekqCsV8jzpURuTHn_ZSJYylxys2CiUI8XixQR1OrS7wIJQZZYXED9y-VOONE9Flue5bUhv7mEU9lKkiS7pol4HFqQrpE-Y_Q9wAPgW-BbThYLhvwCfDK6PFB9ZHLhax4kTXDLRuu-HrRyD9iVjILlKL-sciJgKUm6ShOo2VyLbe3jfw8nwKu7q&amp;signature=cbfe94253bfe9d1decad8abeeb4dcbd4&amp;lc=1\&quot;, once: true}}));window.dispatchEvent(new CustomEvent(&#39;adfit:addTrackingEventListener&#39;, {\&quot;detail\&quot;: {eventType: \&quot;hide\&quot;,  eventUrl: \&quot;https://tr.ad.daum.net/ac?wa=T9Odkyh39jIMzGvISxdP85KE6jZXItt7eN_DyfAq7uo&amp;enc=LsEkTYG4IP7rw0E4DYrEFPQRIxx767fwwGeM5cvdD37lcDOaXEmC5_tLNMOgRSzn2VeIl9loTyyHquea2X1UA0Yljpbj3BfXee00yCUhPz6N9twF_1D-NWnxuE_7lekddB7Gn2pb50Q5sN0FAdBQ6pJB7oNxwRpoTrptuBkF7udUsNTC2LShmMfKjR6IikBttS8goAYGMNze4sS316_pMtFDBcXwCVaN2mjP9hZ3WsQLYakXEtU4NEOVrHrBWwm1b_oObLoaTzSTT1DpbUIqL8gDOku8bfZ_PvBZoAk93xZA-DFOgZA8iDwMCywVpbwzDHDe7AWAY5ekqCsV8jzpURuTHn_ZSJYylxys2CiUI8XixQR1OrS7wIJQZZYXED9y-VOONE9Flue5bUhv7mEU9lKkiS7pol4HFqQrpE-Y_Q9wAPgW-BbThYLhvwCfDK6PFB9ZHLhax4kTXDLRuu-HrYym1fwkwFgYDT3-9V_lfwNjCkntUnunyhzaKCHLvltG&amp;signature=8773f63905e63f086b9788041a61215f&amp;lc=1\&quot;, once: true}}));window.dispatchEvent(new CustomEvent(&#39;adfit:addTrackingEventListener&#39;, {\&quot;detail\&quot;: {eventType: \&quot;click\&quot;,  eventUrl: \&quot;https://kaat.daum.net/sect/click;request_id=7486de09-4754-4fa2-a070-1e9f2ba071d5-1c7G;bid_id=87aa51f9651d403dbc2c97e171cdbfa7;adunit_id=DAN-B0TFseDqTBANXUbt;dsp_id=MOMENT;med_dsp_id=MOMENT;network_type=GENERAL;st_id=[stId];rt=[rt];vt=[vt];ct=[ct];w=[w];h=[h];cx=[cx];cy=[cy]\&quot;, once: false}}));window.dispatchEvent(new CustomEvent(&#39;adfit:addTrackingEventListener&#39;, {\&quot;detail\&quot;: {eventType: \&quot;rendered\&quot;,  eventUrl: \&quot;https://serv.ds.kakao.com/dspr/sync?dspr=lODVjLFcVp41yz_NJCb8H0fH0y6AOCWjHRmm9dTcn0Th3IC-TqsTWvHAaZV84CW0Kp-GfJPDkmv0NfMEpTHPZTND0CzESXKATSGRuKYgTUJoQZtSIk2xH9mTFxzSJvrsezdW-Gvx0oWh9kIcm5LTulxnHPodv2LCwMNFbqu4xRx5LPMgS_DS3Xpb1lM0rdGPbSuQmptMCfibVU36KFXEP8tW3ZnwtYnBxmLNRcik0JCL6O7nG6zrzzuGnRULdQxU1G-BU27SQuDvnGFeIJxi2WZQef-jMW1AHAXgOj8J0vSjOffA1FeNW5LbfVxVfTrf\&quot;, once: true}}));window.dispatchEvent(new CustomEvent(&#39;adfit:addTrackingEventListener&#39;, {\&quot;detail\&quot;: {eventType: \&quot;rendered\&quot;,  eventUrl: \&quot;https://tr.ad.daum.net/ssp/bimp?enc=7NxXNEMRruprVrNm43UP79w1558VC1fM2X6HA2ilmdwindjQBqQrBoY-i_PKc2pcqMhZDLBsXy9ny9hxtblrfDa4WHoG2qc3fgYUfPZ7qt3gyrjnoSm9V7qE7BzU_YGh5zXm-MjdBai9URG-UH35fW51Tl6YiAqA4reKDFqOWQgZd4jvP2ULeaMEu845jGbcIwxamop_AjsrMUM_eHB-Hk52fXBdyLHBUpDmVff_k2UHdrtbE-nnfDnKhei3w8F5OHdZkxKd1iitLo06cWZNJBkFsVURkZ_hVBrPBoB_qMxMo6WfMMjEXjNM55-V4bPKKrAPE34RrqS5kvRAGzEsSufKQaN-n1Awa8BvvW2LTV8KkKn6k8wXi5O4J3CL9a9-m-hDyMEswVUTgfFStn6pA4-XKs35udkjGhJeT9-I-kfOFyGHKW6oE-SaRr_3aeAviHYIfjkXs9foSFFinNxsp3NO63yd9E3YzoLPM20lX2O0vTHOmJjLocmCbaV5Ir7MRckk1a5dSTvzgkuGciokO3nNOYTFi3WLQ5JewfPWF_vvDiGPWZ5DFCy1oTTjrnIIKfpFl4IN56aW9aURZ01LSnck1r8Fxw00je2YuNriUJ4sEAfp8LH9KXjkbvdAxaPKUXsxPogJyav1OofH4IuIq4_2b-AU4i8qZdx2EFqPl7NABowGYpi3rR_ssOfl3ugEuaAoOoD4Yv8lqgdWy_cWw9NLCkFsiaSLOrhpKeBd9603BXmLsB7n18XA8BSA8zSFaPz8M0MWice7_SiEOMi5jHDOm9inw9ZMLWfbo9QHK7x1UqHIfXX24EIecBtFm28lVSTnCl1E1uIutcxH38dX7mWvXFoV7HGIydct66FN1FEsfqRWBrY1mF6bg0-6jNkmTVSLG-eN1oW3HoBsAOLXwkLDe6N159FLtZ-RbLCFBlXmnw90EAf0MnzhVxNYGXHnoylJmttkP1PSW7C2UBXOZYW1iDP64bEvU61QS8LqshVfQKrJY1pKpTbVzqIAydhkevskK8IxsRWXbnwGStfACDUfvFrzB6Zua1c8v17z0T-na_hnBwarkcqTPdrsiMhRwhF0tEkptdWhcxg_yIZ7vAwqu8jxkRYrdglgG2MIEnIbXmCTBrsExIgLK5wyBCpITe3mZxlmNAZaOm5x57DGOiP7dZOi9sGBqxS6ZVpkopCzynKwcNjAGNcS1wtwsGX6kLlKp8sHIz4aT2opM1ELGrQKzlxyC7JU29wp5tastTRP052TKHf2MgzMa8hLF0_zYu9nnsJwSY2IOX8UmZofMTC5LsvTdJ4DSnNjIAMSNsQ8ILuim2Rd6A6oar_DEtEsYwpJ7VJ7p8oc2ighy75bRg&amp;signature=39d200711e0cae583cfbbdb2db2f7488\&quot;, once: true}}));&lt;/script&gt;\n&lt;div class=\&quot;cm_ad\&quot; data-ad-node&gt;\n  &lt;a data-adfit-click\n     href=\&quot;https://tr.ad.daum.net/clk?wa=T9Odkyh39jIMzGvISxdP85KE6jZXItt7eN_DyfAq7uo&amp;enc=LsEkTYG4IP7rw0E4DYrEFPQRIxx767fwwGeM5cvdD37lcDOaXEmC5_tLNMOgRSzn2VeIl9loTyyHquea2X1UA0Yljpbj3BfXee00yCUhPz6N9twF_1D-NWnxuE_7lekddB7Gn2pb50Q5sN0FAdBQ6pJB7oNxwRpoTrptuBkF7udUsNTC2LShmMfKjR6IikBttS8goAYGMNze4sS316_pMtFDBcXwCVaN2mjP9hZ3WsQLYakXEtU4NEOVrHrBWwm1b_oObLoaTzSTT1DpbUIqL8gDOku8bfZ_PvBZoAk93xZA-DFOgZA8iDwMCywVpbwzDHDe7AWAY5ekqCsV8jzpUZGDToHfjmqFiphcGfVp0VBee-HLdvfki8nSjVyFcwNjcrQw0pjrLnFRB8xD21M1h2vWKvYzEMjHTUEXJJK0tx58jZeOsE1HDuHpvzgDL7eqkLHG1AjKc9nv6iPik-xQu80v4-gDzKQulqklyhisdGZgmb2kXRv59B1-AKGM72ZasdLz9UL5UygrKDkl9wNMyFGGqNRmldv8vdDaNj2N2rw&amp;signature=751e597a449a5e8753f8872176d9a0c2&amp;lc=1\&quot;\n     rel=\&quot;opener\&quot;\n     target=\&quot;_blank\&quot;\n     class=\&quot;link_ad\&quot;&gt;\n    &lt;span class=\&quot;thumb_img\&quot;&gt;\n      &lt;img data-adfit-render\n           data-asset-width=\&quot;1200\&quot;\n           data-asset-height=\&quot;600\&quot;\n           src=\&quot;https://t1.daumcdn.net/cmp/imageEditor/MOMENT/81077/536fc49e363a80f43b54a328844a4cb4\&quot;\n           alt=\&quot;광고 건축문의는 전원주택의 명가 로하스홈에서\&quot;\n           class=\&quot;img_thumb\&quot;&gt;\n      &lt;span class=\&quot;frame_g\&quot;&gt;&lt;/span&gt;\n    &lt;/span&gt;\n    &lt;span class=\&quot;frame_g\&quot;&gt;&lt;/span&gt;\n    &lt;span class=\&quot;area_ad\&quot;&gt;\n      &lt;strong class=\&quot;tit_cm\&quot;&gt;\n        &lt;span class=\&quot;thumb_logo\&quot;&gt;\n          &lt;img\n            data-asset-width=\&quot;300\&quot;\n            data-asset-height=\&quot;300\&quot;\n            src=\&quot;https://img1.daumcdn.net/thumb/S300x300/?scode=b2_01&amp;x-twg-thumb-fname=https%3A%2F%2Ft1.daumcdn.net%2Fcmp%2FimageEditor%2FMOMENT%2F81077%2Fa33e04bc24a6795440d21ed6a95f19eb&amp;TWGServiceId=b2&amp;Expires=1751875200&amp;Signature=wHDfqgtKQklgBnCFYn1fOoWEbUM%3D\&quot;\n            alt=\&quot;\&quot;\n            class=\&quot;img_logo\&quot;&gt;\n          &lt;span class=\&quot;frame_line\&quot;&gt;&lt;/span&gt;\n          &lt;span class=\&quot;frame_g\&quot;&gt;&lt;/span&gt;\n        &lt;/span&gt;\n        &lt;span class=\&quot;tit_adcm\&quot;&gt;로하스홈&lt;/span&gt;\n      &lt;/strong&gt;\n      &lt;strong class=\&quot;tit_ad\&quot;&gt;대한민국 전원주택 브랜드 \&quot;로하스홈\&quot;&lt;/strong&gt;\n      &lt;span class=\&quot;desc_ad\&quot;&gt;전원주택 대표 No.1 브랜드 로하스홈, 우리의 최고의 가치는 만족입니다.&lt;/span&gt;\n    &lt;/span&gt;\n    &lt;span class=\&quot;btn_ad\&quot;&gt;\n      &lt;span class=\&quot;ico_ad\&quot;&gt;문의하기&lt;/span&gt;\n    &lt;/span&gt;\n  &lt;/a&gt;\n  &lt;a href=\&quot;https://info.ad.daum.net/optout.do\&quot;\n     class=\&quot;icon_ad imark\&quot;\n     style=\&quot;width:unset;height:unset\&quot;\n     target=\&quot;_blank\&quot;&gt;\n    &lt;img src=\&quot;https://t1.daumcdn.net/biz/ui/ad/ADmark/i_mark_200803.png\&quot;\n         width=\&quot;15\&quot;\n         height=\&quot;15\&quot;\n         style=\&quot;border:0;padding: 4px 4px 2px 2px\&quot;&gt;\n  &lt;/a&gt;\n&lt;/div&gt;\n\n&lt;/body&gt;\n&lt;/html&gt;\n&quot;}" frameborder="0" scrolling="no" marginwidth="0" marginheight="0" allowtransparency="true" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/safeframe.html" style="position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; max-height: inherit; border: 0px; min-width: 728px; min-height: 90px;"></iframe></div></div></ins>
+    <script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/ba.min.js" async="async"></script>
+  </div>
+</div>
+        <!-- System - END -->
+
+<script onerror="changeAdsenseToNaverAd()" async="" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/f(1).txt" crossorigin="anonymous" data-checked-head="true"></script>
+<!-- inventory -->
+<ins class="adsbygoogle" style="margin: 50px 0px; display: block; height: 280px;" data-ad-client="ca-pub-9527582522912841" data-ad-slot="4947159016" data-ad-format="auto" data-full-width-responsive="true" data-ad-type="inventory" data-ad-adfit-unit="DAN-HCZEy0KQLPMGnGuC" data-adsbygoogle-status="done"><div id="aswift_1_host" style="border: none; height: 280px; width: 877px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"></div></ins>
+
+<script id="adsense_script">
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<script>
+    if(window.observeAdsenseUnfilledState !== undefined){ observeAdsenseUnfilledState(); }
+</script>
+<div data-tistory-react-app="NaverAd"></div>
+
+                    <div class="container_postbtn #post_button_group">
+  <div class="postbtn_like"><script>window.ReactionButtonType = 'reaction';
+window.ReactionApiUrl = '//soooom.tistory.com/reaction';
+window.ReactionReqBody = {
+    entryId: 418
+}</script>
+<div class="wrap_btn" id="reaction-418" data-tistory-react-app="Reaction"><button class="btn_post uoc-icon" data-tiara-action-name="공감_클릭"><div class="uoc-icon"><span class="ico_postbtn ico_like">좋아요</span><span class="txt_like uoc-count">2</span></div></button></div><div class="wrap_btn wrap_btn_share"><button type="button" class="btn_post sns_btn btn_share" aria-expanded="false" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbCzZrR%2FbtsA4cpOUEz%2FAAAAAAAAAAAAAAAAAAAAAOo8AKTk1mkVHT1QMWqr2PbGEgYFWukJi8Yjxcwoc90P%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DnOdyFESM%252F0Ckp6F94bPOgKKcGL0%253D" data-title="Github 이슈, PR 템플릿 및 label 간단 복사 방법" data-description="github에서 여러 리포지토리를 생성 할 때, 이슈/PR 템플릿 및 커스텀 label을 복사하는 방법을 정리하고자 한다. 우선 임시 리포지토리를 하나 만들고 이슈/PR 템플릿 생성, label 수정을 진행하자 🔷 이슈 템플릿 생성 이슈 템플릿은 직접 리포지토리에 파일을 저장해두어야 하는데, 손쉽게 만들 수 있도록 github가 도와준다. 수동으로 만드려면 리포지토리의 &#39;./github/ISSUE_TEMPLATE/&#39; 디렉터리 하위로 &#39;bug-report.md&#39; 같은 마크다운 파일을 만들면 된다. 자세한 내용은 Github Docs의 이슈 템플릿 설명을 참고하자. 여기서는 github가 제공해주는 양식에 따라 쉽게 만들자. 리포지토리의 setting - 바로 나오는 General에서 쭉 내려서 Featur.." data-profile-image="https://tistory1.daumcdn.net/tistory/4679019/attach/ddd44e997cd64f8c94ae6cfa4e8abc59" data-profile-name="Soom_1n" data-pc-url="https://soooom.tistory.com/418" data-relative-pc-url="/418" data-blog-title="기록방"><span class="ico_postbtn ico_share">공유하기</span></button>
+  <div class="layer_post" id="tistorySnsLayer" style="display: none;"><div class="bundle_post"><button class="btn_mark" data-service="url" data-tiara-action-name="공유_클릭" data-tiara-layer="copy_url" data-tiara-copy="URL복사"><span class="ico_sns ico_url"></span><span class="txt_sns">URL 복사</span></button><button class="btn_mark" data-service="kakaotalk" data-tiara-action-name="공유_클릭" data-tiara-layer="kakao" data-tiara-copy="카카오톡 공유"><span class="ico_sns ico_kt"></span><span class="txt_sns">카카오톡 공유</span></button><button class="btn_mark" data-service="facebook" data-tiara-action-name="공유_클릭" data-tiara-layer="facebook" data-tiara-copy="페이스북 공유"><span class="ico_sns ico_fb"></span><span class="txt_sns">페이스북 공유</span></button><button class="btn_mark" data-service="twitter" data-tiara-action-name="공유_클릭" data-tiara-layer="X" data-tiara-copy="엑스 공유"><span class="ico_sns ico_x"></span><span class="txt_sns">엑스 공유</span></button><span class="ico_postbtn ico_arrbt"></span></div></div>
+</div><div class="wrap_btn wrap_btn_etc" data-entry-id="418" data-entry-visibility="public" data-category-visibility="public"><button type="button" class="btn_post btn_etc2" aria-expanded="false"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+  <div class="layer_post" id="tistoryEtcLayer" style="display: none;"></div>
+</div></div>
+<button type="button" class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="4679019" data-url="https://soooom.tistory.com/418" data-device="web_pc" data-tiara-action-name="구독 버튼_클릭" data-tiara-copy="구독하기"><em class="txt_state">구독하기</em><strong class="txt_tool_id">기록방</strong><span class="img_common_tistory ico_check_type1"></span></button><div class="postbtn_ccl" data-ccl-type="2" data-ccl-derive="1">
+    <a href="https://creativecommons.org/licenses/by/4.0/deed.ko" target="_blank" class="link_ccl" rel="license">
+        <span class="bundle_ccl">
+            <span class="ico_postbtn ico_ccl1">저작자표시</span> 
+        </span>
+        <span class="screen_out">(새창열림)</span>
+    </a>
+</div>
+<!--
+<rdf:RDF xmlns="https://web.resource.org/cc/" xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#">
+    <Work rdf:about="">
+        <license rdf:resource="https://creativecommons.org/licenses/by/4.0/deed.ko" />
+    </Work>
+    <License rdf:about="https://creativecommons.org/licenses/by/4.0/deed.ko">
+        <permits rdf:resource="https://web.resource.org/cc/Reproduction"/>
+        <permits rdf:resource="https://web.resource.org/cc/Distribution"/>
+        <requires rdf:resource="https://web.resource.org/cc/Notice"/>
+        <requires rdf:resource="https://web.resource.org/cc/Attribution"/>
+        <permits rdf:resource="https://web.resource.org/cc/DerivativeWorks"/>
+
+    </License>
+</rdf:RDF>
+-->  <div data-tistory-react-app="SupportButton"></div>
+</div>
+
+                    <!-- PostListinCategory - START -->
+<div class="another_category another_category_color_gray">
+  <h4>'<a href="https://soooom.tistory.com/category/CS">CS</a> &gt; <a href="https://soooom.tistory.com/category/CS/Git">Git</a>' 카테고리의 다른 글</h4>
+  <table>
+    <tbody><tr>
+      <th><a href="https://soooom.tistory.com/419">Github Organization 프로젝트 세팅하기</a>&nbsp;&nbsp;<span>(2)</span></th>
+      <td>2023.11.28</td>
+    </tr>
+    <tr>
+      <th><a href="https://soooom.tistory.com/12">GIT - git의 원리 [생활코딩]</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.05.28</td>
+    </tr>
+    <tr>
+      <th><a href="https://soooom.tistory.com/11">GIT - 버전관리의 본질[생활코딩]</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.05.26</td>
+    </tr>
+    <tr>
+      <th><a href="https://soooom.tistory.com/10">GIT - GIT1 입구수업[생활코딩]</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2021.05.20</td>
+    </tr>
+  </tbody></table>
+</div>
+
+<!-- PostListinCategory - END -->
+
+		</div>
+		<div class="area_etc">
+			
+				<dl class="list_tag">
+					<dt>Tag</dt>
+					<dd><a href="https://soooom.tistory.com/tag/Git" rel="tag">Git</a>, <a href="https://soooom.tistory.com/tag/github" rel="tag">github</a>, <a href="https://soooom.tistory.com/tag/Issue" rel="tag">Issue</a>, <a href="https://soooom.tistory.com/tag/label" rel="tag">label</a>, <a href="https://soooom.tistory.com/tag/organization" rel="tag">organization</a>, <a href="https://soooom.tistory.com/tag/pull%20request" rel="tag">pull request</a>, <a href="https://soooom.tistory.com/tag/template" rel="tag">template</a></dd>
+				</dl>
+			
+		</div>
+
+		
+			<div class="area_related">
+				<strong class="tit_related">'CS/Git' Related Articles</strong>
+				<ul class="list_related">
+					
+						<li class="thumb_type">
+							<a href="https://soooom.tistory.com/419?category=947236" class="link_related">
+								
+								<span class="thumb_related">
+									<img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/saved_resource(1)" class="img_related" alt="">
+								</span>
+								
+								<span class="txt_related">Github Organization 프로젝트 세팅하기</span>
+								<span class="date_related">2023.11.28</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+						<li class="thumb_type">
+							<a href="https://soooom.tistory.com/12?category=947236" class="link_related">
+								
+								<span class="thumb_related">
+									<img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/saved_resource(2)" class="img_related" alt="">
+								</span>
+								
+								<span class="txt_related">GIT - git의 원리 [생활코딩]</span>
+								<span class="date_related">2021.05.28</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+						<li class="thumb_type">
+							<a href="https://soooom.tistory.com/11?category=947236" class="link_related">
+								
+								<span class="thumb_related">
+									<img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/saved_resource(3)" class="img_related" alt="">
+								</span>
+								
+								<span class="txt_related">GIT - 버전관리의 본질[생활코딩]</span>
+								<span class="date_related">2021.05.26</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+						<li class="thumb_type">
+							<a href="https://soooom.tistory.com/10?category=947236" class="link_related">
+								
+								<span class="thumb_related">
+									<img src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/saved_resource(4)" class="img_related" alt="">
+								</span>
+								
+								<span class="txt_related">GIT - GIT1 입구수업[생활코딩]</span>
+								<span class="date_related">2021.05.20</span>
+								<span class="frame_related"></span>
+							</a>
+						</li>
+					
+				</ul>
+				<a href="https://soooom.tistory.com/category/CS/Git" class="link_more">more</a>
+			</div>
+		
+
+		<div class="area_reply">
+			<div data-tistory-react-app="Namecard"><div class="tt_box_namecard"><div class="tt_cont"><a class="tt_tit_cont" href="https://soooom.tistory.com/">기록방</a><a class="tt_desc" href="https://soooom.tistory.com/">Soom_1n 님의 블로그입니다.</a><button class="tt_btn_subscribe" data-tiara-action-name="프로필영역 구독 버튼_클릭" data-tiara-copy="구독하기" type="button"><span class="tt_txt_g">구독하기</span><span class="tt_img_area_reply tt_ico_cross"></span></button></div><a class="tt_wrap_thumb" href="https://soooom.tistory.com/"><span class="tt_thumb_g" style="background-image: url(&quot;https://img1.daumcdn.net/thumb/S56x56/?scode=mtistory2&amp;fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F4679019%2Fattach%2Fddd44e997cd64f8c94ae6cfa4e8abc59&quot;);"></span></a></div></div><div id="entry418Comment">
+				<div data-tistory-react-app="Comment"><div class="tt-comment-cont"><div class="tt-box-total"><span class="tt_txt_g">댓글</span><span class="tt_num_g">0</span></div><div class="tt-area-reply"></div><form style="margin: 0px;"><div class="tt-area-write"><div class="tt-box-thumb"><span class="tt-thumbnail" style="background-image: url(&quot;https://img1.daumcdn.net/thumb/C44x44@2x.fwebp.q85/?fname=https%3A%2F%2Ft1.daumcdn.net%2Ftistory_admin%2Fblog%2Fadmin%2Fprofile_default_03.png&quot;);"></span></div><div class="tt_wrap_write"><div class="tt-box-account"><input maxlength="32" placeholder="이름" title="이름" type="text" value=""><input maxlength="12" placeholder="비밀번호" title="비밀번호" type="password" value=""></div><div class="tt-box-textarea"><div class="tt-inner-g"><div class="tt-cmt" contenteditable="true" data-placeholder="내용을 입력하세요."></div></div></div><div class="tt-box-write"><label class="tt-xe-label"><input id="secret" type="checkbox"><span class="tt_img_area_reply tt-xe-input-helper"></span><span class="tt-xe-label-text">비밀글</span></label><button class="tt-btn_register" disabled="" type="submit" data-tiara-action-name="댓글등록_클릭" data-tiara-custom="role=guest&amp;type=comment&amp;secret=false">등록</button></div></div></div></form></div></div>
+
+			</div>
+<script type="text/javascript">loadedComments[418]=true;
+findFragmentAndHighlight(418);</script>
+
+		</div>
+
+
+	
+
+               
+           
+
+					
+
+					
+
+					
+
+					
+
+					
+
+					
+				</div>
+			</div>
+		</div>
+		<hr class="hide">
+		<div id="dkFoot" role="contentinfo" class="area_foot">
+			<small class="info_copyright">
+				Blog is powered by
+				<a href="http://www.kakaocorp.com/" class="emph_t" target="_blank">kakao</a> / Designed by
+				<a href="http://www.tistory.com/" class="emph_t" target="_blank">Tistory</a>
+			</small>
+		</div>
+	</div>
+
+
+
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/script(1).js"></script>
+<div class="#menubar menu_toolbar toolbar_rb">
+  <h2 class="screen_out">티스토리툴바</h2>
+<div class="btn_tool"><button class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="4679019" data-url="https://soooom.tistory.com" data-device="web_pc" data-tiara-copy="구독하기"><strong class="txt_tool_id">기록방</strong><em class="txt_state">구독하기</em><span class="img_common_tistory ico_check_type1"></span></button></div></div>
+<div class="#menubar menu_toolbar "></div>
+<div class="layer_tooltip">
+  <div class="inner_layer_tooltip">
+    <p class="desc_g"></p>
+  </div>
+</div>
+<div id="editEntry" style="position:absolute;width:1px;height:1px;left:-100px;top:-100px"></div>
+
+
+                <!-- DragSearchHandler - START -->
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/search_dragselection.min.js"></script>
+
+<!-- DragSearchHandler - END -->
+
+        <!-- PreventCopyContents - START -->
+        <script type="text/javascript">document.oncontextmenu = new Function ('return false');
+document.ondragstart = new Function ('return false');
+document.onselectstart = new Function ('return false');
+document.body.style.MozUserSelect = 'none';</script>
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/script(2).js"></script>
+
+        <!-- PreventCopyContents - END -->
+
+        <!-- SyntaxHighlight - START -->
+        <link href="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/darcula.min.css" rel="stylesheet"><script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/highlight.min.js"></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/delphi.min.js"></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/php.min.js"></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/python.min.js"></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/r.min.js" defer=""></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/ruby.min.js"></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/scala.min.js" defer=""></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/shell.min.js"></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/sql.min.js"></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/swift.min.js" defer=""></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/typescript.min.js" defer=""></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/vbnet.min.js" defer=""></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+
+        <!-- SyntaxHighlight - END -->
+
+                
+                <div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/common.js"></script>
+<script type="text/javascript">window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: '{tistory}'}]</script>
+<script type="text/javascript" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/roosevelt_dk_bt.js" async="async"></script>
+
+                
+                <script>window.tiara = {"svcDomain":"user.tistory.com","section":"글뷰","trackPage":"글뷰_보기","page":"글뷰","key":"4679019-418","customProps":{"userId":"0","blogId":"4679019","entryId":"418","role":"guest","trackPage":"글뷰_보기","filterTarget":false},"entry":{"entryId":"418","entryTitle":"Github 이슈, PR 템플릿 및 label 간단 복사 방법","entryType":"POST","categoryName":"CS/Git","categoryId":"947236","serviceCategoryName":"IT 인터넷","serviceCategoryId":401,"author":"4859047","authorNickname":"Soom_1n","blogNmae":"기록방","image":"kage@bCzZrR/btsA4cpOUEz/JPb7saZBoiMIHPfIKDMLQk","plink":"/418","tags":["Git","github","Issue","label","organization","pull request","template"]},"kakaoAppKey":"3e6ddd834b023f24221217e370daed18","appUserId":"null"}</script>
+<script type="module" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/index(1).js"></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/polyfills-legacy(1).js" nomodule="true" defer="true"></script>
+<script src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/index-legacy(1).js" nomodule="true" defer="true"></script>
+
+                
+
+
+<ins class="adsbygoogle adsbygoogle-noablate" data-adsbygoogle-status="done" style="display: none !important;" data-ad-status="unfilled"><div id="aswift_0_host" style="border: none; height: 0px; width: 0px; margin: 0px; padding: 0px; position: relative; visibility: visible; background-color: transparent; display: inline-block;"><iframe id="aswift_0" name="aswift_0" browsingtopics="true" style="left:0;position:absolute;top:0;border:0;width:undefinedpx;height:undefinedpx;min-height:auto;max-height:none;min-width:auto;max-width:none;" sandbox="allow-forms allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts allow-top-navigation-by-user-activation" frameborder="0" marginwidth="0" marginheight="0" vspace="0" hspace="0" allowtransparency="true" scrolling="no" allow="attribution-reporting; run-ad-auction" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/ads.html" data-google-container-id="a!1" tabindex="0" title="Advertisement" aria-label="Advertisement" data-load-complete="true"></iframe></div></ins><div id="__phocus__" class="__phocus__" tabindex="-1"></div><div id="shortcutLayer" class="doc_help" style="display: none;"><button class="btn_doc_close">닫기</button>
+  <h2 class="title">단축키</h2>
+  <div class="content mac_platform">
+    <div class="container">
+      <h3 class="item_title">내 블로그</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>내 블로그 - 관리자 홈 전환</th>
+      <td>
+        <div class="pc">
+          <kbd>Q</kbd>
+        </div>
+        <div class="mac">
+          <kbd>Q</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>새 글 쓰기</th>
+      <td>
+        <div class="pc">
+          <kbd>W</kbd>
+        </div>
+        <div class="mac">
+          <kbd>W</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+      <h3 class="item_title">블로그 게시글</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>글 수정 (권한 있는 경우)</th>
+      <td>
+        <div class="pc">
+          <kbd>E</kbd>
+        </div>
+        <div class="mac">
+          <kbd>E</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>댓글 영역으로 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>C</kbd>
+        </div>
+        <div class="mac">
+          <kbd>C</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <h3 class="item_title">모든 영역</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>이 페이지의 URL 복사</th>
+      <td>
+        <div class="pc">
+          <kbd>S</kbd>
+        </div>
+        <div class="mac">
+          <kbd>S</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>맨 위로 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>T</kbd>
+        </div>
+        <div class="mac">
+          <kbd>T</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>티스토리 홈 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>H</kbd>
+        </div>
+        <div class="mac">
+          <kbd>H</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>단축키 안내</th>
+      <td>
+        <div class="pc">
+          <kbd>Shift</kbd> + <kbd>/</kbd>
+        </div>
+        <div class="mac">
+          <kbd>⇧</kbd> + <kbd>/</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="info">* 단축키는 한글/영문 대소문자로 이용 가능하며, 티스토리 기본 도메인에서만 동작합니다.</p>
+  </div><iframe src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/aframe.html" width="0" height="0" style="display: none;"></iframe><fencedframe id="ps_caff" style="display: none;"></fencedframe></body><iframe id="google_esf" name="google_esf" src="./Github 이슈, PR 템플릿 및 label 간단 복사 방법_files/zrt_lookup_fy2021.html" style="display: none;"></iframe></html>

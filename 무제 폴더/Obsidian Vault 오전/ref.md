@@ -1,0 +1,102 @@
+- https://velog.io/@jhchoi94/Git-GitLab-flow
+- https://developers.worksmobile.com/kr/docs/introduction
+- https://developers.worksmobile.com/kr/docs/developer-console
+- https://developers.worksmobile.com/kr/docs/bot/
+- https://developers.worksmobile.com/kr/docs/bot-api
+- https://help.worksmobile.com/ko/admin-guides/manage-service/bot/
+- https://developers.worksmobile.com/kr/docs/bot-send-content
+- https://developers.worksmobile.com/kr/docs/bot-send-link
+- https://m.kin.naver.com/qna/dirs/1040206/docs/389616135?answerNo=1
+- https://m.blog.naver.com/PostView.naver?blogId=dreamyoungs_inc&logNo=222946558854&proxyReferer=&noTrackingCode=true
+- https://css-tricks.com/the-gap-strikes-back-now-stylable/
+- https://naver.worksmobile.com/naver-works-function-list/admin/
+- https://help.wantedspace.ai/hc/ko/articles/15265219653529-%EB%84%A4%EC%9D%B4%EB%B2%84%EC%9B%8D%EC%8A%A4-%EC%97%B0%EB%8F%99%EC%9C%BC%EB%A1%9C-%EB%8D%94-%ED%8E%B8%ED%95%98%EA%B2%8C-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0
+- https://naver.worksmobile.com/whats-new/workplace-user-notice/change-in-screen/admin/
+- https://naver.worksmobile.com/whats-new/notice/works-admin-console/overview/
+- https://naver.worksmobile.com/ebook/
+- https://naver.worksmobile.com/products/naver-works/
+- naverworks rss
+	- https://naver.worksmobile.com/notice/38538/
+	- [Admin] 대시보드에서 RSS로 알림 받는 기능 제공
+	- **■ 서비스 상태 RSS 기능 추가**: 서비스 상태에 RSS 기능을 추가하여, RSS를 설정한 경우 업데이트 사항이 있을 때 알림을 받을 수 있도록 개선되었습니다. 
+	- ※ RSS 기능을 설정한 경우에만 알림을 받을 수 있습니다.
+- 네카라쿠배 당토 직야 몰두센 마에그원: https://devmoney.tistory.com/344
+- 모니터링 스카우터
+	- https://github.com/scouter-project/scouter
+	- https://velog.io/@viewrain/Scouter-%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81-%EC%8B%9C%EC%8A%A4%ED%85%9C
+	- https://syhwang.tistory.com/100
+	- https://developercc.tistory.com/30
+	- https://sbslc.tistory.com/59
+	- https://12bme.tistory.com/396
+	- https://scouter-contrib.github.io/scouter-paper/manual.html
+	- https://github.com/scouter-project/scouter/blob/master/scouter.document/main/Setup_kr.md
+	- https://gunsdevlog.blogspot.com/
+	- https://github.com/scouter-contrib/scouter-paper/blob/master/README_kr.md
+	- https://github.com/scouter-contrib/scouter-paper/tree/master
+	- https://hackjsp.tistory.com/59
+	- https://hackjsp.tistory.com/80
+	- https://m.blog.naver.com/wasgosu-2010/222349478569
+	- https://onestone-note.tistory.com/111
+	- https://velog.io/@borab/Scouter-paper-%EC%84%A4%EC%B9%98
+	- https://lilo.tistory.com/113
+	- https://github.com/scouter-contrib/scouter-paper/releases
+	- https://github.com/scouter-project/scouter/blob/master/scouter.document/client/Reading-XLog_kr.md
+	- https://gunsdevlog.blogspot.com/2018/04/scouter-web-ui-paper.html
+	- https://www.cubrid.com/blog/3834533
+	- 
+	- https://github.com/scouter-project/scouter
+	- https://github.com/scouter-project
+	- https://github.com/scouter-contrib/scouter-paper
+	- https://scouter-contrib.github.io/scouter-paper/
+- 개발 트렌드 센싱 - 국내외 테크블로그, RSS 피드
+	- https://jyha81.medium.com/%EA%B8%B0%EC%88%A0-%EB%B8%94%EB%A1%9C%EA%B7%B8-rss-%EC%A0%95%EB%A6%AC-281525403dad
+	- https://dev.gmarket.com/118
+	- https://heyjihye.com/blog/rss-feed/
+	- https://student513.tistory.com/89
+	- https://heyjihye.com/blog/rss-feed/
+	- https://velog.io/@hadooboo/%ED%8C%80-%EA%B0%9C%EB%B0%9C-%EB%AC%B8%ED%99%94-%EB%B0%9C%EC%A0%84%EC%8B%9C%ED%82%A4%EA%B8%B0-RSS-%ED%94%BC%EB%93%9C%EB%A5%BC-%ED%86%B5%ED%95%9C-IT-%EB%A7%A4%EC%B2%B4-%EA%B5%AC%EB%8F%85-Slack-App-%EC%97%B0%EB%8F%99
+	- https://ray5273.tistory.com/entry/%EA%B0%9C%EB%B0%9C-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%84%BC%EC%8B%B1-%EA%B5%AD%EB%82%B4%EC%99%B8-%ED%85%8C%ED%81%AC%EB%B8%94%EB%A1%9C%EA%B7%B8-RSS-%ED%94%BC%EB%93%9C
+	- https://velog.io/@hyungjungson/230111-%EA%B0%9C%EB%B0%9C%EC%9D%BC%EC%A7%80-TIL
+	- https://feeds.feedburner.com/geeknews-feed
+	- https://status.openai.com/history.rss
+	- https://pypi.org/project/feedparser/
+	- https://techblog.lycorp.co.jp/ko
+	- https://medium.com/musinsa-tech
+	- https://d2.naver.com/home
+	- https://techblog.woowahan.com/
+	- https://medium.com/coupang-engineering/kr/home
+	- https://medium.com/daangn
+	- https://blog.banksalad.com/
+	- https://github.blog/
+	- https://developers.googleblog.com/
+	- https://www.linkedin.com/blog/engineering
+	- https://dropbox.tech/developers
+	- https://techcommunity.microsoft.com/t5/custom/page/page-id/Blogs
+	- https://engineering.fb.com/
+	- https://netflixtechblog.com/
+	- https://blog.x.com/engineering/en_us#
+	- https://slack.engineering/
+	- https://couplewith.tistory.com/462
+	- https://couplewith.tistory.com/476
+	- https://helloworld.kurly.com/
+	- https://tech.kakaoenterprise.com/
+	- https://tech.devsisters.com/
+	- https://engineering.linecorp.com/
+	- https://toss.tech/
+	- https://medium.com/zigbang
+	- https://medium.com/watcha
+	- https://hyperconnect.github.io/
+	- https://techblog.yogiyo.co.kr/
+	- https://tech.socarcorp.kr/
+	- https://www.ridicorp.com/story-category/tech-blog/
+	- https://meetup.toast.com/
+	- https://news.hada.io/
+	- https://velog.io/
+	- https://blog.gaerae.com/
+	- https://www.44bits.io/ko
+	- https://news.hada.io/
+	- https://ray5273.tistory.com/entry/%EA%B0%9C%EB%B0%9C-%ED%8A%B8%EB%A0%8C%EB%93%9C-%EC%84%BC%EC%8B%B1-%EA%B5%AD%EB%82%B4%EC%99%B8-%ED%85%8C%ED%81%AC%EB%B8%94%EB%A1%9C%EA%B7%B8-RSS-%ED%94%BC%EB%93%9C
+	- https://techblog.woowahan.com/feed/
+	- https://www.apple.com/newsroom/
+	- https://feeder.co/discover/36594f8e3b/medium-com-zigbang-source-rss-2f055286701b-4
+	- https://taking.kr/korea-it-technology-blog-list-with-rss/

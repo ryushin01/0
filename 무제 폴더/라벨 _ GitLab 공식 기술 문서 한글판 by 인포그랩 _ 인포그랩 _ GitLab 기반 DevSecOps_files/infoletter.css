@@ -1,0 +1,203 @@
+.landing-infoletter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-weight: 700;
+  height: 300px;
+  word-break: keep-all;
+  color: #ffffff;
+  padding: 0 var(--ifm-spacing-horizontal);
+  background-image: url("https://cdn.infograb.io/public/gitlab-docs/infolettercover.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  width: 1140px;
+  margin: 0 auto;
+  /* input box color */
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  /* Edge */
+}
+.landing-infoletter input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #fff inset;
+  -webkit-text-fill-color: #000;
+}
+.landing-infoletter input:-webkit-autofill,
+.landing-infoletter input:-webkit-autofill:hover,
+.landing-infoletter input:-webkit-autofill:focus,
+.landing-infoletter input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+.landing-infoletter input[type=checkbox] {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  border: 1px solid #9b9b9b;
+  appearance: none;
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 4px;
+}
+.landing-infoletter input[type=checkbox]:checked {
+  background: #059669;
+  border: none;
+  appearance: none;
+  background: url("https://cdn.infograb.io/public/gitlab-docs/checked.svg") no-repeat 0 0/contain;
+}
+.landing-infoletter input[type=checkbox]:disabled {
+  background: var(--ifm-color-disabled);
+  border: none;
+  appearance: none;
+}
+.landing-infoletter input[type=checkbox]:disabled:checked {
+  background: var(--ifm-color-disabled);
+  border: none;
+  appearance: none;
+  background: url("https://cdn.infograb.io/public/gitlab-docs/checked-disabled.svg") no-repeat 0 0/contain;
+}
+.landing-infoletter .mainTitle {
+  text-align: center;
+  font-family: "Pretendard", sans-serif;
+  color: #404040;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 32px;
+  margin-bottom: 16px;
+}
+.landing-infoletter .subscribeWrapper {
+  width: 100%;
+  margin-top: 4px;
+}
+.landing-infoletter .submitForm {
+  display: flex;
+  justify-content: center;
+  justify-content: space-between;
+  margin: 4px auto 0;
+  width: 500px;
+}
+.landing-infoletter .stb_form {
+  flex: 1;
+  margin-bottom: 8px;
+}
+.landing-infoletter .formFieldGroup {
+  clear: left;
+  position: relative;
+  width: 100%;
+  margin-bottom: 12px;
+  min-height: 50px;
+}
+.landing-infoletter .formFieldGroup label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 16px;
+  font-weight: 600;
+}
+.landing-infoletter .formFieldGroup input::placeholder {
+  color: #404040;
+  font-size: 15px;
+  font-weight: 300;
+  font-family: "Pretendard", sans-serif;
+}
+.landing-infoletter .formFieldGroup input:focus {
+  border-color: #afb1b6;
+}
+.landing-infoletter .formFieldGroup input:focus::placeholder {
+  color: transparent;
+}
+.landing-infoletter .formFieldGroup input:focus::-ms-input-placeholder {
+  color: transparent;
+}
+.landing-infoletter .checkbox {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  width: fit-content;
+  color: #000;
+}
+.landing-infoletter .checkbox_label {
+  flex: 1;
+  margin-left: 8px;
+}
+.landing-infoletter .errorInputForm {
+  display: block;
+  padding: 12px 20px;
+  border: none;
+  border-color: red;
+  outline: 1px solid #ff515b !important;
+  border-radius: 8px;
+  background: #ffffff;
+  width: 100%;
+  height: 48px;
+  color: #404040;
+  font-size: 15px;
+  font-weight: 400 !important;
+  font-family: "Pretendard", sans-serif;
+}
+.landing-infoletter .defaultInputForm {
+  display: block;
+  padding: 12px 20px;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  background: #ffffff;
+  width: 100%;
+  height: 48px;
+  color: #404040;
+  font-size: 15px;
+  font-weight: 400 !important;
+  font-family: "Pretendard", sans-serif;
+}
+.landing-infoletter input:focus {
+  outline: none;
+}
+.landing-infoletter .stb_form_msg_error {
+  color: #ff515b;
+  font-size: 12px;
+  margin: 6px 0 0;
+  font-weight: 700;
+  line-height: 20px;
+  text-align: left;
+}
+.landing-infoletter .asterisk {
+  color: #ff515b;
+  font-weight: normal;
+}
+.landing-infoletter .policyLink {
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: 400;
+}
+.landing-infoletter .submitBtn {
+  white-space: nowrap;
+  margin-left: 12px;
+  padding: 13px 16px;
+  height: 48px;
+  border-radius: 7px;
+  line-height: 1 !important;
+}
+
+@media (max-width: 996px) {
+  .landing-infoletter {
+    width: auto;
+    background-image: none;
+  }
+  .submitForm {
+    display: flex;
+    flex-direction: column;
+  }
+  .submitBtn {
+    margin-top: 12px;
+    line-height: 1 !important;
+    margin: 0 auto !important;
+    width: fit-content;
+  }
+}
+@media (max-width: 550px) {
+  .submitForm {
+    width: 100% !important;
+  }
+}
+
+/*# sourceMappingURL=infoletter.css.map */

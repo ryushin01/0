@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://hackjsp.tistory.com/59 -->
+<html class="scroll-smooth dark" id="hELLO" x-data="{ dark: TTDARK, loading: true }" x-init="setTimeout(() =&gt; loading = false, 100)" lang="ko" data-phocus-theme="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+                <script type="text/javascript">if (!window.T) { window.T = {} }
+window.T.config = {"TOP_SSL_URL":"https://www.tistory.com","PREVIEW":false,"ROLE":"guest","PREV_PAGE":"","NEXT_PAGE":"","BLOG":{"id":2740303,"name":"hackjsp","title":"장성필 기술블로그","isDormancy":false,"nickName":"장성필(hackjap)","status":"open","profileStatus":"normal"},"NEED_COMMENT_LOGIN":false,"COMMENT_LOGIN_CONFIRM_MESSAGE":"","LOGIN_URL":"https://www.tistory.com/auth/login/?redirectUrl=https://hackjsp.tistory.com/59","DEFAULT_URL":"https://hackjsp.tistory.com","USER":{"name":null,"homepage":null,"id":0,"profileImage":null},"SUBSCRIPTION":{"status":"none","isConnected":false,"isPending":false,"isWait":false,"isProcessing":false,"isNone":true},"IS_LOGIN":false,"HAS_BLOG":false,"IS_SUPPORT":false,"IS_SCRAPABLE":false,"TOP_URL":"http://www.tistory.com","JOIN_URL":"https://www.tistory.com/member/join","PHASE":"prod","ROLE_GROUP":"visitor"};
+window.T.entryInfo = {"entryId":59,"isAuthor":false,"categoryId":1253269,"categoryLabel":"Infrastructure"};
+window.appInfo = {"domain":"tistory.com","topUrl":"https://www.tistory.com","loginUrl":"https://www.tistory.com/auth/login","logoutUrl":"https://www.tistory.com/auth/logout"};
+window.initData = {};
+
+window.TistoryBlog = {
+    basePath: "",
+    url: "https://hackjsp.tistory.com",
+    tistoryUrl: "https://hackjsp.tistory.com",
+    manageUrl: "https://hackjsp.tistory.com/manage",
+    token: "17L4VOJEUbyNvXMIwTQZyr8b33bWaIKctVEhrmrmUX2OOFF0mIEpn7hGBP3s/LTl"
+};
+var servicePath = "";
+var blogURL = "";</script>
+
+                
+                
+                
+                        <!-- BusinessLicenseInfo - START -->
+        
+            <link href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/style.css" rel="stylesheet" type="text/css">
+
+            <script>function switchFold(entryId) {
+    var businessLayer = document.getElementById("businessInfoLayer_" + entryId);
+
+    if (businessLayer) {
+        if (businessLayer.className.indexOf("unfold_license") > 0) {
+            businessLayer.className = "business_license_layer";
+        } else {
+            businessLayer.className = "business_license_layer unfold_license";
+        }
+    }
+}
+</script>
+
+        
+        <!-- BusinessLicenseInfo - END -->
+        <!-- DaumShow - START -->
+        <style type="text/css">#daumSearchBox {
+    height: 21px;
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bg_search2_2.gif);
+    margin: 5px auto;
+    padding: 0;
+}
+
+#daumSearchBox input {
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+#daumSearchBox #daumLogo {
+    width: 34px;
+    height: 21px;
+    float: left;
+    margin-right: 5px;
+    background-image: url(//i1.daumcdn.net/img-media/tistory/img/bg_search1_2_2010ci.gif);
+}
+
+#daumSearchBox #show_q {
+    background-color: transparent;
+    border: none;
+    font: 12px Gulim, Sans-serif;
+    color: #555;
+    margin-top: 4px;
+    margin-right: 15px;
+    float: left;
+}
+
+#daumSearchBox #show_btn {
+    background-image: url(//i1.daumcdn.net/imgsrc.search/search_all/show/tistory/plugin/bt_search_2.gif);
+    width: 37px;
+    height: 21px;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+    text-indent: -1000em;
+}
+</style>
+
+        <!-- DaumShow - END -->
+
+<!-- System - START -->
+
+<!-- System - END -->
+
+        <!-- GoogleSearchConsole - START -->
+        
+<!-- BEGIN GOOGLE_SITE_VERIFICATION -->
+<meta name="google-site-verification" content="M6Cz_5m-QvZgwwedfqLci_FHflZ0-qaNBKUUkB3CgvI">
+<!-- END GOOGLE_SITE_VERIFICATION -->
+
+        <!-- GoogleSearchConsole - END -->
+
+        <!-- TistoryProfileLayer - START -->
+        <link href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/style(1).css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/script.js"></script>
+
+        <!-- TistoryProfileLayer - END -->
+
+                
+                <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="format-detection" content="telephone=no">
+<script src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/tiara.min.js"></script><meta name="referrer" content="always">
+<meta name="google-adsense-platform-account" content="ca-host-pub-9691043933427338">
+<meta name="google-adsense-platform-domain" content="tistory.com">
+<meta name="description" content="Scouter 란?사내에서 사용할 APM(Application Performance Management) 애플리케이션 성능 관리 도구를 사용하기 위해 찾아보다가 LG CNS에서 개발한 오픈소스 APM Scouter에 대해 검증해 보기로 했다. Scouter는 주로 Java 기반의 웹 애플리케이션을 모니터링하는 데 강점을 가지고 있지만, 다른 시스템 및 언어와도 통합할 수 있다고 한다.  Scouter의 구성은 Collertor 서버가 Agent를 통해서 각 클라이언트의 정보를 수집하는 방식이다. Scouter 설치 환경 정보 OS : Linux Scouter 버전 : 2.15.0사전 준비버전에 맞는 scouterl 패키지를 다운로드하고 압축을 해제합니다.# scouter-all 릴리즈 다운로드wget h..">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://hackjsp.tistory.com/59">
+<meta property="og.article.author" content="장성필(hackjap)">
+<meta property="og:site_name" content="장성필 기술블로그">
+<meta property="og:title" content="Scouter APM 설치 및 기본 사용 + Scouter-Paper">
+<meta name="by" content="장성필(hackjap)">
+<meta property="og:description" content="Scouter 란?사내에서 사용할 APM(Application Performance Management) 애플리케이션 성능 관리 도구를 사용하기 위해 찾아보다가 LG CNS에서 개발한 오픈소스 APM Scouter에 대해 검증해 보기로 했다. Scouter는 주로 Java 기반의 웹 애플리케이션을 모니터링하는 데 강점을 가지고 있지만, 다른 시스템 및 언어와도 통합할 수 있다고 한다.  Scouter의 구성은 Collertor 서버가 Agent를 통해서 각 클라이언트의 정보를 수집하는 방식이다. Scouter 설치 환경 정보 OS : Linux Scouter 버전 : 2.15.0사전 준비버전에 맞는 scouterl 패키지를 다운로드하고 압축을 해제합니다.# scouter-all 릴리즈 다운로드wget h..">
+<meta property="og:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeeDVgE%2FbtsI3g0L05U%2FAAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJBMJQmvtEhZS%252FISmS0dlR1OcUcU%253D">
+<meta property="article:section" content="&#39;IT 인터넷&#39;">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@TISTORY">
+<meta name="twitter:title" content="Scouter APM 설치 및 기본 사용 + Scouter-Paper">
+<meta name="twitter:description" content="Scouter 란?사내에서 사용할 APM(Application Performance Management) 애플리케이션 성능 관리 도구를 사용하기 위해 찾아보다가 LG CNS에서 개발한 오픈소스 APM Scouter에 대해 검증해 보기로 했다. Scouter는 주로 Java 기반의 웹 애플리케이션을 모니터링하는 데 강점을 가지고 있지만, 다른 시스템 및 언어와도 통합할 수 있다고 한다.  Scouter의 구성은 Collertor 서버가 Agent를 통해서 각 클라이언트의 정보를 수집하는 방식이다. Scouter 설치 환경 정보 OS : Linux Scouter 버전 : 2.15.0사전 준비버전에 맞는 scouterl 패키지를 다운로드하고 압축을 해제합니다.# scouter-all 릴리즈 다운로드wget h..">
+<meta property="twitter:image" content="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeeDVgE%2FbtsI3g0L05U%2FAAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJBMJQmvtEhZS%252FISmS0dlR1OcUcU%253D">
+<meta content="https://hackjsp.tistory.com/59" property="dg:plink">
+<meta name="plink">
+<meta name="title" content="Scouter APM 설치 및 기본 사용 + Scouter-Paper">
+<meta name="article:media_name" content="장성필 기술블로그">
+<meta property="article:mobile_url" content="https://hackjsp.tistory.com/m/59">
+<meta property="article:pc_url" content="https://hackjsp.tistory.com/59">
+<meta property="article:mobile_view_url" content="https://hackjsp.tistory.com/m/59">
+<meta property="article:pc_view_url" content="https://hackjsp.tistory.com/59">
+<meta property="article:talk_channel_view_url" content="https://hackjsp.tistory.com/m/59">
+<meta property="article:pc_service_home" content="https://www.tistory.com">
+<meta property="article:mobile_service_home" content="https://www.tistory.com/m">
+<meta property="article:txid" content="2740303_59">
+<meta property="article:published_time" content="2024-08-14T17:57:39+09:00">
+<meta property="og:regDate" content="20240814055739">
+<meta property="article:modified_time" content="2024-09-14T00:47:40+09:00">
+<script type="module" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/index.js" defer=""></script>
+<script type="text/javascript" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/index-legacy.js" defer="" nomodule="true"></script>
+<script type="text/javascript" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/polyfills-legacy.js" defer="" nomodule="true"></script>
+<link rel="icon" sizes="any" href="https://t1.daumcdn.net/tistory_admin/favicon/tistory_favicon_32x32.ico">
+<link rel="icon" type="image/svg+xml" href="https://t1.daumcdn.net/tistory_admin/top_v2/bi-tistory-favicon.svg">
+<link rel="apple-touch-icon" href="https://t1.daumcdn.net/tistory_admin/top_v2/tistory-apple-touch-favicon.png">
+<link rel="stylesheet" type="text/css" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/font.css">
+<link rel="stylesheet" type="text/css" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/content.css">
+<link rel="stylesheet" type="text/css" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/index.css">
+<link rel="stylesheet" type="text/css" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/uselessPMargin.css">
+<script type="text/javascript">(function() {
+    var tjQuery = jQuery.noConflict(true);
+    window.tjQuery = tjQuery;
+    window.orgjQuery = window.jQuery; window.jQuery = tjQuery;
+    window.jQuery = window.orgjQuery; delete window.orgjQuery;
+})()</script>
+<script type="text/javascript" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/base.js"></script>
+<script type="text/javascript" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/kakao.min.js"></script>
+
+                
+    <meta name="google-site-verification" content="M6Cz_5m-QvZgwwedfqLci_FHflZ0-qaNBKUUkB3CgvI">
+    
+    <meta name="viewport" content="width=device-width">
+    <title>Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그</title>
+    <link rel="alternate" type="application/rss+xml" title="장성필 기술블로그" href="https://hackjsp.tistory.com/rss">
+    <link rel="stylesheet" :href="&quot;//cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css&quot;" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/SUIT.css">
+    <link rel="stylesheet" :href="&quot;//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css&quot;" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/all.min.css">
+    <link rel="stylesheet" :href="&quot;//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css&quot;" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/d2coding-subset.css">
+    <link rel="stylesheet" :href="`//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/${dark ? skinOptions.hljsDark : skinOptions.hljs}.min.css`" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/vs2015.min.css">
+    <style>
+      :root {
+        --h-width: 860px;
+      }
+    </style>
+    <script>
+      window.skinOptions = {
+        sidebar: '1',
+        foldableCategory: '1',
+        foldableReply: '1',
+        width: '860',
+        toc: '1',
+        scrollspy: '1',
+        hljs: 'xcode',
+        hljsDark: 'vs2015'
+      }
+    </script>
+    <script>
+      if (!('TTDARK' in localStorage)) {
+        localStorage.TTDARK = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'Y' : 'N'
+      }
+
+      window.TTDARK = localStorage.TTDARK === 'Y'
+
+      document.documentElement.classList.toggle('dark', TTDARK)
+    </script>
+    <script defer="" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/vendor.0ef4f513e09155b0841e.js"></script>
+    <script defer="" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/app.0ef4f513e09155b0841e.js"></script>
+    <link rel="stylesheet" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/style(2).css">
+    <script defer="" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/script.x3yyknDzUqGoYAzSGw3R.js"></script>
+    
+  <!--Syntax Highlighter-->
+  <script src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/highlight.min.js"></script>
+  <link rel="stylesheet" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/vs2015(1).min.css">
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script type="text/javascript">
+  if ( window.location.pathname == '/' ) {
+      location.href = 'https://hackjsp.tistory.com/category';
+  }
+  </script>
+  
+                
+                
+                <style type="text/css">.another_category {
+    border: 1px solid #E5E5E5;
+    padding: 10px 10px 5px;
+    margin: 10px 0;
+    clear: both;
+}
+
+.another_category h4 {
+    font-size: 12px !important;
+    margin: 0 !important;
+    border-bottom: 1px solid #E5E5E5 !important;
+    padding: 2px 0 6px !important;
+}
+
+.another_category h4 a {
+    font-weight: bold !important;
+}
+
+.another_category table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    width: 100% !important;
+    margin-top: 10px !important;
+}
+
+* html .another_category table {
+    width: auto !important;
+}
+
+*:first-child + html .another_category table {
+    width: auto !important;
+}
+
+.another_category th, .another_category td {
+    padding: 0 0 4px !important;
+}
+
+.another_category th {
+    text-align: left;
+    font-size: 12px !important;
+    font-weight: normal;
+    word-break: break-all;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.another_category td {
+    text-align: right;
+    width: 80px;
+    font-size: 11px;
+}
+
+.another_category th a {
+    font-weight: normal;
+    text-decoration: none;
+    border: none !important;
+}
+
+.another_category th a.current {
+    font-weight: bold;
+    text-decoration: none !important;
+    border-bottom: 1px solid !important;
+}
+
+.another_category th span {
+    font-weight: normal;
+    text-decoration: none;
+    font: 10px Tahoma, Sans-serif;
+    border: none !important;
+}
+
+.another_category_color_gray, .another_category_color_gray h4 {
+    border-color: #E5E5E5 !important;
+}
+
+.another_category_color_gray * {
+    color: #909090 !important;
+}
+
+.another_category_color_gray th a.current {
+    border-color: #909090 !important;
+}
+
+.another_category_color_gray h4, .another_category_color_gray h4 a {
+    color: #737373 !important;
+}
+
+.another_category_color_red, .another_category_color_red h4 {
+    border-color: #F6D4D3 !important;
+}
+
+.another_category_color_red * {
+    color: #E86869 !important;
+}
+
+.another_category_color_red th a.current {
+    border-color: #E86869 !important;
+}
+
+.another_category_color_red h4, .another_category_color_red h4 a {
+    color: #ED0908 !important;
+}
+
+.another_category_color_green, .another_category_color_green h4 {
+    border-color: #CCE7C8 !important;
+}
+
+.another_category_color_green * {
+    color: #64C05B !important;
+}
+
+.another_category_color_green th a.current {
+    border-color: #64C05B !important;
+}
+
+.another_category_color_green h4, .another_category_color_green h4 a {
+    color: #3EA731 !important;
+}
+
+.another_category_color_blue, .another_category_color_blue h4 {
+    border-color: #C8DAF2 !important;
+}
+
+.another_category_color_blue * {
+    color: #477FD6 !important;
+}
+
+.another_category_color_blue th a.current {
+    border-color: #477FD6 !important;
+}
+
+.another_category_color_blue h4, .another_category_color_blue h4 a {
+    color: #1960CA !important;
+}
+
+.another_category_color_violet, .another_category_color_violet h4 {
+    border-color: #E1CEEC !important;
+}
+
+.another_category_color_violet * {
+    color: #9D64C5 !important;
+}
+
+.another_category_color_violet th a.current {
+    border-color: #9D64C5 !important;
+}
+
+.another_category_color_violet h4, .another_category_color_violet h4 a {
+    color: #7E2CB5 !important;
+}
+</style>
+
+                
+                <link rel="stylesheet" type="text/css" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/revenue.css">
+<link rel="canonical" href="https://hackjsp.tistory.com/59">
+
+<!-- BEGIN STRUCTURED_DATA -->
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"BlogPosting","mainEntityOfPage":{"@id":"https://hackjsp.tistory.com/59","name":null},"url":"https://hackjsp.tistory.com/59","headline":"Scouter APM 설치 및 기본 사용 + Scouter-Paper","description":"Scouter 란?사내에서 사용할 APM(Application Performance Management) 애플리케이션 성능 관리 도구를 사용하기 위해 찾아보다가 LG CNS에서 개발한 오픈소스 APM Scouter에 대해 검증해 보기로 했다.&nbsp;Scouter는 주로 Java 기반의 웹 애플리케이션을 모니터링하는 데 강점을 가지고 있지만, 다른 시스템 및 언어와도 통합할 수 있다고 한다.&nbsp;&nbsp;Scouter의 구성은 Collertor 서버가 Agent를 통해서 각 클라이언트의 정보를 수집하는 방식이다.&nbsp;Scouter 설치&nbsp;환경 정보&nbsp;OS : Linux&nbsp;Scouter 버전 : 2.15.0사전 준비버전에 맞는 scouterl 패키지를 다운로드하고 압축을 해제합니다.# scouter-all 릴리즈 다운로드wget h..","author":{"@type":"Person","name":"장성필(hackjap)","logo":null},"image":{"@type":"ImageObject","url":"https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeeDVgE%2FbtsI3g0L05U%2FAAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJBMJQmvtEhZS%252FISmS0dlR1OcUcU%253D","width":"800px","height":"800px"},"datePublished":"2024-08-14T17:57:39+09:00","dateModified":"2024-09-14T00:47:40+09:00","publisher":{"@type":"Organization","name":"TISTORY","logo":{"@type":"ImageObject","url":"https://t1.daumcdn.net/tistory_admin/static/images/openGraph/opengraph.png","width":"800px","height":"800px"}}}
+</script>
+<!-- END STRUCTURED_DATA -->
+<link rel="stylesheet" type="text/css" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/dialog.css">
+<link rel="stylesheet" type="text/css" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/font(1).css">
+<link rel="stylesheet" type="text/css" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/postBtn.css">
+<link rel="stylesheet" type="text/css" href="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/tistory.css">
+<script type="text/javascript" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/common.js"></script>
+
+                
+                <style type="text/css">#DragSchLayer{display:block;position:absolute;z-index:1000;width:61px;height:31px;margin:-30px 0px 0px -5px;background:url(//search1.daumcdn.net/search/statics/common/pi/btn_drag_rect.png);cursor:pointer}             @media             only screen and (-webkit-min-device-pixel-ratio: 1.5),             only screen and (min-device-pixel-ratio: 1.5),             only screen and (min-resolution: 1.5dppx) {             #DragSchLayer{background-image:url(//search1.daumcdn.net/search/statics/common/pi/r2/btn_drag_rect.png);background-size:61px 31px}}            </style><style>/**
+ * Swiper 8.4.5
+ * Most modern mobile touch slider and framework with hardware accelerated transitions
+ * https://swiperjs.com
+ *
+ * Copyright 2014-2022 Vladimir Kharlampidi
+ *
+ * Released under the MIT License
+ *
+ * Released on: November 21, 2022
+ */
+
+@font-face{font-family:swiper-icons;src:url('data:application/font-woff;charset=utf-8;base64, d09GRgABAAAAAAZgABAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABGRlRNAAAGRAAAABoAAAAci6qHkUdERUYAAAWgAAAAIwAAACQAYABXR1BPUwAABhQAAAAuAAAANuAY7+xHU1VCAAAFxAAAAFAAAABm2fPczU9TLzIAAAHcAAAASgAAAGBP9V5RY21hcAAAAkQAAACIAAABYt6F0cBjdnQgAAACzAAAAAQAAAAEABEBRGdhc3AAAAWYAAAACAAAAAj//wADZ2x5ZgAAAywAAADMAAAD2MHtryVoZWFkAAABbAAAADAAAAA2E2+eoWhoZWEAAAGcAAAAHwAAACQC9gDzaG10eAAAAigAAAAZAAAArgJkABFsb2NhAAAC0AAAAFoAAABaFQAUGG1heHAAAAG8AAAAHwAAACAAcABAbmFtZQAAA/gAAAE5AAACXvFdBwlwb3N0AAAFNAAAAGIAAACE5s74hXjaY2BkYGAAYpf5Hu/j+W2+MnAzMYDAzaX6QjD6/4//Bxj5GA8AuRwMYGkAPywL13jaY2BkYGA88P8Agx4j+/8fQDYfA1AEBWgDAIB2BOoAeNpjYGRgYNBh4GdgYgABEMnIABJzYNADCQAACWgAsQB42mNgYfzCOIGBlYGB0YcxjYGBwR1Kf2WQZGhhYGBiYGVmgAFGBiQQkOaawtDAoMBQxXjg/wEGPcYDDA4wNUA2CCgwsAAAO4EL6gAAeNpj2M0gyAACqxgGNWBkZ2D4/wMA+xkDdgAAAHjaY2BgYGaAYBkGRgYQiAHyGMF8FgYHIM3DwMHABGQrMOgyWDLEM1T9/w8UBfEMgLzE////P/5//f/V/xv+r4eaAAeMbAxwIUYmIMHEgKYAYjUcsDAwsLKxc3BycfPw8jEQA/gZBASFhEVExcQlJKWkZWTl5BUUlZRVVNXUNTQZBgMAAMR+E+gAEQFEAAAAKgAqACoANAA+AEgAUgBcAGYAcAB6AIQAjgCYAKIArAC2AMAAygDUAN4A6ADyAPwBBgEQARoBJAEuATgBQgFMAVYBYAFqAXQBfgGIAZIBnAGmAbIBzgHsAAB42u2NMQ6CUAyGW568x9AneYYgm4MJbhKFaExIOAVX8ApewSt4Bic4AfeAid3VOBixDxfPYEza5O+Xfi04YADggiUIULCuEJK8VhO4bSvpdnktHI5QCYtdi2sl8ZnXaHlqUrNKzdKcT8cjlq+rwZSvIVczNiezsfnP/uznmfPFBNODM2K7MTQ45YEAZqGP81AmGGcF3iPqOop0r1SPTaTbVkfUe4HXj97wYE+yNwWYxwWu4v1ugWHgo3S1XdZEVqWM7ET0cfnLGxWfkgR42o2PvWrDMBSFj/IHLaF0zKjRgdiVMwScNRAoWUoH78Y2icB/yIY09An6AH2Bdu/UB+yxopYshQiEvnvu0dURgDt8QeC8PDw7Fpji3fEA4z/PEJ6YOB5hKh4dj3EvXhxPqH/SKUY3rJ7srZ4FZnh1PMAtPhwP6fl2PMJMPDgeQ4rY8YT6Gzao0eAEA409DuggmTnFnOcSCiEiLMgxCiTI6Cq5DZUd3Qmp10vO0LaLTd2cjN4fOumlc7lUYbSQcZFkutRG7g6JKZKy0RmdLY680CDnEJ+UMkpFFe1RN7nxdVpXrC4aTtnaurOnYercZg2YVmLN/d/gczfEimrE/fs/bOuq29Zmn8tloORaXgZgGa78yO9/cnXm2BpaGvq25Dv9S4E9+5SIc9PqupJKhYFSSl47+Qcr1mYNAAAAeNptw0cKwkAAAMDZJA8Q7OUJvkLsPfZ6zFVERPy8qHh2YER+3i/BP83vIBLLySsoKimrqKqpa2hp6+jq6RsYGhmbmJqZSy0sraxtbO3sHRydnEMU4uR6yx7JJXveP7WrDycAAAAAAAH//wACeNpjYGRgYOABYhkgZgJCZgZNBkYGLQZtIJsFLMYAAAw3ALgAeNolizEKgDAQBCchRbC2sFER0YD6qVQiBCv/H9ezGI6Z5XBAw8CBK/m5iQQVauVbXLnOrMZv2oLdKFa8Pjuru2hJzGabmOSLzNMzvutpB3N42mNgZGBg4GKQYzBhYMxJLMlj4GBgAYow/P/PAJJhLM6sSoWKfWCAAwDAjgbRAAB42mNgYGBkAIIbCZo5IPrmUn0hGA0AO8EFTQAA');font-weight:400;font-style:normal}:root{--swiper-theme-color:#007aff}.swiper{margin-left:auto;margin-right:auto;position:relative;overflow:hidden;list-style:none;padding:0;z-index:1}.swiper-vertical>.swiper-wrapper{flex-direction:column}.swiper-wrapper{position:relative;width:100%;height:100%;z-index:1;display:flex;transition-property:transform;box-sizing:content-box}.swiper-android .swiper-slide,.swiper-wrapper{transform:translate3d(0px,0,0)}.swiper-pointer-events{touch-action:pan-y}.swiper-pointer-events.swiper-vertical{touch-action:pan-x}.swiper-slide{flex-shrink:0;width:100%;height:100%;position:relative;transition-property:transform}.swiper-slide-invisible-blank{visibility:hidden}.swiper-autoheight,.swiper-autoheight .swiper-slide{height:auto}.swiper-autoheight .swiper-wrapper{align-items:flex-start;transition-property:transform,height}.swiper-backface-hidden .swiper-slide{transform:translateZ(0);-webkit-backface-visibility:hidden;backface-visibility:hidden}.swiper-3d,.swiper-3d.swiper-css-mode .swiper-wrapper{perspective:1200px}.swiper-3d .swiper-cube-shadow,.swiper-3d .swiper-slide,.swiper-3d .swiper-slide-shadow,.swiper-3d .swiper-slide-shadow-bottom,.swiper-3d .swiper-slide-shadow-left,.swiper-3d .swiper-slide-shadow-right,.swiper-3d .swiper-slide-shadow-top,.swiper-3d .swiper-wrapper{transform-style:preserve-3d}.swiper-3d .swiper-slide-shadow,.swiper-3d .swiper-slide-shadow-bottom,.swiper-3d .swiper-slide-shadow-left,.swiper-3d .swiper-slide-shadow-right,.swiper-3d .swiper-slide-shadow-top{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none;z-index:10}.swiper-3d .swiper-slide-shadow{background:rgba(0,0,0,.15)}.swiper-3d .swiper-slide-shadow-left{background-image:linear-gradient(to left,rgba(0,0,0,.5),rgba(0,0,0,0))}.swiper-3d .swiper-slide-shadow-right{background-image:linear-gradient(to right,rgba(0,0,0,.5),rgba(0,0,0,0))}.swiper-3d .swiper-slide-shadow-top{background-image:linear-gradient(to top,rgba(0,0,0,.5),rgba(0,0,0,0))}.swiper-3d .swiper-slide-shadow-bottom{background-image:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,0))}.swiper-css-mode>.swiper-wrapper{overflow:auto;scrollbar-width:none;-ms-overflow-style:none}.swiper-css-mode>.swiper-wrapper::-webkit-scrollbar{display:none}.swiper-css-mode>.swiper-wrapper>.swiper-slide{scroll-snap-align:start start}.swiper-horizontal.swiper-css-mode>.swiper-wrapper{scroll-snap-type:x mandatory}.swiper-vertical.swiper-css-mode>.swiper-wrapper{scroll-snap-type:y mandatory}.swiper-centered>.swiper-wrapper::before{content:'';flex-shrink:0;order:9999}.swiper-centered.swiper-horizontal>.swiper-wrapper>.swiper-slide:first-child{-webkit-margin-start:var(--swiper-centered-offset-before);margin-inline-start:var(--swiper-centered-offset-before)}.swiper-centered.swiper-horizontal>.swiper-wrapper::before{height:100%;min-height:1px;width:var(--swiper-centered-offset-after)}.swiper-centered.swiper-vertical>.swiper-wrapper>.swiper-slide:first-child{-webkit-margin-before:var(--swiper-centered-offset-before);margin-block-start:var(--swiper-centered-offset-before)}.swiper-centered.swiper-vertical>.swiper-wrapper::before{width:100%;min-width:1px;height:var(--swiper-centered-offset-after)}.swiper-centered>.swiper-wrapper>.swiper-slide{scroll-snap-align:center center}</style><style>:root{--swiper-navigation-size:44px}.swiper-button-next,.swiper-button-prev{position:absolute;top:50%;width:calc(var(--swiper-navigation-size)/ 44 * 27);height:var(--swiper-navigation-size);margin-top:calc(0px - (var(--swiper-navigation-size)/ 2));z-index:10;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--swiper-navigation-color,var(--swiper-theme-color))}.swiper-button-next.swiper-button-disabled,.swiper-button-prev.swiper-button-disabled{opacity:.35;cursor:auto;pointer-events:none}.swiper-button-next.swiper-button-hidden,.swiper-button-prev.swiper-button-hidden{opacity:0;cursor:auto;pointer-events:none}.swiper-navigation-disabled .swiper-button-next,.swiper-navigation-disabled .swiper-button-prev{display:none!important}.swiper-button-next:after,.swiper-button-prev:after{font-family:swiper-icons;font-size:var(--swiper-navigation-size);text-transform:none!important;letter-spacing:0;font-variant:initial;line-height:1}.swiper-button-prev,.swiper-rtl .swiper-button-next{left:10px;right:auto}.swiper-button-prev:after,.swiper-rtl .swiper-button-next:after{content:'prev'}.swiper-button-next,.swiper-rtl .swiper-button-prev{right:10px;left:auto}.swiper-button-next:after,.swiper-rtl .swiper-button-prev:after{content:'next'}.swiper-button-lock{display:none}</style></head>
+
+                                                  <body class="min-w-xs overflow-x-hidden bg-h-100 text-h-900 dark:bg-h-800 dark:text-h-200" id="tt-body-page">
+                
+                
+                
+    <div class="w-screen h-screen fixed top-0 left-0 z-50 flex items-center justify-center bg-h-100 dark:bg-h-800" id="loader" x-show="loading" x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" style="display: none;">
+      <div class="rounded-full w-14 h-14 my-14 mx-auto text-base relative border-2 border-solid border-h-500/20 border-l-h-500 dark:border-h-100/20 dark:border-l-h-100 animate-loading"></div>
+    </div>
+    <div class="fixed top-0 w-screen z-50" x-data="indicator" @scroll.window="indicate">
+      <div class="w-screen">
+        <div class="w-0 h-0.5 bg-h-900 rounded bg-h-800 dark:bg-h-200" x-ref="indicator" style="width: 63.4125%;"></div>
+      </div>
+    </div>
+    
+      <div class="pl-0 break-all xl:pl-64" x-data="{ sidebar: false }">
+        <main class="pb-14 lg:pb-18 relative" id="main">
+          
+          
+                
+          
+  
+    <div id="permalink">
+      <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
+        
+          <div class="thumbnail absolute right-0 top-0 w-full h-64 before:backdrop-blur before:content-[&quot;&quot;] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&amp;+.description]:text-h-200"><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource" alt=""></div>
+        
+        <div class="description flex flex-col items-center gap-y-3 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0">
+          <h1 class="text-center font-bold text-2xl lg:text-3xl">Scouter APM 설치 및 기본 사용 + Scouter-Paper</h1>
+          <div class="flex gap-x-1 text-sm"><time>2024. 8. 14. 17:57</time><a href="https://hackjsp.tistory.com/category/Infrastructure">· Infrastructure</a><span class="admin flex gap-x-1">
+              
+            </span></div>
+        </div>
+      </header>
+      <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
+        <article class="relative" id="content" x-ref="content">
+          <div x-data="content">
+            <template x-if="$data.headings.length &gt; 0"></template><div class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200" id="TOC"><strong class="flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"><span class="text-base">목차</span><i class="fas fa-bars"></i></strong>
+                  <ol class="flex flex-col gap-y-3"><template x-for="heading in $data.headings" :key="heading.id"></template><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-0"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#Scouter%20%EB%9E%80%3F-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">Scouter 란?</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-0"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#Scouter%20%EC%84%A4%EC%B9%98%C2%A0-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">Scouter 설치&nbsp;</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#%ED%99%98%EA%B2%BD%20%EC%A0%95%EB%B3%B4%C2%A0-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">환경 정보&nbsp;</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#%EC%82%AC%EC%A0%84%20%EC%A4%80%EB%B9%84-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">사전 준비</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#%EC%84%9C%EB%B2%84%20%EA%B5%AC%EC%84%B1(%20collector%20)-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">서버 구성( collector )</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#agent.host%20%EA%B5%AC%EC%84%B1%C2%A0-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">agent.host 구성&nbsp;</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-0"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#Java(JVM)%20Agent%20%EA%B5%AC%EC%84%B1-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">Java(JVM) Agent 구성</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#%EC%99%B8%EC%9E%A5%20Tomcat%20%EC%82%AC%EC%9A%A9%20%EC%8B%9C-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">외장 Tomcat 사용 시</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C%20Tomcat%20%EC%82%AC%EC%9A%A9%20%EC%8B%9C-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">임베디드 Tomcat 사용 시</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#Dockerfile%EC%97%90%20agent%20%EC%84%A4%EC%A0%95-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">Dockerfile에 agent 설정</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-0"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#Scouter-Paper%C2%A0-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">Scouter-Paper&nbsp;</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#00.%20%EC%82%AC%EC%A0%84%20%EC%A4%80%EB%B9%84-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">00. 사전 준비</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#01.%20scouter-paper%20release%20%EC%84%A4%EC%B9%98-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">01. scouter-paper release 설치</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#02.%20scouter-server%20%EC%84%A4%EC%A0%95-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">02. scouter-server 설정</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#03.%20scouter-paper%20%ED%8C%8C%EC%9D%BC%20%EB%B3%B5%EC%82%AC-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">03. scouter-paper 파일 복사</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#04.%20scouter%20server%2C%20webapp%20%EC%9E%AC%EA%B8%B0%EB%8F%99-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">04. scouter server, webapp 재기동</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#05.%20%EC%A0%95%EC%83%81%20%EB%8F%99%EC%9E%91%20%ED%99%95%EC%9D%B8-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">05. 정상 동작 확인</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li><li :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }" class="pl-4"><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" href="https://hackjsp.tistory.com/59#WebUI%20%EA%B0%84%EB%8B%A8%20%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95-1">
+                          <div class="text-overflow-hidden" x-text="heading.text">WebUI 간단 사용방법</div><i class="fas fa-arrow-right scale-75"></i>
+                        </a></li></ol>
+                </div>
+            <div id="article" x-ref="article"><template x-ref="articleTemplate" x-teleport="#article"></template><div>            <!-- System - START -->
+
+<!-- System - END -->
+
+            <div class="tt_article_useless_p_margin contents_style"><h2 data-ke-size="size26" id="Scouter%20%EB%9E%80%3F-1"><a href="https://hackjsp.tistory.com/59#Scouter%20%EB%9E%80%3F-1">Scouter 란?</a></h2>
+<p data-ke-size="size16"><span style="color: #000000; text-align: start;">사내에서 사용할 <b>APM(Application Performance Management) 애플리케이션 성능 관리 도구</b>를 사용하기 위해 찾아보다가 <span></span></span>LG CNS에서 개발한 <b>오픈소스 APM</b> <b>Scouter</b>에 대해 검증해 보기로 했다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><span style="color: #000000; text-align: start;">Scouter는 주로 Java 기반의 웹 애플리케이션을 모니터링하는 데 강점을 가지고 있지만, 다른 시스템 및 언어와도 통합할 수 있다고 한다.</span></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">Scouter의 구성은 Collertor 서버가 <b>Agent를 통해서 각 클라이언트의 정보를 수집</b>하는 방식이다.</p>
+<p></p><figure class="imageblock widthContent" data-ke-mobilestyle="widthOrigin" data-origin-width="1031" data-origin-height="711"><span data-url="https://blog.kakaocdn.net/dna/buK4NX/btsI4dh4J34/AAAAAAAAAAAAAAAAAAAAAI8_ED_9jo4Nhu1hXfCfcMSQ_A6n22CIpfsB-dfXADGC/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=%2FVmgoWIjpsHCpVPBcui1r6nloGw%3D" data-phocus="https://blog.kakaocdn.net/dna/buK4NX/btsI4dh4J34/AAAAAAAAAAAAAAAAAAAAAI8_ED_9jo4Nhu1hXfCfcMSQ_A6n22CIpfsB-dfXADGC/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=%2FVmgoWIjpsHCpVPBcui1r6nloGw%3D" style="padding-bottom: 68.9622%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1031" height="711" data-origin-width="1031" data-origin-height="711" class="lazyautosizes ls-is-cached lazyloaded" data-src="https://blog.kakaocdn.net/dna/buK4NX/btsI4dh4J34/AAAAAAAAAAAAAAAAAAAAAI8_ED_9jo4Nhu1hXfCfcMSQ_A6n22CIpfsB-dfXADGC/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=%2FVmgoWIjpsHCpVPBcui1r6nloGw%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbuK4NX%2FbtsI4dh4J34%2FAAAAAAAAAAAAAAAAAAAAAI8_ED_9jo4Nhu1hXfCfcMSQ_A6n22CIpfsB-dfXADGC%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D%252FVmgoWIjpsHCpVPBcui1r6nloGw%253D" data-sizes="auto" sizes="913px" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbuK4NX%2FbtsI4dh4J34%2FAAAAAAAAAAAAAAAAAAAAAI8_ED_9jo4Nhu1hXfCfcMSQ_A6n22CIpfsB-dfXADGC%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D%252FVmgoWIjpsHCpVPBcui1r6nloGw%253D" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/img.png"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<h2 data-ke-size="size26" id="Scouter%20%EC%84%A4%EC%B9%98%C2%A0-1"><a href="https://hackjsp.tistory.com/59#Scouter%20%EC%84%A4%EC%B9%98%C2%A0-1">Scouter 설치&nbsp;</a></h2>
+<h3 data-ke-size="size23" id="%ED%99%98%EA%B2%BD%20%EC%A0%95%EB%B3%B4%C2%A0-1"><a href="https://hackjsp.tistory.com/59#%ED%99%98%EA%B2%BD%20%EC%A0%95%EB%B3%B4%C2%A0-1">환경 정보&nbsp;</a></h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li>OS : Linux&nbsp;</li>
+<li>Scouter 버전 : 2.15.0</li>
+</ul>
+<h3 data-ke-size="size23" id="%EC%82%AC%EC%A0%84%20%EC%A4%80%EB%B9%84-1"><a href="https://hackjsp.tistory.com/59#%EC%82%AC%EC%A0%84%20%EC%A4%80%EB%B9%84-1">사전 준비</a></h3>
+<p data-ke-size="size16">버전에 맞는 scouterl 패키지를 다운로드하고 압축을 해제합니다.</p>
+<pre id="code_1723623895482" class="bash" data-ke-language="bash" data-ke-type="codeblock"><code class="hljs language-bash"><span class="hljs-comment"># scouter-all 릴리즈 다운로드</span>
+wget https://github.com/scouter-project/scouter/releases/download/v2.20.0/scouter-all-2.15.0.tar.gz
+tar -xvf scouter-all-2.15.0.tar.gz
+
+<span class="hljs-comment"># 압축 해제 </span>
+tar -xvf scouter-all-2.15.0.tar.gz
+
+<span class="hljs-comment"># 폴더 구조 확인 </span>
+~/apm/scouter-all-2.15.0<span class="hljs-comment"># tree -L 1</span>
+.
+├── agent.batch
+├── agent.host
+├── agent.java
+├── agent.java_6_7
+├── nohup.out
+├── server
+└── webapp</code></pre>
+<h3 data-ke-size="size23" id="%EC%84%9C%EB%B2%84%20%EA%B5%AC%EC%84%B1(%20collector%20)-1"><a href="https://hackjsp.tistory.com/59#%EC%84%9C%EB%B2%84%20%EA%B5%AC%EC%84%B1(%20collector%20)-1">서버 구성( collector )</a></h3>
+<p data-ke-size="size16">server 디렉터리까지 이동하여 startup.sh 파일을 실행합니다.</p>
+<pre id="code_1723624057579" class="bash" data-ke-language="bash" data-ke-type="codeblock"><code class="hljs language-bash"><span class="hljs-comment"># server 디렉토리 이동 </span>
+<span class="hljs-built_in">cd</span> scouter-all-2.15.0/server 
+<span class="hljs-comment"># 서버 기동 </span>
+./startup.sh</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 data-ke-size="size23" id="agent.host%20%EA%B5%AC%EC%84%B1%C2%A0-1"><a href="https://hackjsp.tistory.com/59#agent.host%20%EA%B5%AC%EC%84%B1%C2%A0-1">agent.host 구성&nbsp;</a></h3>
+<p data-ke-size="size16">agent.host 또한 실행합니다.</p>
+<pre id="code_1723624328248" class="bash" data-ke-language="bash" data-ke-type="codeblock"><code class="hljs language-bash"><span class="hljs-comment">#  디렉토리 이동 </span>
+<span class="hljs-built_in">cd</span> agent.host/
+
+<span class="hljs-comment"># host 기동 </span>
+./host.sh</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<h2 data-ke-size="size26" id="Java(JVM)%20Agent%20%EA%B5%AC%EC%84%B1-1"><a href="https://hackjsp.tistory.com/59#Java(JVM)%20Agent%20%EA%B5%AC%EC%84%B1-1">Java(JVM) Agent 구성</a></h2>
+<h3 data-ke-size="size23" id="%EC%99%B8%EC%9E%A5%20Tomcat%20%EC%82%AC%EC%9A%A9%20%EC%8B%9C-1"><a href="https://hackjsp.tistory.com/59#%EC%99%B8%EC%9E%A5%20Tomcat%20%EC%82%AC%EC%9A%A9%20%EC%8B%9C-1">외장 Tomcat 사용 시</a></h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li>${TOMCAT_HOST}/bin/catalina.sh or startup.sh 파일 설정</li>
+</ul>
+<pre class="routeros"><code class="hljs language-routeros"><span class="hljs-attribute">SCOUTER_AGENT_DIR</span>=/home/ec2-user/scouter/agent.java
+<span class="hljs-attribute">JAVA_OPTS</span>=<span class="hljs-string">" <span class="hljs-variable">${JAVA_OPTS}</span> -javaagent:<span class="hljs-variable">${SCOUTER_AGENT_DIR}</span>/scouter.agent.jar"</span>
+<span class="hljs-attribute">JAVA_OPTS</span>=<span class="hljs-string">" <span class="hljs-variable">${JAVA_OPTS}</span> -Dscouter.config=<span class="hljs-variable">${SCOUTER_AGENT_DIR}</span>/conf/scouter.conf"</span>
+<span class="hljs-attribute">JAVA_OPTS</span>=<span class="hljs-string">" <span class="hljs-variable">${JAVA_OPTS}</span> -Dobj_name=TEST-WAS-01"</span>
+</code></pre>
+<h3 data-ke-size="size23" id="%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C%20Tomcat%20%EC%82%AC%EC%9A%A9%20%EC%8B%9C-1"><a href="https://hackjsp.tistory.com/59#%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C%20Tomcat%20%EC%82%AC%EC%9A%A9%20%EC%8B%9C-1">임베디드 Tomcat 사용 시</a></h3>
+<pre class="dts"><code class="hljs language-dts"><span class="hljs-meta"># 기본 </span>
+java -javaagent:<span class="hljs-keyword">/root/</span>spjang<span class="hljs-keyword">/scouter/</span>agent.java/scouter.agent.jar \
+-Dscouter.<span class="hljs-attr">config</span><span class="hljs-operator">=</span><span class="hljs-keyword">/root/</span>spjang<span class="hljs-keyword">/scouter/</span>agent.java<span class="hljs-keyword">/conf/</span>scouter.conf \
+-Dobj_<span class="hljs-attr">name</span><span class="hljs-operator">=</span>TEST-API<span class="hljs-number">-01</span> \
+-jar spring-boot<span class="hljs-number">-0.0</span><span class="hljs-number">.1</span>-SNAPSHOT.jar
+
+<span class="hljs-meta"># 서버 포트 변경 </span>
+java -javaagent:<span class="hljs-keyword">/root/</span>spjang<span class="hljs-keyword">/scouter/</span>agent.java/scouter.agent.jar \
+-Dscouter.<span class="hljs-attr">config</span><span class="hljs-operator">=</span><span class="hljs-keyword">/root/</span>spjang<span class="hljs-keyword">/scouter/</span>agent.java<span class="hljs-keyword">/conf/</span>scouter.conf \
+-Dobj_<span class="hljs-attr">name</span><span class="hljs-operator">=</span>TEST-API<span class="hljs-number">-02</span> \
+-jar spring-boot<span class="hljs-number">-2</span>-hello-world<span class="hljs-number">-1.0</span><span class="hljs-number">.2</span>-SNAPSHOT.jar --server.<span class="hljs-attr">port</span><span class="hljs-operator">=</span><span class="hljs-number">8083</span>
+</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b>Collector(server)가 원격일 경우,</b> net_collector_ip : 원격 대상 IP 설정</p>
+<pre class="vala"><code class="hljs language-vala">vi /root/spjang/scouter/agent.java/conf/scouter.conf
+<span class="hljs-meta">### scouter java agent configuration sample</span>
+<span class="hljs-meta">#obj_name=WAS-01</span>
+net_collector_ip=<span class="hljs-number">172.10</span><span class="hljs-number">.40</span><span class="hljs-number">.173</span>
+<span class="hljs-meta">#net_collector_udp_port=6100</span>
+<span class="hljs-meta">#net_collector_tcp_port=6100</span>
+<span class="hljs-meta">#hook_method_patterns=sample.mybiz.*Biz.*,sample.service.*Service.*</span>
+<span class="hljs-meta">#trace_http_client_ip_header_key=X-Forwarded-For</span>
+<span class="hljs-meta">#profile_spring_controller_method_parameter_enabled=false</span>
+<span class="hljs-meta">#hook_exception_class_patterns=my.exception.TypedException</span>
+<span class="hljs-meta">#profile_fullstack_hooked_exception_enabled=true</span>
+<span class="hljs-meta">#hook_exception_handler_method_patterns=my.AbstractAPIController.fallbackHandler,my.ApiExceptionLoggingFilter.handleNotFoundErrorResponse</span>
+<span class="hljs-meta">#hook_exception_hanlder_exclude_class_patterns=exception.BizException</span>
+</code></pre>
+<h3 data-ke-size="size23" id="Dockerfile%EC%97%90%20agent%20%EC%84%A4%EC%A0%95-1"><a href="https://hackjsp.tistory.com/59#Dockerfile%EC%97%90%20agent%20%EC%84%A4%EC%A0%95-1">Dockerfile에 agent 설정</a></h3>
+<pre class="dockerfile"><code class="hljs language-dockerfile"><span class="hljs-keyword">FROM</span> openjdk:<span class="hljs-number">11</span>-jre-slim
+
+<span class="hljs-comment"># 애플리케이션 JAR 파일과 에이전트 JAR 파일을 복사합니다.</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> spring-boot-2-hello-world-1.0.2-SNAPSHOT.jar /app/spring-boot-2-hello-world-1.0.2-SNAPSHOT.jar</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> scouter.agent.jar  /app/scouter.agent.jar</span>
+<span class="hljs-keyword">COPY</span><span class="language-bash"> scouter.conf  /app/scouter.conf</span>
+
+<span class="hljs-comment"># -javaagent 옵션을 추가하여 애플리케이션을 실행합니다.</span>
+<span class="hljs-keyword">ENTRYPOINT</span><span class="language-bash"> [<span class="hljs-string">"java"</span>, <span class="hljs-string">"-javaagent:/app/scouter.agent.jar"</span>,<span class="hljs-string">"-Dscouter.config=/app/scouter.conf"</span>, <span class="hljs-string">"-Dobj_name=TEST-DOCKER-APP1"</span>, <span class="hljs-string">"-jar"</span>, <span class="hljs-string">"/app/spring-boot-2-hello-world-1.0.2-SNAPSHOT.jar"</span>]</span>
+</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">아래는 3가지 agent 설정 방식으로 등록한 타겟 서버이다. 도커 컨테이너의 애플리케이션의 경우 컨테이너 ID가 기본 명칭으로 등록되는 것으로 보인다.</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="527" data-origin-height="301" style="margin-left: 50%; transform: translateX(-50%); width: 527px; max-width: 527px;"><span data-url="https://blog.kakaocdn.net/dna/bF4ml7/btsI5RxVZal/AAAAAAAAAAAAAAAAAAAAANAkw3Tw-rrtott2xMOvcFBJWwJtwogRfYLtJe1cIJZl/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=vQir%2F6rKIBBinRCa6nvIzPS25wc%3D" data-phocus="https://blog.kakaocdn.net/dna/bF4ml7/btsI5RxVZal/AAAAAAAAAAAAAAAAAAAAANAkw3Tw-rrtott2xMOvcFBJWwJtwogRfYLtJe1cIJZl/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=vQir%2F6rKIBBinRCa6nvIzPS25wc%3D" style="padding-bottom: 57.1157%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="527" height="301" data-origin-width="527" data-origin-height="301" class="lazyautosizes lazyloaded" data-src="https://blog.kakaocdn.net/dna/bF4ml7/btsI5RxVZal/AAAAAAAAAAAAAAAAAAAAANAkw3Tw-rrtott2xMOvcFBJWwJtwogRfYLtJe1cIJZl/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=vQir%2F6rKIBBinRCa6nvIzPS25wc%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbF4ml7%2FbtsI5RxVZal%2FAAAAAAAAAAAAAAAAAAAAANAkw3Tw-rrtott2xMOvcFBJWwJtwogRfYLtJe1cIJZl%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DvQir%252F6rKIBBinRCa6nvIzPS25wc%253D" data-sizes="auto" sizes="527px" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbF4ml7%2FbtsI5RxVZal%2FAAAAAAAAAAAAAAAAAAAAANAkw3Tw-rrtott2xMOvcFBJWwJtwogRfYLtJe1cIJZl%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DvQir%252F6rKIBBinRCa6nvIzPS25wc%253D" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/img(1).png"></span></figure>
+<p></p>
+<h2 data-ke-size="size26" id="Scouter-Paper%C2%A0-1"><a href="https://hackjsp.tistory.com/59#Scouter-Paper%C2%A0-1">Scouter-Paper&nbsp;</a></h2>
+<p data-ke-size="size16"><a href="https://scouter-contrib.github.io/scouter-paper/manual.html">SCOUTER PAPER</a> 프로젝트는 오픈 소스 APM인 SCOUTER WEB API를 활용하여, 성능 데이터를 웹을 통해 확인할 수 있도록 제공하는 대시보드 소프트웨어이다.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">아래와 같이 클라이언트 프로그램(Dmg, Exe)도 지원하지만, 서버에서 WebUI를 동작시키기 위해 Scouter Paper를 사용해 보기로 했다.</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="886" data-origin-height="621" style="margin-left: 50%; transform: translateX(-50%); width: 886px; max-width: 886px;"><span data-url="https://blog.kakaocdn.net/dna/eeDVgE/btsI3g0L05U/AAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=JBMJQmvtEhZS%2FISmS0dlR1OcUcU%3D" data-phocus="https://blog.kakaocdn.net/dna/eeDVgE/btsI3g0L05U/AAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=JBMJQmvtEhZS%2FISmS0dlR1OcUcU%3D" style="padding-bottom: 70.0903%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="886" height="621" data-origin-width="886" data-origin-height="621" class="lazyautosizes lazyloaded" data-src="https://blog.kakaocdn.net/dna/eeDVgE/btsI3g0L05U/AAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=JBMJQmvtEhZS%2FISmS0dlR1OcUcU%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeeDVgE%2FbtsI3g0L05U%2FAAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJBMJQmvtEhZS%252FISmS0dlR1OcUcU%253D" data-sizes="auto" sizes="886px" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeeDVgE%2FbtsI3g0L05U%2FAAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJBMJQmvtEhZS%252FISmS0dlR1OcUcU%253D" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/img(2).png"></span></figure>
+<p></p>
+<h3 data-ke-size="size23" id="00.%20%EC%82%AC%EC%A0%84%20%EC%A4%80%EB%B9%84-1"><a href="https://hackjsp.tistory.com/59#00.%20%EC%82%AC%EC%A0%84%20%EC%A4%80%EB%B9%84-1">00. 사전 준비</a></h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li><b>scouter-server :</b> 2.15.0</li>
+<li><b>scouter-paper :</b> v.2.6.4</li>
+</ul>
+<blockquote data-ke-style="style3"><b>! 주의 : scouter-paper 웹 페이지에서 404 Not Found Error 발생 시,</b><br>Scouter Server와 Paper 간<b>, </b>버전 차이로 인해 에러 발생(사용 라이브러리 충돌) -&gt; 호환되는 버전 설치 필요!<br>독립형(Standalone) : scouter-server에 webapp에 임베디드로 설치할 수 있지만, 독립형을 추천<br>( 필자의 경우 scouter에서 2.20(latest) 버전으로 설치 시, scouter-paper가 동작하지 않아 2.15.0 버전까지 다운 그레이드함)</blockquote>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 data-ke-size="size23" id="01.%20scouter-paper%20release%20%EC%84%A4%EC%B9%98-1"><a href="https://hackjsp.tistory.com/59#01.%20scouter-paper%20release%20%EC%84%A4%EC%B9%98-1">01. scouter-paper release 설치</a></h3>
+<pre class="vala"><code class="hljs language-vala"><span class="hljs-meta"># 릴리즈 설치</span>
+wget https:<span class="hljs-comment">//github.com/scouter-contrib/scouter-paper/releases/download/2.6.4/scouter-paper-v2.6.4.zip</span>
+
+<span class="hljs-meta"># 압축 해제</span>
+unzip scouter-paper-v2<span class="hljs-number">.6</span><span class="hljs-number">.4</span>.zip -d scouter-paper
+scouter-paper/
+├── asset-manifest.json
+├── css
+├── favicon.ico
+├── help
+├── index.html
+├── js
+├── manifest.json
+├── service-worker.js
+└── <span class="hljs-keyword">static</span>
+</code></pre>
+<h3 data-ke-size="size23" id="02.%20scouter-server%20%EC%84%A4%EC%A0%95-1"><a href="https://hackjsp.tistory.com/59#02.%20scouter-server%20%EC%84%A4%EC%A0%95-1">02. scouter-server 설정</a></h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li>scouter.conf 수정</li>
+</ul>
+<pre class="routeros"><code class="hljs language-routeros"><span class="hljs-comment"># scouter-all 폴더 구조 파악 </span>
+root@tps-harbor:~/apm/scouter-all-2.15.0# tree -L 1
+.
+├── agent.batch
+├── agent.host
+├── agent.java
+├── agent.java_6_7
+├── nohup.out
+├──<span class="hljs-built_in"> server
+</span>└── webapp
+
+<span class="hljs-comment">## scouter.conf 파일 수정 </span>
+vi server/conf/scouter.conf
+<span class="hljs-attribute">net_http_server_enabled</span>=<span class="hljs-literal">true</span>
+<span class="hljs-attribute">net_http_api_enabled</span>=<span class="hljs-literal">true</span>
+<span class="hljs-attribute">net_http_port</span>=6180
+</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 data-ke-size="size23" id="03.%20scouter-paper%20%ED%8C%8C%EC%9D%BC%20%EB%B3%B5%EC%82%AC-1"><a href="https://hackjsp.tistory.com/59#03.%20scouter-paper%20%ED%8C%8C%EC%9D%BC%20%EB%B3%B5%EC%82%AC-1">03. scouter-paper 파일 복사</a></h3>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li>scouter-paper webapp파일 복사</li>
+</ul>
+<pre class="yaml"><code class="hljs language-yaml"><span class="hljs-comment"># 기존 webapp/extweb 파일 확인 </span>
+<span class="hljs-string">ls</span> <span class="hljs-string">scouter-all-2.15.0/webapp/extweb/</span>
+<span class="hljs-string">index.html</span>
+
+<span class="hljs-comment"># scouter-paper 파일 복사 </span>
+<span class="hljs-string">cp</span> <span class="hljs-string">-a</span> <span class="hljs-string">scouter-paper/*</span> <span class="hljs-string">scouter-all-2.15.0/webapp/extweb/</span>
+
+<span class="hljs-comment"># 파일 확인 </span>
+<span class="hljs-string">ls</span> <span class="hljs-string">-l</span> <span class="hljs-string">scouter-all-2.15.0/webapp/extweb</span>
+<span class="hljs-string">total</span> <span class="hljs-number">152</span>
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span>   <span class="hljs-number">3749 </span><span class="hljs-string">May</span> <span class="hljs-number">17</span>  <span class="hljs-number">2020 </span><span class="hljs-string">asset-manifest.json</span>
+<span class="hljs-string">drwxrwxr-x</span> <span class="hljs-number">2</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span>   <span class="hljs-number">4096 </span><span class="hljs-string">May</span> <span class="hljs-number">17</span>  <span class="hljs-number">2020 </span><span class="hljs-string">css</span>
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span> <span class="hljs-number">118026</span> <span class="hljs-string">May</span> <span class="hljs-number">17</span>  <span class="hljs-number">2020 </span><span class="hljs-string">favicon.ico</span>
+<span class="hljs-string">drwxrwxr-x</span> <span class="hljs-number">4</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span>   <span class="hljs-number">4096 </span><span class="hljs-string">May</span> <span class="hljs-number">17</span>  <span class="hljs-number">2020 </span><span class="hljs-string">help</span>
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span>   <span class="hljs-number">1572 </span><span class="hljs-string">May</span> <span class="hljs-number">17</span>  <span class="hljs-number">2020 </span><span class="hljs-string">index.html</span>
+<span class="hljs-string">drwxrwxr-x</span> <span class="hljs-number">2</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span>   <span class="hljs-number">4096 </span><span class="hljs-string">May</span> <span class="hljs-number">17</span>  <span class="hljs-number">2020 </span><span class="hljs-string">js</span>
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span>    <span class="hljs-number">317</span> <span class="hljs-string">May</span> <span class="hljs-number">17</span>  <span class="hljs-number">2020 </span><span class="hljs-string">manifest.json</span>
+<span class="hljs-string">-rw-rw-r--</span> <span class="hljs-number">1</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span>   <span class="hljs-number">6644 </span><span class="hljs-string">May</span> <span class="hljs-number">17</span>  <span class="hljs-number">2020 </span><span class="hljs-string">service-worker.js</span>
+<span class="hljs-string">drwxrwxr-x</span> <span class="hljs-number">5</span> <span class="hljs-string">root</span> <span class="hljs-string">root</span>   <span class="hljs-number">4096 </span><span class="hljs-string">May</span> <span class="hljs-number">17</span>  <span class="hljs-number">2020 </span><span class="hljs-string">static</span>
+</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 data-ke-size="size23" id="04.%20scouter%20server%2C%20webapp%20%EC%9E%AC%EA%B8%B0%EB%8F%99-1"><a href="https://hackjsp.tistory.com/59#04.%20scouter%20server%2C%20webapp%20%EC%9E%AC%EA%B8%B0%EB%8F%99-1">04. scouter server, webapp 재기동</a></h3>
+<pre class="routeros"><code class="hljs language-routeros"><span class="hljs-comment"># server 디렉토리 이동 </span>
+cd scouter-all-2.15.0<span class="hljs-built_in">/server </span>
+<span class="hljs-comment"># 서버 기동 </span>
+./startup.sh 
+
+<span class="hljs-comment"># webapp 디렉토리 이동 </span>
+cd scouter-all-2.15.0/webapp
+<span class="hljs-comment"># webapp 기동 </span>
+./startup.sh 
+</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 data-ke-size="size23" id="05.%20%EC%A0%95%EC%83%81%20%EB%8F%99%EC%9E%91%20%ED%99%95%EC%9D%B8-1"><a href="https://hackjsp.tistory.com/59#05.%20%EC%A0%95%EC%83%81%20%EB%8F%99%EC%9E%91%20%ED%99%95%EC%9D%B8-1">05. 정상 동작 확인</a></h3>
+<p data-ke-size="size16"><b>실행 중인 포트 확인</b></p>
+<pre class="angelscript"><code class="hljs language-angelscript">netstat -nltp
+Active Internet connections (only servers)
+...
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">6180</span>                 :::*                    LISTEN      <span class="hljs-number">2803382</span>/java        
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> <span class="hljs-number">127.0</span><span class="hljs-number">.0</span><span class="hljs-number">.1</span>:<span class="hljs-number">8005</span>          :::*                    LISTEN      <span class="hljs-number">2842996</span>/java        
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">8009</span>                 :::*                    LISTEN      <span class="hljs-number">2842996</span>/java        
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">6188</span>                 :::*                    LISTEN      <span class="hljs-number">2803588</span>/java        
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">8080</span>                 :::*                    LISTEN      <span class="hljs-number">2842996</span>/java        
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">80</span>                   :::*                    LISTEN      <span class="hljs-number">2989360</span>/docker-prox 
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">6100</span>                 :::*                    LISTEN      <span class="hljs-number">2803382</span>/java        
+tcp6       <span class="hljs-number">0</span>      <span class="hljs-number">0</span> :::<span class="hljs-number">22</span>                   :::*                    LISTEN      <span class="hljs-number">706</span>/sshd: /usr/sbin 
+</code></pre>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b>paper web api 확인</b></p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li>curl localhost:6180/scouter/v1/info/server |jq.</li>
+</ul>
+<p></p><figure class="imageblock widthContent" data-ke-mobilestyle="widthOrigin" data-origin-width="1280" data-origin-height="266"><span data-url="https://blog.kakaocdn.net/dna/cbCqb6/btsI5PNC1It/AAAAAAAAAAAAAAAAAAAAAGrvaE68ERv0Z47BUOoDAoZZIXUIevxIx28k2dJHnFsh/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=Kp8U8m41jU2blSEu1lCrwzeHxic%3D" data-phocus="https://blog.kakaocdn.net/dna/cbCqb6/btsI5PNC1It/AAAAAAAAAAAAAAAAAAAAAGrvaE68ERv0Z47BUOoDAoZZIXUIevxIx28k2dJHnFsh/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=Kp8U8m41jU2blSEu1lCrwzeHxic%3D" style="padding-bottom: 20.7812%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1280" height="266" data-origin-width="1280" data-origin-height="266" class="lazyautosizes lazyloaded" data-src="https://blog.kakaocdn.net/dna/cbCqb6/btsI5PNC1It/AAAAAAAAAAAAAAAAAAAAAGrvaE68ERv0Z47BUOoDAoZZIXUIevxIx28k2dJHnFsh/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=Kp8U8m41jU2blSEu1lCrwzeHxic%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcbCqb6%2FbtsI5PNC1It%2FAAAAAAAAAAAAAAAAAAAAAGrvaE68ERv0Z47BUOoDAoZZIXUIevxIx28k2dJHnFsh%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DKp8U8m41jU2blSEu1lCrwzeHxic%253D" data-sizes="auto" sizes="913px" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcbCqb6%2FbtsI5PNC1It%2FAAAAAAAAAAAAAAAAAAAAAGrvaE68ERv0Z47BUOoDAoZZIXUIevxIx28k2dJHnFsh%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DKp8U8m41jU2blSEu1lCrwzeHxic%253D" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/img(3).png"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b>Web UI 확인</b></p>
+<ul style="list-style-type: disc;" data-ke-list-type="disc">
+<li><a href="http://tps-harbor:6188/extweb/index.html">http://tps-harbor:6188/extweb/index.html</a></li>
+</ul>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1280" data-origin-height="655" style="margin-left: 50%; transform: translateX(-50%); width: 1100px; max-width: 1100px;"><span data-url="https://blog.kakaocdn.net/dna/7fta0/btsI41BjIdR/AAAAAAAAAAAAAAAAAAAAAMcg3MygO_y-0Of3BlABUd6hUBRD5qaSvTqbTSyIBc2q/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=g2SFHh4G4C4B5aMS7TCZZw6051g%3D" data-phocus="https://blog.kakaocdn.net/dna/7fta0/btsI41BjIdR/AAAAAAAAAAAAAAAAAAAAAMcg3MygO_y-0Of3BlABUd6hUBRD5qaSvTqbTSyIBc2q/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=g2SFHh4G4C4B5aMS7TCZZw6051g%3D" style="padding-bottom: 51.1719%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1280" height="655" data-origin-width="1280" data-origin-height="655" class="lazyautosizes lazyloaded" data-src="https://blog.kakaocdn.net/dna/7fta0/btsI41BjIdR/AAAAAAAAAAAAAAAAAAAAAMcg3MygO_y-0Of3BlABUd6hUBRD5qaSvTqbTSyIBc2q/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=g2SFHh4G4C4B5aMS7TCZZw6051g%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F7fta0%2FbtsI41BjIdR%2FAAAAAAAAAAAAAAAAAAAAAMcg3MygO_y-0Of3BlABUd6hUBRD5qaSvTqbTSyIBc2q%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3Dg2SFHh4G4C4B5aMS7TCZZw6051g%253D" data-sizes="auto" sizes="913px" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F7fta0%2FbtsI41BjIdR%2FAAAAAAAAAAAAAAAAAAAAAMcg3MygO_y-0Of3BlABUd6hUBRD5qaSvTqbTSyIBc2q%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3Dg2SFHh4G4C4B5aMS7TCZZw6051g%253D" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/img(4).png"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<h3 data-ke-size="size23" id="WebUI%20%EA%B0%84%EB%8B%A8%20%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95-1"><a href="https://hackjsp.tistory.com/59#WebUI%20%EA%B0%84%EB%8B%A8%20%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95-1">WebUI 간단 사용방법</a></h3>
+<p data-ke-size="size16"><b>authentication 인증 비활성화 처리</b></p>
+<p data-ke-size="size16">: 로그인이 없어도 사용할 수 있도록 인증 비활성화 처리.</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">1. settings &gt; edit &gt; authentication &gt; N/A 처리</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1280" data-origin-height="117" style="margin-left: 50%; transform: translateX(-50%); width: 1100px; max-width: 1100px;"><span data-url="https://blog.kakaocdn.net/dna/ciQIPL/btsI3SyEqii/AAAAAAAAAAAAAAAAAAAAAEcMjgYYT0__ALhmHassTteT96TZWBfmnmviDgjYpGX9/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=G%2Bj%2FHv65aRZ5%2FwEWhJqrVyYVq68%3D" data-phocus="https://blog.kakaocdn.net/dna/ciQIPL/btsI3SyEqii/AAAAAAAAAAAAAAAAAAAAAEcMjgYYT0__ALhmHassTteT96TZWBfmnmviDgjYpGX9/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=G%2Bj%2FHv65aRZ5%2FwEWhJqrVyYVq68%3D" style="padding-bottom: 9.14062%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1280" height="117" data-origin-width="1280" data-origin-height="117" class="lazyautosizes lazyloaded" data-src="https://blog.kakaocdn.net/dna/ciQIPL/btsI3SyEqii/AAAAAAAAAAAAAAAAAAAAAEcMjgYYT0__ALhmHassTteT96TZWBfmnmviDgjYpGX9/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=G%2Bj%2FHv65aRZ5%2FwEWhJqrVyYVq68%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FciQIPL%2FbtsI3SyEqii%2FAAAAAAAAAAAAAAAAAAAAAEcMjgYYT0__ALhmHassTteT96TZWBfmnmviDgjYpGX9%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DG%252Bj%252FHv65aRZ5%252FwEWhJqrVyYVq68%253D" data-sizes="auto" sizes="913px" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FciQIPL%2FbtsI3SyEqii%2FAAAAAAAAAAAAAAAAAAAAAEcMjgYYT0__ALhmHassTteT96TZWBfmnmviDgjYpGX9%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DG%252Bj%252FHv65aRZ5%252FwEWhJqrVyYVq68%253D" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/img(5).png"></span></figure>
+<p></p>
+<p data-ke-size="size16">2. settings &gt; authentication &gt; apply</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1280" data-origin-height="124" style="margin-left: 50%; transform: translateX(-50%); width: 1100px; max-width: 1100px;"><span data-url="https://blog.kakaocdn.net/dna/bkRqgn/btsI3VB2VeH/AAAAAAAAAAAAAAAAAAAAAHBJnvz_pIB1Tqvfk7FEmh4m8qaav1Rs6uKhruEymsHs/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=QWcmo8xh3I%2BMmTx303Qt6ppRwPs%3D" data-phocus="https://blog.kakaocdn.net/dna/bkRqgn/btsI3VB2VeH/AAAAAAAAAAAAAAAAAAAAAHBJnvz_pIB1Tqvfk7FEmh4m8qaav1Rs6uKhruEymsHs/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=QWcmo8xh3I%2BMmTx303Qt6ppRwPs%3D" style="padding-bottom: 9.6875%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1280" height="124" data-origin-width="1280" data-origin-height="124" class="lazyautosizes lazyloaded" data-src="https://blog.kakaocdn.net/dna/bkRqgn/btsI3VB2VeH/AAAAAAAAAAAAAAAAAAAAAHBJnvz_pIB1Tqvfk7FEmh4m8qaav1Rs6uKhruEymsHs/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=QWcmo8xh3I%2BMmTx303Qt6ppRwPs%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbkRqgn%2FbtsI3VB2VeH%2FAAAAAAAAAAAAAAAAAAAAAHBJnvz_pIB1Tqvfk7FEmh4m8qaav1Rs6uKhruEymsHs%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DQWcmo8xh3I%252BMmTx303Qt6ppRwPs%253D" data-sizes="auto" sizes="913px" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbkRqgn%2FbtsI3VB2VeH%2FAAAAAAAAAAAAAAAAAAAAAHBJnvz_pIB1Tqvfk7FEmh4m8qaav1Rs6uKhruEymsHs%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DQWcmo8xh3I%252BMmTx303Qt6ppRwPs%253D" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/img(6).png"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16"><b>Select Target Objects 설정</b></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">: 수집할 타깃 대상을 설정</p>
+<p data-ke-size="size16">1. 좌측 내비게이션 바 &gt; Select Target Objects &gt; 타깃 아이콘 클릭</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="286" data-origin-height="345" style="margin-left: 50%; transform: translateX(-50%); width: 286px; max-width: 286px;"><span data-url="https://blog.kakaocdn.net/dna/nJtmI/btsI4my9qf9/AAAAAAAAAAAAAAAAAAAAAE0Zvydh5bPYN9_de8sst6cWIdRmBuyMbf-reIKoZRJr/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=cpgjGsz9mBx4ooruJhQh5HQIE%2BE%3D" data-phocus="https://blog.kakaocdn.net/dna/nJtmI/btsI4my9qf9/AAAAAAAAAAAAAAAAAAAAAE0Zvydh5bPYN9_de8sst6cWIdRmBuyMbf-reIKoZRJr/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=cpgjGsz9mBx4ooruJhQh5HQIE%2BE%3D" style="padding-bottom: 120.629%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="286" height="345" data-origin-width="286" data-origin-height="345" class="lazyautosizes lazyloaded" data-src="https://blog.kakaocdn.net/dna/nJtmI/btsI4my9qf9/AAAAAAAAAAAAAAAAAAAAAE0Zvydh5bPYN9_de8sst6cWIdRmBuyMbf-reIKoZRJr/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=cpgjGsz9mBx4ooruJhQh5HQIE%2BE%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FnJtmI%2FbtsI4my9qf9%2FAAAAAAAAAAAAAAAAAAAAAE0Zvydh5bPYN9_de8sst6cWIdRmBuyMbf-reIKoZRJr%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DcpgjGsz9mBx4ooruJhQh5HQIE%252BE%253D" data-sizes="auto" sizes="286px" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FnJtmI%2FbtsI4my9qf9%2FAAAAAAAAAAAAAAAAAAAAAE0Zvydh5bPYN9_de8sst6cWIdRmBuyMbf-reIKoZRJr%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DcpgjGsz9mBx4ooruJhQh5HQIE%252BE%253D" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/img(7).png"></span></figure>
+<p></p>
+<p data-ke-size="size16">2. 수집할 대상을 클릭하고 Apply 버튼 클릭</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="722" data-origin-height="255" style="margin-left: 50%; transform: translateX(-50%); width: 722px; max-width: 722px;"><span data-url="https://blog.kakaocdn.net/dna/WP8uC/btsI3OQy7I0/AAAAAAAAAAAAAAAAAAAAAFonDAlnVwBj7gKBXPVffud08dnxwtoTpyHcWdfX_6vN/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=kPj6XlDKJq1vlHs310qnr%2B3qP4w%3D" data-phocus="https://blog.kakaocdn.net/dna/WP8uC/btsI3OQy7I0/AAAAAAAAAAAAAAAAAAAAAFonDAlnVwBj7gKBXPVffud08dnxwtoTpyHcWdfX_6vN/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=kPj6XlDKJq1vlHs310qnr%2B3qP4w%3D" style="padding-bottom: 35.3186%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="722" height="255" data-origin-width="722" data-origin-height="255" class="lazyautosizes lazyloaded" data-src="https://blog.kakaocdn.net/dna/WP8uC/btsI3OQy7I0/AAAAAAAAAAAAAAAAAAAAAFonDAlnVwBj7gKBXPVffud08dnxwtoTpyHcWdfX_6vN/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=kPj6XlDKJq1vlHs310qnr%2B3qP4w%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FWP8uC%2FbtsI3OQy7I0%2FAAAAAAAAAAAAAAAAAAAAAFonDAlnVwBj7gKBXPVffud08dnxwtoTpyHcWdfX_6vN%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DkPj6XlDKJq1vlHs310qnr%252B3qP4w%253D" data-sizes="auto" sizes="722px" srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FWP8uC%2FbtsI3OQy7I0%2FAAAAAAAAAAAAAAAAAAAAAFonDAlnVwBj7gKBXPVffud08dnxwtoTpyHcWdfX_6vN%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DkPj6XlDKJq1vlHs310qnr%252B3qP4w%253D" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/img(8).png"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">3. 타겟 대상 확인</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="168" data-origin-height="255" style="margin-left: 50%; transform: translateX(-50%); width: 168px; max-width: 168px;"><span data-url="https://blog.kakaocdn.net/dna/2GYCQ/btsI4Uh9c9G/AAAAAAAAAAAAAAAAAAAAAGrUuqMRiSQwf8sFlrmLD9Ag5lt9jvKNLpgacgbqdsSW/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=dXJCfJUyJFMgsErN9eP6NZCXfzc%3D" data-phocus="https://blog.kakaocdn.net/dna/2GYCQ/btsI4Uh9c9G/AAAAAAAAAAAAAAAAAAAAAGrUuqMRiSQwf8sFlrmLD9Ag5lt9jvKNLpgacgbqdsSW/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=dXJCfJUyJFMgsErN9eP6NZCXfzc%3D" style="padding-bottom: 151.786%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="168" height="255" data-origin-width="168" data-origin-height="255" class="lazyload" data-src="https://blog.kakaocdn.net/dna/2GYCQ/btsI4Uh9c9G/AAAAAAAAAAAAAAAAAAAAAGrUuqMRiSQwf8sFlrmLD9Ag5lt9jvKNLpgacgbqdsSW/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=dXJCfJUyJFMgsErN9eP6NZCXfzc%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F2GYCQ%2FbtsI4Uh9c9G%2FAAAAAAAAAAAAAAAAAAAAAGrUuqMRiSQwf8sFlrmLD9Ag5lt9jvKNLpgacgbqdsSW%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DdXJCfJUyJFMgsErN9eP6NZCXfzc%253D" data-sizes="auto"></span></figure>
+<p></p>
+<p data-ke-size="size16">Paper&nbsp;설정&nbsp;<br>:&nbsp;수집할&nbsp;모니터링&nbsp;대시보드의&nbsp;가장&nbsp;작은&nbsp;단위를&nbsp;Paper라고&nbsp;칭하는&nbsp;것&nbsp;같음&nbsp;=&nbsp;그라파나&nbsp;모니터<br>&nbsp;&nbsp;자유롭게&nbsp;드래그 앤&nbsp;드롭&nbsp;방식으로&nbsp;다양한&nbsp;종류의&nbsp;paper를&nbsp;지원함&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">1.&nbsp;paper&nbsp;추가&nbsp;:&nbsp;scouter&nbsp;내비게이션&nbsp;바&nbsp;&gt;&nbsp;Paper&nbsp;Config&nbsp;&gt;&nbsp;Add&nbsp;&nbsp;Paper&nbsp;</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="116" data-origin-height="255" style="margin-left: 50%; transform: translateX(-50%); width: 116px; max-width: 116px;"><span data-url="https://blog.kakaocdn.net/dna/eAL97X/btsI5uCYpxV/AAAAAAAAAAAAAAAAAAAAABRC0vhPtqOrHcUD9J7MgltsuBWJh2QUd_afsoAW7E5F/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=pSGwTntvOW4q17vN%2BtOt52nE0zE%3D" data-phocus="https://blog.kakaocdn.net/dna/eAL97X/btsI5uCYpxV/AAAAAAAAAAAAAAAAAAAAABRC0vhPtqOrHcUD9J7MgltsuBWJh2QUd_afsoAW7E5F/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=pSGwTntvOW4q17vN%2BtOt52nE0zE%3D" style="padding-bottom: 219.828%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="116" height="255" data-origin-width="116" data-origin-height="255" class="lazyload" data-src="https://blog.kakaocdn.net/dna/eAL97X/btsI5uCYpxV/AAAAAAAAAAAAAAAAAAAAABRC0vhPtqOrHcUD9J7MgltsuBWJh2QUd_afsoAW7E5F/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=pSGwTntvOW4q17vN%2BtOt52nE0zE%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeAL97X%2FbtsI5uCYpxV%2FAAAAAAAAAAAAAAAAAAAAABRC0vhPtqOrHcUD9J7MgltsuBWJh2QUd_afsoAW7E5F%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DpSGwTntvOW4q17vN%252BtOt52nE0zE%253D" data-sizes="auto"></span></figure>
+<p></p>
+<p data-ke-size="size16">2. 메트릭 선택 : Drag metirc : 원하는 metric 선택 후 paper 화면으로 드래그 앤 드롭</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="74" data-origin-height="153" style="margin-left: 50%; transform: translateX(-50%); width: 74px; max-width: 74px;"><span data-url="https://blog.kakaocdn.net/dna/cNIJx5/btsI421hBG1/AAAAAAAAAAAAAAAAAAAAAFLYCk40EtRblhTARyenBwbGofAOfbE7fIICYuNQWgjT/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=RFpPcnYhwsfOagPGEs1g8pW65GI%3D" data-phocus="https://blog.kakaocdn.net/dna/cNIJx5/btsI421hBG1/AAAAAAAAAAAAAAAAAAAAAFLYCk40EtRblhTARyenBwbGofAOfbE7fIICYuNQWgjT/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=RFpPcnYhwsfOagPGEs1g8pW65GI%3D" style="padding-bottom: 206.757%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="74" height="153" data-origin-width="74" data-origin-height="153" class="lazyload" data-src="https://blog.kakaocdn.net/dna/cNIJx5/btsI421hBG1/AAAAAAAAAAAAAAAAAAAAAFLYCk40EtRblhTARyenBwbGofAOfbE7fIICYuNQWgjT/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=RFpPcnYhwsfOagPGEs1g8pW65GI%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcNIJx5%2FbtsI421hBG1%2FAAAAAAAAAAAAAAAAAAAAAFLYCk40EtRblhTARyenBwbGofAOfbE7fIICYuNQWgjT%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DRFpPcnYhwsfOagPGEs1g8pW65GI%253D" data-sizes="auto"></span></figure>
+<p></p>
+<p data-ke-size="size16">수집 샘플 화면</p>
+<p data-ke-size="size16">1. Paper</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1280" data-origin-height="797" style="margin-left: 50%; transform: translateX(-50%); width: 1100px; max-width: 1100px;"><span data-url="https://blog.kakaocdn.net/dna/bP8axV/btsI3RNjYnZ/AAAAAAAAAAAAAAAAAAAAAPUGkAhmSBf-AI9EupM45lDZmUv7B17PrZZpBM0z0KVC/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=Brd9XKPS3PyjDSQ%2F43haarVLnuk%3D" data-phocus="https://blog.kakaocdn.net/dna/bP8axV/btsI3RNjYnZ/AAAAAAAAAAAAAAAAAAAAAPUGkAhmSBf-AI9EupM45lDZmUv7B17PrZZpBM0z0KVC/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=Brd9XKPS3PyjDSQ%2F43haarVLnuk%3D" style="padding-bottom: 62.2656%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1280" height="797" data-origin-width="1280" data-origin-height="797" class="lazyload" data-src="https://blog.kakaocdn.net/dna/bP8axV/btsI3RNjYnZ/AAAAAAAAAAAAAAAAAAAAAPUGkAhmSBf-AI9EupM45lDZmUv7B17PrZZpBM0z0KVC/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=Brd9XKPS3PyjDSQ%2F43haarVLnuk%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbP8axV%2FbtsI3RNjYnZ%2FAAAAAAAAAAAAAAAAAAAAAPUGkAhmSBf-AI9EupM45lDZmUv7B17PrZZpBM0z0KVC%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DBrd9XKPS3PyjDSQ%252F43haarVLnuk%253D" data-sizes="auto"></span></figure>
+<p></p>
+<p data-ke-size="size16">2. XLog</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1280" data-origin-height="672" style="margin-left: 50%; transform: translateX(-50%); width: 1100px; max-width: 1100px;"><span data-url="https://blog.kakaocdn.net/dna/bQbX0R/btsI5DmnOZC/AAAAAAAAAAAAAAAAAAAAAP8k3jnlu1QBFkcSJ3TcEne0JdrX2y-GVRo26O1G5jL8/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=wmUSAOZMYCjic5bn5MX3NxOM7vU%3D" data-phocus="https://blog.kakaocdn.net/dna/bQbX0R/btsI5DmnOZC/AAAAAAAAAAAAAAAAAAAAAP8k3jnlu1QBFkcSJ3TcEne0JdrX2y-GVRo26O1G5jL8/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=wmUSAOZMYCjic5bn5MX3NxOM7vU%3D" style="padding-bottom: 52.5%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1280" height="672" data-origin-width="1280" data-origin-height="672" class="lazyload" data-src="https://blog.kakaocdn.net/dna/bQbX0R/btsI5DmnOZC/AAAAAAAAAAAAAAAAAAAAAP8k3jnlu1QBFkcSJ3TcEne0JdrX2y-GVRo26O1G5jL8/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=wmUSAOZMYCjic5bn5MX3NxOM7vU%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbQbX0R%2FbtsI5DmnOZC%2FAAAAAAAAAAAAAAAAAAAAAP8k3jnlu1QBFkcSJ3TcEne0JdrX2y-GVRo26O1G5jL8%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DwmUSAOZMYCjic5bn5MX3NxOM7vU%253D" data-sizes="auto"></span></figure>
+<figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="2512" data-origin-height="1286" style="margin-left: 50%; transform: translateX(-50%); width: 1100px; max-width: 1100px;"><span data-url="https://blog.kakaocdn.net/dna/dBcGAh/btsI3UQGUp5/AAAAAAAAAAAAAAAAAAAAAEDBT62ofOz98ANdcY1B7c4gnrWDWlMouV2oCQgSB-GS/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=oLXHg1hSITVznJXZ%2FRpesx3%2Fh2M%3D" data-phocus="https://blog.kakaocdn.net/dna/dBcGAh/btsI3UQGUp5/AAAAAAAAAAAAAAAAAAAAAEDBT62ofOz98ANdcY1B7c4gnrWDWlMouV2oCQgSB-GS/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=oLXHg1hSITVznJXZ%2FRpesx3%2Fh2M%3D" style="padding-bottom: 51.1943%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="2512" height="1286" data-origin-width="2512" data-origin-height="1286" class="lazyload" data-src="https://blog.kakaocdn.net/dna/dBcGAh/btsI3UQGUp5/AAAAAAAAAAAAAAAAAAAAAEDBT62ofOz98ANdcY1B7c4gnrWDWlMouV2oCQgSB-GS/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=oLXHg1hSITVznJXZ%2FRpesx3%2Fh2M%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FdBcGAh%2FbtsI3UQGUp5%2FAAAAAAAAAAAAAAAAAAAAAEDBT62ofOz98ANdcY1B7c4gnrWDWlMouV2oCQgSB-GS%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DoLXHg1hSITVznJXZ%252FRpesx3%252Fh2M%253D" data-sizes="auto"></span></figure>
+<p></p>
+<p data-ke-size="size16"><br>3. Active Service</p>
+<p></p><figure class="imageblock alignCenter" data-ke-mobilestyle="widthOrigin" data-origin-width="1280" data-origin-height="676" style="margin-left: 50%; transform: translateX(-50%); width: 1100px; max-width: 1100px;"><span data-url="https://blog.kakaocdn.net/dna/TcE9I/btsI3RNjZ5Z/AAAAAAAAAAAAAAAAAAAAAFTuQMkDY2hKN-1-WH5NiNqV509Flj1Vh8HRDA57nFXQ/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=eVZVNojJoaDOFVmQo1bY%2BaZoqNY%3D" data-phocus="https://blog.kakaocdn.net/dna/TcE9I/btsI3RNjZ5Z/AAAAAAAAAAAAAAAAAAAAAFTuQMkDY2hKN-1-WH5NiNqV509Flj1Vh8HRDA57nFXQ/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=eVZVNojJoaDOFVmQo1bY%2BaZoqNY%3D" style="padding-bottom: 52.8125%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1280" height="676" data-origin-width="1280" data-origin-height="676" class="lazyload" data-src="https://blog.kakaocdn.net/dna/TcE9I/btsI3RNjZ5Z/AAAAAAAAAAAAAAAAAAAAAFTuQMkDY2hKN-1-WH5NiNqV509Flj1Vh8HRDA57nFXQ/img.png?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=eVZVNojJoaDOFVmQo1bY%2BaZoqNY%3D" data-srcset="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FTcE9I%2FbtsI3RNjZ5Z%2FAAAAAAAAAAAAAAAAAAAAAFTuQMkDY2hKN-1-WH5NiNqV509Flj1Vh8HRDA57nFXQ%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DeVZVNojJoaDOFVmQo1bY%252BaZoqNY%253D" data-sizes="auto"></span></figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">&nbsp;</p>
+<p data-ke-size="size16">다음은<b> Jmeter를 사용해서 애플리케이션에 과부화를 유도하</b>여 Web UI에서 메트릭 정보를 보여주는 화면이다.</p>
+<p></p><figure class="imageblock widthContent" data-ke-mobilestyle="widthOrigin" data-filename="scouter-apm.gif" data-origin-width="1754" data-origin-height="1100"><span data-url="https://blog.kakaocdn.net/dna/cinC02/btsI3fHC14q/AAAAAAAAAAAAAAAAAAAAACWqzMmyXvI6lGZf4j4F-NzahQrwtowGdqGe-bPKUaJb/img.gif?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=iYufSwRXqH1bw3g%2BlyA5dZyxo%2Fk%3D" data-phocus="https://blog.kakaocdn.net/dna/cinC02/btsI3fHC14q/AAAAAAAAAAAAAAAAAAAAACWqzMmyXvI6lGZf4j4F-NzahQrwtowGdqGe-bPKUaJb/img.gif?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=iYufSwRXqH1bw3g%2BlyA5dZyxo%2Fk%3D" data-alt="scouter jmeter 실습" style="padding-bottom: 62.7138%;"><img onerror="this.onerror=null; this.src=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;; this.srcset=&#39;//t1.daumcdn.net/tistory_admin/static/images/no-image-v1.png&#39;;" loading="lazy" width="1754" height="1100" data-filename="scouter-apm.gif" data-origin-width="1754" data-origin-height="1100" class="lazyload" data-src="https://blog.kakaocdn.net/dna/cinC02/btsI3fHC14q/AAAAAAAAAAAAAAAAAAAAACWqzMmyXvI6lGZf4j4F-NzahQrwtowGdqGe-bPKUaJb/img.gif?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=iYufSwRXqH1bw3g%2BlyA5dZyxo%2Fk%3D" data-srcset="https://blog.kakaocdn.net/dna/cinC02/btsI3fHC14q/AAAAAAAAAAAAAAAAAAAAACWqzMmyXvI6lGZf4j4F-NzahQrwtowGdqGe-bPKUaJb/img.gif?credential=yqXZFxpELC7KVnFOS48ylbz2pIh7yKj8&amp;expires=1753973999&amp;allow_ip=&amp;allow_referer=&amp;signature=iYufSwRXqH1bw3g%2BlyA5dZyxo%2Fk%3D" data-sizes="auto"></span><figcaption>scouter jmeter 실습</figcaption>
+</figure>
+<p></p>
+<p data-ke-size="size16">&nbsp;</p></div>
+            <!-- System - START -->
+
+<!-- System - END -->
+
+                    <div class="container_postbtn #post_button_group">
+  <div class="postbtn_like"><script>window.ReactionButtonType = 'reaction';
+window.ReactionApiUrl = '//hackjsp.tistory.com/reaction';
+window.ReactionReqBody = {
+    entryId: 59
+}</script>
+<div class="wrap_btn" id="reaction-59" data-tistory-react-app="Reaction"></div><div class="wrap_btn wrap_btn_share"><button type="button" class="btn_post sns_btn btn_share" aria-expanded="false" data-thumbnail-url="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeeDVgE%2FbtsI3g0L05U%2FAAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJBMJQmvtEhZS%252FISmS0dlR1OcUcU%253D" data-title="Scouter APM 설치 및 기본 사용 + Scouter-Paper" data-description="Scouter 란?사내에서 사용할 APM(Application Performance Management) 애플리케이션 성능 관리 도구를 사용하기 위해 찾아보다가 LG CNS에서 개발한 오픈소스 APM Scouter에 대해 검증해 보기로 했다. Scouter는 주로 Java 기반의 웹 애플리케이션을 모니터링하는 데 강점을 가지고 있지만, 다른 시스템 및 언어와도 통합할 수 있다고 한다.  Scouter의 구성은 Collertor 서버가 Agent를 통해서 각 클라이언트의 정보를 수집하는 방식이다. Scouter 설치 환경 정보 OS : Linux Scouter 버전 : 2.15.0사전 준비버전에 맞는 scouterl 패키지를 다운로드하고 압축을 해제합니다.# scouter-all 릴리즈 다운로드wget h.." data-profile-image="https://tistory1.daumcdn.net/tistory/2740303/attach/81525585b603432597583809ce9fe39a" data-profile-name="장성필(hackjap)" data-pc-url="https://hackjsp.tistory.com/59" data-relative-pc-url="/59" data-blog-title="장성필 기술블로그"><span class="ico_postbtn ico_share">공유하기</span></button>
+  <div class="layer_post" id="tistorySnsLayer" style="display: none;"><div class="bundle_post"><button class="btn_mark" data-service="url" data-tiara-action-name="공유_클릭" data-tiara-layer="copy_url" data-tiara-copy="URL복사"><span class="ico_sns ico_url"></span><span class="txt_sns">URL 복사</span></button><button class="btn_mark" data-service="kakaotalk" data-tiara-action-name="공유_클릭" data-tiara-layer="kakao" data-tiara-copy="카카오톡 공유"><span class="ico_sns ico_kt"></span><span class="txt_sns">카카오톡 공유</span></button><button class="btn_mark" data-service="facebook" data-tiara-action-name="공유_클릭" data-tiara-layer="facebook" data-tiara-copy="페이스북 공유"><span class="ico_sns ico_fb"></span><span class="txt_sns">페이스북 공유</span></button><button class="btn_mark" data-service="twitter" data-tiara-action-name="공유_클릭" data-tiara-layer="X" data-tiara-copy="엑스 공유"><span class="ico_sns ico_x"></span><span class="txt_sns">엑스 공유</span></button><span class="ico_postbtn ico_arrbt"></span></div></div>
+</div><div class="wrap_btn wrap_btn_etc" data-entry-id="59" data-entry-visibility="public" data-category-visibility="public"><button type="button" class="btn_post btn_etc2" aria-expanded="false"><span class="ico_postbtn ico_etc">게시글 관리</span></button>
+  <div class="layer_post" id="tistoryEtcLayer" style="display: none;"></div>
+</div></div>
+<button type="button" class="btn_menu_toolbar btn_subscription #subscribe" data-blog-id="2740303" data-url="https://hackjsp.tistory.com/59" data-device="web_pc" data-tiara-action-name="구독 버튼_클릭" data-tiara-copy="구독하기"><em class="txt_state">구독하기</em><strong class="txt_tool_id">장성필 기술블로그</strong><span class="img_common_tistory ico_check_type1"></span></button>  <div data-tistory-react-app="SupportButton"></div>
+</div>
+
+                    <!-- PostListinCategory - START -->
+<div class="another_category another_category_color_gray">
+  <h4>'<a href="https://hackjsp.tistory.com/category/Infrastructure">Infrastructure</a>' 카테고리의 다른 글</h4>
+  <table>
+    <tbody><tr>
+      <th><a href="https://hackjsp.tistory.com/80">개발자(엔지니어)에게 꼭 필요한 기초 암호학(X.509)</a>&nbsp;&nbsp;<span>(0)</span></th>
+      <td>2025.03.15</td>
+    </tr>
+    <tr>
+      <th><a href="https://hackjsp.tistory.com/78">Grafana Alloy 기본 사용  및 Prometheus &amp; Loki 연동</a>&nbsp;&nbsp;<span>(2)</span></th>
+      <td>2025.02.28</td>
+    </tr>
+    <tr>
+      <th><a href="https://hackjsp.tistory.com/34">Harbor Replications을 활용하여 이미지 레지스트리 간 미러링하기</a>&nbsp;&nbsp;<span>(1)</span></th>
+      <td>2024.01.06</td>
+    </tr>
+  </tbody></table>
+</div>
+
+<!-- PostListinCategory - END -->
+</div></div>
+            <template x-if="$data.headings.length &gt; 0"></template><div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show" style="">
+                  <div class="2xl:sticky 2xl:top-20"><button class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden" x-show="! open" @click="toggle"><span class="text-hidden">목차</span><i class="fa-solid fa-list-check"></i></button>
+                    <div class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block max-2xl:-right-60" :class="open ? &quot;max-2xl:right-4&quot; : &quot;max-2xl:-right-60&quot;">
+                      <div class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
+                        <ol class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id"></template><li class="text-h-400 pl-0" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#Scouter%20%EB%9E%80%3F-1">Scouter 란?</a></li><li class="text-h-400 pl-0" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#Scouter%20%EC%84%A4%EC%B9%98%C2%A0-1">Scouter 설치&nbsp;</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#%ED%99%98%EA%B2%BD%20%EC%A0%95%EB%B3%B4%C2%A0-1">환경 정보&nbsp;</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#%EC%82%AC%EC%A0%84%20%EC%A4%80%EB%B9%84-1">사전 준비</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#%EC%84%9C%EB%B2%84%20%EA%B5%AC%EC%84%B1(%20collector%20)-1">서버 구성( collector )</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#agent.host%20%EA%B5%AC%EC%84%B1%C2%A0-1">agent.host 구성&nbsp;</a></li><li class="text-h-400 pl-0" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#Java(JVM)%20Agent%20%EA%B5%AC%EC%84%B1-1">Java(JVM) Agent 구성</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#%EC%99%B8%EC%9E%A5%20Tomcat%20%EC%82%AC%EC%9A%A9%20%EC%8B%9C-1">외장 Tomcat 사용 시</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#%EC%9E%84%EB%B2%A0%EB%94%94%EB%93%9C%20Tomcat%20%EC%82%AC%EC%9A%A9%20%EC%8B%9C-1">임베디드 Tomcat 사용 시</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#Dockerfile%EC%97%90%20agent%20%EC%84%A4%EC%A0%95-1">Dockerfile에 agent 설정</a></li><li class="text-h-400 pl-0" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#Scouter-Paper%C2%A0-1">Scouter-Paper&nbsp;</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#00.%20%EC%82%AC%EC%A0%84%20%EC%A4%80%EB%B9%84-1">00. 사전 준비</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#01.%20scouter-paper%20release%20%EC%84%A4%EC%B9%98-1">01. scouter-paper release 설치</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#02.%20scouter-server%20%EC%84%A4%EC%A0%95-1">02. scouter-server 설정</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#03.%20scouter-paper%20%ED%8C%8C%EC%9D%BC%20%EB%B3%B5%EC%82%AC-1">03. scouter-paper 파일 복사</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#04.%20scouter%20server%2C%20webapp%20%EC%9E%AC%EA%B8%B0%EB%8F%99-1">04. scouter server, webapp 재기동</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200 text-h-600 dark:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#05.%20%EC%A0%95%EC%83%81%20%EB%8F%99%EC%9E%91%20%ED%99%95%EC%9D%B8-1">05. 정상 동작 확인</a></li><li class="text-h-400 pl-4" :class="{ &quot;pl-0&quot;: heading.tagName === &quot;H2&quot;, &quot;pl-4&quot;: heading.tagName === &quot;H3&quot; }"><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class="{ &quot;text-h-600 dark:text-h-200&quot;: heading.active }" href="https://hackjsp.tistory.com/59#WebUI%20%EA%B0%84%EB%8B%A8%20%EC%82%AC%EC%9A%A9%EB%B0%A9%EB%B2%95-1">WebUI 간단 사용방법</a></li></ol>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+        </article>
+        <div x-data="{ shown: false }" x-intersect.once="shown = true">
+          <footer x-show="shown" style="display: none;">
+            
+            
+            
+              <div class="flex flex-wrap gap-x-1 text-[0]" id="tags"><a href="https://hackjsp.tistory.com/tag/APM" rel="tag">APM</a>, <a href="https://hackjsp.tistory.com/tag/scouter" rel="tag">scouter</a></div>
+            
+          </footer>
+        </div>
+      </div>
+      <div class="px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto" x-data="{ shown: false }" x-intersect.once="shown = true">
+        <div data-tistory-react-app="Namecard"><div class="tt_box_namecard"><div class="tt_cont"><a class="tt_tit_cont" href="https://hackjsp.tistory.com/">장성필 기술블로그</a><a class="tt_desc" href="https://hackjsp.tistory.com/">피드백은 언제나 환영입니다:)</a><button class="tt_btn_subscribe" data-tiara-action-name="프로필영역 구독 버튼_클릭" data-tiara-copy="구독하기" type="button"><span class="tt_txt_g">구독하기</span><span class="tt_img_area_reply tt_ico_cross"></span></button></div><a class="tt_wrap_thumb" href="https://hackjsp.tistory.com/"><span class="tt_thumb_g" style="background-image: url(&quot;https://img1.daumcdn.net/thumb/S56x56/?scode=mtistory2&amp;fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F2740303%2Fattach%2F81525585b603432597583809ce9fe39a&quot;);"></span></a></div></div><div id="entry59Comment">
+          <div x-show="shown" style="display: none;">
+            <form method="post" action="https://hackjsp.tistory.com/comment/add/59" onsubmit="return false" style="margin: 0">
+    
+  <div class="p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700">
+    <div class="box-border flex flex-col justify-between h-full gap-y-3"><label class="text-hidden" for="text">댓글</label><textarea class="border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700" id="text" x-data="{ disabled: /^(?!.*tistory\.com).*$/.test(location.hostname) &amp;&amp; T.config.NEED_COMMENT_LOGIN }" :placeholder="disabled &amp;&amp; &quot;이 블로그는 2차 도메인을 사용 중입니다. 댓글을 작성하려면 &quot;+TistoryBlog.tistoryUrl+&quot; 으로 이동해주세요.&quot;" :disabled="disabled" name="comment"></textarea>
+      <div class="flex items-end justify-end">
+        
+          
+            <div class="flex gap-x-2 mr-auto">
+              <div class="flex gap-x-2 text-xs text-h-500 dark:text-h-200"><label for="name">이름</label><input class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700" id="name" autocomplete="username" name="name" value=""></div>
+              <div class="flex gap-x-2 text-xs text-h-500 dark:text-h-200"><label for="password">암호</label><input class="border-0 inline-block outline-none w-16 lg:w-32 bg-h-200 dark:bg-h-700" id="password" autocomplete="current-password" type="password" maxlength="8" name="password" value=""></div>
+            </div>
+          
+        
+        <div class="flex items-end gap-x-4" x-data="{ secret: false }"><input class="hidden" id="secret" type="checkbox" name="secret"><label id="secret-label" for="secret" @click="secret = ! secret"><span class="text-hidden">비밀글</span><i class="fa-solid fa-unlock" :class="{ &quot;fa-lock&quot;: secret, &quot;fa-unlock&quot;: ! secret }"></i></label><a href="https://hackjsp.tistory.com/59#" onclick="addComment(this, 59); return false;"><span class="text-hidden">댓글쓰기</span><i class="fa-solid fa-arrow-circle-down text-3xl leading-none text-h-900 dark:text-h-200"></i></a></div>
+      </div>
+    </div>
+  </div>
+
+</form>
+            
+              <div id="comments">
+                <ol class="flex gap-y-5 mt-9 flex-col-reverse">
+                              
+
+            
+                </ol>
+              </div>
+            
+          </div>
+        </div>
+<script type="text/javascript">loadedComments[59]=true;
+findFragmentAndHighlight(59);</script>
+
+      </div>
+    </div>
+  
+  
+  
+
+          
+      
+          
+          
+          
+          
+        </main>
+        <aside class="h-full fixed top-0 w-s overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 xl:left-0 -left-[calc(theme(width.s))]" id="sidebar" :class="sidebar ? &quot;left-0&quot; : &quot;-left-[calc(theme(width.s))]&quot;">
+          <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box">
+            <!-- 프로필-->
+                <div class="sidebar-element">
+                  <div class="text-center flex flex-col items-center my-4"><img class="rounded-full" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/81525585b603432597583809ce9fe39a" width="100" height="100" alt="장성필(hackjap)">
+                    <div><a class="link_tit inline-block pt-4 pb-1 font-medium" href="https://hackjsp.tistory.com/">장성필 기술블로그</a></div>
+                    <div class="text-h-400 text-sm">장성필(hackjap)</div>
+                  </div>
+                </div>
+              <!-- 방문자 수-->
+                <div class="sidebar-element">
+                  <div class="overflow-hidden flex justify-between" id="counter">
+                    <div>
+                      <div class="text-left">
+                        <div class="title">전체</div>
+                        <div class="count">27,987</div>
+                      </div>
+                    </div>
+                    <div class="flex gap-x-2 text-right">
+                      <div>
+                        <div class="title">오늘</div>
+                        <div class="count">74</div>
+                      </div>
+                      <div>
+                        <div class="title">어제</div>
+                        <div class="count">21</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              <!-- 검색-->
+                <div class="sidebar-element">
+                  
+                    <div class="flex items-center gap-x-3 border-box px-4 py-3 bg-h-300 text-h-600 dark:bg-h-600 dark:text-h-300"><label for="search"><span class="text-hidden">검색</span><i class="text-sm fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600" id="search" name="search" value="" onkeypress="if (event.keyCode == 13) { try {
+    window.location.href = &#39;/search&#39; + &#39;/&#39; + looseURIEncode(document.getElementsByName(&#39;search&#39;)[0].value);
+    document.getElementsByName(&#39;search&#39;)[0].value = &#39;&#39;;
+    return false;
+} catch (e) {} }"></div>
+                  
+                </div>
+              <!-- 카테고리-->
+                <div class="sidebar-element">
+                  <div id="category" x-data="category"><ul class="tt_category"><li class=""><a href="https://hackjsp.tistory.com/category" class="link_tit"> 분류 전체보기 <span class="c_cnt">(83)</span> </a>
+  <ul class="category_list"><li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="https://hackjsp.tistory.com/category/Kubernetes" class="link_item"> Kubernetes <span class="c_cnt">(33)</span> </a>
+  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="https://hackjsp.tistory.com/category/Kubernetes/Network" class="link_sub_item"> Network <span class="c_cnt">(10)</span> </a></li>
+<li class=""><a href="https://hackjsp.tistory.com/category/Kubernetes/Security" class="link_sub_item"> Security <span class="c_cnt">(2)</span> </a></li>
+<li class=""><a href="https://hackjsp.tistory.com/category/Kubernetes/Database%20Operator" class="link_sub_item"> Database Operator <span class="c_cnt">(8)</span> </a></li>
+<li class=""><a href="https://hackjsp.tistory.com/category/Kubernetes/Istio" class="link_sub_item"> Istio <span class="c_cnt">(13)</span> </a></li>
+</ul>
+</li>
+<li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="https://hackjsp.tistory.com/category/AWS" class="link_item"> AWS <span class="c_cnt">(17)</span> </a>
+  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="https://hackjsp.tistory.com/category/AWS/EKS" class="link_sub_item"> EKS <span class="c_cnt">(17)</span> </a></li>
+</ul>
+</li>
+<li class="" x-data="{ open: false }"><i class="fa-solid fa-chevron-right" x-on:click="open = ! open" :class="{ &quot;rotate-90 duration-200&quot;: open }"></i><a href="https://hackjsp.tistory.com/category/Automation" class="link_item"> Automation <span class="c_cnt">(12)</span> </a>
+  <ul class="sub_category_list" x-show="open" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden=""><li class=""><a href="https://hackjsp.tistory.com/category/Automation/Terraform" class="link_sub_item"> Terraform <span class="c_cnt">(7)</span> </a></li>
+<li class=""><a href="https://hackjsp.tistory.com/category/Automation/Ansible" class="link_sub_item"> Ansible <span class="c_cnt">(5)</span> </a></li>
+</ul>
+</li>
+<li class=""><a href="https://hackjsp.tistory.com/category/Infrastructure" class="link_item"> Infrastructure <span class="c_cnt">(4)</span> </a></li>
+<li class=""><a href="https://hackjsp.tistory.com/category/CICD" class="link_item"> CICD <span class="c_cnt">(11)</span> </a></li>
+<li class=""><a href="https://hackjsp.tistory.com/category/Productivity" class="link_item"> Productivity <span class="c_cnt">(4)</span> </a></li>
+<li class=""><a href="https://hackjsp.tistory.com/category/Certification" class="link_item"> Certification <span class="c_cnt">(1)</span> </a></li>
+</ul>
+</li>
+</ul>
+</div>
+                </div>
+              <!-- 공지사항-->
+                <div class="sidebar-element">
+                  <div>
+                    <h2><a class="link_tit" href="https://hackjsp.tistory.com/notice">공지사항</a></h2>
+                    
+                      <ul class="flex flex-col gap-y-4 text-sm">
+                        
+                      </ul>
+                    
+                  </div>
+                </div>
+              <!-- 최근 글-->
+                <div class="sidebar-element">
+                  <div>
+                    <h2>최근 글</h2>
+                    <ul class="flex flex-col gap-y-4 text-sm">
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/101">Istio 시리즈 # 13 - Istio Ambient M⋯</a>
+                            <div class="mt-1 text-xs">2025.06.09</div>
+                          </div>
+                          <img class="object-cover ml-3 bg-h-100 w-16 h-11 lazyautosizes lazyloaded" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fl92se%2FbtsOthyEVIS%2FAAAAAAAAAAAAAAAAAAAAAPS9wls07f2SljA7eK5xYoAYB47WjiUVPZI1RNjULxmn%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DEnpyigUFGvmoGz8bBSzZqu%252Fmvvw%253D" data-sizes="auto" alt="" width="64" height="44" sizes="64px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource(1)">
+                        </li>
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/100">Istio 시리즈 # 12 - Istio와 가상머신 통합하⋯</a>
+                            <div class="mt-1 text-xs">2025.06.01</div>
+                          </div>
+                          <img class="object-cover ml-3 bg-h-100 w-16 h-11 lazyautosizes lazyloaded" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fb7Ct8X%2FbtsOlgAyEtr%2FAAAAAAAAAAAAAAAAAAAAADJVemsvDYwUiCYCdQhuNfb7lm9Rhk3ouWKW-oMYXejh%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DT4y5dljn3JCgdxBYUTWYhBbpNGg%253D" data-sizes="auto" alt="" width="64" height="44" sizes="64px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource(2)">
+                        </li>
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/99">Istio 시리즈 # 11 - EnvoyFilter로 요청⋯</a>
+                            <div class="mt-1 text-xs">2025.05.25</div>
+                          </div>
+                          <img class="object-cover ml-3 bg-h-100 w-16 h-11 lazyautosizes lazyloaded" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fxteb6%2FbtsOa8vWEUb%2FAAAAAAAAAAAAAAAAAAAAACErwyIZs0Q1Ara7RNgI7dwdlymqEMPi7K7ffcD5lPq5%2Fimg.jpg%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DAcFOs4O5vbApJ%252FO%252FDod%252FpJLq%252FOA%253D" data-sizes="auto" alt="" width="64" height="44" sizes="64px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource(3)">
+                        </li>
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/98">Istio 시리즈 # 10 - Istio로 구현하는 다중 ⋯</a>
+                            <div class="mt-1 text-xs">2025.05.25</div>
+                          </div>
+                          <img class="object-cover ml-3 bg-h-100 w-16 h-11 lazyautosizes lazyloaded" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2Fcsqze6%2FbtsOaLIgU7S%2FAAAAAAAAAAAAAAAAAAAAAKboh0_mSuH6U-4XbZSslPs9rB-JqGqI6dQMIVnv9vxx%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DbmSBL%252FBAwuvQ%252Byx4kaDstISXxME%253D" data-sizes="auto" alt="" width="64" height="44" sizes="64px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource(4)">
+                        </li>
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/97">Istio 시리즈 # 9 – Istio 성능 튜닝 가이드(⋯</a>
+                            <div class="mt-1 text-xs">2025.05.18</div>
+                          </div>
+                          <img class="object-cover ml-3 bg-h-100 w-16 h-11 lazyautosizes lazyloaded" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2F8MXAS%2FbtsN1Ay6Zu6%2FAAAAAAAAAAAAAAAAAAAAAOJJchZsqwg2aviV8BpB1LfWlzTCccYc6UOfhcsOXmP3%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DAXHTeQhcqRWiwFPRqopk0NRwfYc%253D" data-sizes="auto" alt="" width="64" height="44" sizes="64px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource(5)">
+                        </li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              <!-- 최근 댓글-->
+                <div class="sidebar-element">
+                  <div>
+                    <h2>최근 댓글</h2>
+                    <ul class="flex flex-col gap-y-4">
+                      
+                        <li class="text-h-400">
+                          <div class="text-overflow-hidden text-sm"><i class="fa-regular fa-comment-dots font-normal mr-2"></i><a href="https://hackjsp.tistory.com/67#comment25808227">전달력이 좋아서 핵심 메시지가 바로 와 닿았어요. 유익한 ⋯</a></div>
+                          <div class="mt-1 text-h-400 text-xs flex gap-x-1">
+                            <div>안녕핬용</div>
+                            <div>· 07.05</div>
+                          </div>
+                        </li>
+                      
+                        <li class="text-h-400">
+                          <div class="text-overflow-hidden text-sm"><i class="fa-regular fa-comment-dots font-normal mr-2"></i><a href="https://hackjsp.tistory.com/73#comment25773588">메시지가 좋습니다 광고 클릭했습니다</a></div>
+                          <div class="mt-1 text-h-400 text-xs flex gap-x-1">
+                            <div>리치블로거용</div>
+                            <div>· 07.03</div>
+                          </div>
+                        </li>
+                      
+                        <li class="text-h-400">
+                          <div class="text-overflow-hidden text-sm"><i class="fa-regular fa-comment-dots font-normal mr-2"></i><a href="https://hackjsp.tistory.com/72#comment25703185">글 감사합니다. 혹시 시간 되시면 제 블로그에도 부담 없이⋯</a></div>
+                          <div class="mt-1 text-h-400 text-xs flex gap-x-1">
+                            <div>talk7918</div>
+                            <div>· 06.28</div>
+                          </div>
+                        </li>
+                      
+                        <li class="text-h-400">
+                          <div class="text-overflow-hidden text-sm"><i class="fa-regular fa-comment-dots font-normal mr-2"></i><a href="https://hackjsp.tistory.com/37#comment25687357">티스토리 운영은 아직 서툴지만 블로거님 글을 보며 많이 배⋯</a></div>
+                          <div class="mt-1 text-h-400 text-xs flex gap-x-1">
+                            <div>america1</div>
+                            <div>· 06.27</div>
+                          </div>
+                        </li>
+                      
+                        <li class="text-h-400">
+                          <div class="text-overflow-hidden text-sm"><i class="fa-regular fa-comment-dots font-normal mr-2"></i><a href="https://hackjsp.tistory.com/45#comment25643158">반갑습니다, 티스토리 블로그의 소중한 활동에 진심 어린 응⋯</a></div>
+                          <div class="mt-1 text-h-400 text-xs flex gap-x-1">
+                            <div>soonlove</div>
+                            <div>· 06.24</div>
+                          </div>
+                        </li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              <!-- 인기 글-->
+                <div class="sidebar-element">
+                  <div>
+                    <h2>인기 글</h2>
+                    <ul class="flex flex-col gap-y-4 text-sm">
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/74">GitLab CI/CD 기본 사용 방법 및 CI/CD 워크⋯</a>
+                            <div class="mt-1 text-xs">2024.12.21</div>
+                          </div>
+                          <img class="object-cover ml-3 bg-h-100 w-16 h-11 lazyautosizes lazyloaded" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FFFtf8%2FbtsLtv65fsl%2FAAAAAAAAAAAAAAAAAAAAAMaXtXKL-CTfdyyHcq1daH7okEeCmldLtRODh3EhEBwR%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D5BhdSQxMhh0UgFR6fSHJfe3Oot8%253D" data-sizes="auto" alt="" width="64" height="44" sizes="64px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource(6)">
+                        </li>
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/78">Grafana Alloy 기본 사용  및 Prometheu⋯</a>
+                            <div class="mt-1 text-xs">2025.02.28</div>
+                          </div>
+                          <img class="object-cover ml-3 bg-h-100 w-16 h-11 lazyautosizes ls-is-cached lazyloaded" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FctSQcW%2FbtsMzRIJ6tH%2FAAAAAAAAAAAAAAAAAAAAAIpqFndD6nqyFEpXMpUhY59RRuKgHUKMjE_pXeMxyWF4%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3D1zGO51S%252FGCINDFTj8P1HkCRRdsA%253D" data-sizes="auto" alt="" width="64" height="44" sizes="64px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource(7)">
+                        </li>
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/35">앤서블(Ansible) 개념 및 기본 사용 - 1주차</a>
+                            <div class="mt-1 text-xs">2024.01.12</div>
+                          </div>
+                          <img class="object-cover ml-3 bg-h-100 w-16 h-11 lazyautosizes lazyloaded" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FlTWfn%2FbtsDrg4qvBG%2FAAAAAAAAAAAAAAAAAAAAAFhJYkHfVPiJT9HzXjreU_CAgL-NGb6Rmx7Q0DCkLmsb%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DBWOhkqDWfzZIKZMtAQUxEgjuLLQ%253D" data-sizes="auto" alt="" width="64" height="44" sizes="64px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource(8)">
+                        </li>
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/59">Scouter APM 설치 및 기본 사용 + Scouter⋯</a>
+                            <div class="mt-1 text-xs">2024.08.14</div>
+                          </div>
+                          <img class="object-cover ml-3 bg-h-100 w-16 h-11 lazyautosizes ls-is-cached lazyloaded" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FeeDVgE%2FbtsI3g0L05U%2FAAAAAAAAAAAAAAAAAAAAAJ8eBhOMm_CKzJBihxEJeEMPt7uOx14DTqWCeAspBtiR%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJBMJQmvtEhZS%252FISmS0dlR1OcUcU%253D" data-sizes="auto" alt="" width="64" height="44" sizes="64px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/saved_resource">
+                        </li>
+                      
+                        <li class="flex justify-between">
+                          <div class="text-overflow-hidden text-h-400"><a href="https://hackjsp.tistory.com/72">Github Actions 기본 사용 방법 및 CI/CD ⋯</a>
+                            <div class="mt-1 text-xs">2024.12.14</div>
+                          </div>
+                          <img class="lazyload object-cover ml-3 bg-h-100 w-16 h-11" data-src="https://img1.daumcdn.net/thumb/R750x0/?scode=mtistory2&amp;fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FbJZTqN%2FbtsLihJQFP3%2FAAAAAAAAAAAAAAAAAAAAAOFEMcWtTfI9Hb0hCq8XJTSDOlsMjatNbCPZTwMNzDN9%2Fimg.png%3Fcredential%3DyqXZFxpELC7KVnFOS48ylbz2pIh7yKj8%26expires%3D1753973999%26allow_ip%3D%26allow_referer%3D%26signature%3DJ0RRd%252FG49beiLo0aRmAyJqVR1a8%253D" data-sizes="auto" alt="" width="64" height="44">
+                        </li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              <!-- 블로그 메뉴-->
+                <div class="sidebar-element">
+                  <div id="blogmenu">
+                    <h2>블로그 메뉴</h2><ul>
+  <li class="t_menu_home first"><a href="https://hackjsp.tistory.com/" target="">홈</a></li>
+  <li class="t_menu_tag"><a href="https://hackjsp.tistory.com/tag" target="">태그</a></li>
+  <li class="t_menu_medialog"><a href="https://hackjsp.tistory.com/media" target="">미디어로그</a></li>
+  <li class="t_menu_location"><a href="https://hackjsp.tistory.com/location" target="">위치로그</a></li>
+  <li class="t_menu_guestbook last"><a href="https://hackjsp.tistory.com/guestbook" target="">방명록</a></li>
+</ul>
+                  </div>
+                </div>
+              <!-- 태그-->
+                <div class="sidebar-element">
+                  <div>
+                    <h2><a class="link_tit" href="https://hackjsp.tistory.com/tag">태그</a></h2>
+                    <ul class="flex flex-col gap-y-4 text-sm">
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/Terraform">Terraform</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/A101">A101</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/harbor">harbor</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/%EA%B0%80%EC%8B%9C%EB%8B%A4%20%EC%BF%A0%EB%B2%84%EB%84%A4%ED%8B%B0%EC%8A%A4%20%EB%8D%B0%EC%9D%B4%ED%84%B0%EB%B2%A0%EC%9D%B4%EC%8A%A4%20%EC%98%A4%ED%8D%BC%EB%A0%88%EC%9D%B4%ED%84%B0%20%EC%8A%A4%ED%84%B0%EB%94%94%28DOIK2%29">가시다 쿠버네티스 데이터베이스 오퍼레이터 스터디(DOIK2)</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/karpenter">karpenter</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/ansible">ansible</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/kuberenets">kuberenets</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/docker">docker</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/Kafka">Kafka</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud3" href="https://hackjsp.tistory.com/tag/IAC">IAC</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud3" href="https://hackjsp.tistory.com/tag/istio">istio</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/cicd">cicd</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/gitops">gitops</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud1" href="https://hackjsp.tistory.com/tag/Kubernetes">Kubernetes</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud3" href="https://hackjsp.tistory.com/tag/aws">aws</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/operator">operator</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud3" href="https://hackjsp.tistory.com/tag/argocd">argocd</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/AutoScaling">AutoScaling</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud2" href="https://hackjsp.tistory.com/tag/EKS">EKS</a></li>
+                      
+                        <li><i class="fa fa-tag mr-2"></i><a class="cloud4" href="https://hackjsp.tistory.com/tag/Jenkins">Jenkins</a></li>
+                      
+                    </ul>
+                  </div>
+                </div>
+              
+            <div class="sidebar-element">
+              <div class="text-h-400" id="copyright">
+                <div class="flex justify-between"><!--이 부분은 스킨 소개페이지 및 제작자의 깃허브 링크로 이동됩니다.
+hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다.--><small><a href="https://pronist.tistory.com/5">hELLO</a> · Designed By <a href="https://github.com/pronist">정상우</a>.</small><small>v4.2.1</small></div>
+              </div>
+            </div>
+          </div><template x-teleport="body"></template>
+        </aside>
+        <div class="w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5 xl:w-c" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" style="">
+          <div class="w-9 h-9"><img class="rounded-full w-9 h-9 cursor-pointer xl:invisible lazyautosizes lazyloaded" @click="sidebar = ! sidebar" data-src="https://tistory1.daumcdn.net/tistory/2740303/attach/81525585b603432597583809ce9fe39a" data-sizes="auto" alt="장성필(hackjap)" width="36" height="36" sizes="960px" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/81525585b603432597583809ce9fe39a"></div>
+          <div class="max-w-[calc(80vw-152px)] h-5">
+            <div class="m-0 text-overflow-hidden text-sm font-bold text-h-800 dark:text-h-200">Scouter APM 설치 및 기본 사용 + Scouter-Paper</div>
+          </div>
+          <div class="w-9 h-9"><button class="subscription flex justify-center items-center w-9 h-9 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe" x-data="{ subscribed: T.config.SUBSCRIPTION.isConnected }" x-show="T.config.ROLE !== &quot;owner&quot; &amp;&amp; /^(.*tistory\.com)$/.test(location.hostname)" :data-blog-id="T.config.BLOG.id" :data-url="TistoryBlog.tistoryUrl" @click="subscribed = ! subscribed" data-blog-id="2740303" data-url="https://hackjsp.tistory.com" data-tiara-copy="구독하기"><span class="text-hidden">구독하기</span><i class="fa-star text-sm fa-regular" :class="subscribed ? &quot;fa-solid&quot; : &quot;fa-regular&quot;"></i></button></div>
+        </div>
+        <div class="flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 xl:w-c" id="bottom">
+          <div class="flex gap-x-3"><button x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="fa-solid fa-moon text-base"></i></button><a href="https://hackjsp.tistory.com/59#hELLO"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></a></div>
+        </div>
+      </div>
+    
+  <div class="#menubar menu_toolbar ">
+  <h2 class="screen_out">티스토리툴바</h2>
+</div>
+<div class="#menubar menu_toolbar "></div>
+<div class="layer_tooltip">
+  <div class="inner_layer_tooltip">
+    <p class="desc_g"></p>
+  </div>
+</div>
+<div id="editEntry" style="position:absolute;width:1px;height:1px;left:-100px;top:-100px"></div>
+
+
+                <!-- DragSearchHandler - START -->
+<script src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/search_dragselection.min.js"></script>
+
+<!-- DragSearchHandler - END -->
+
+                
+                <div style="margin:0; padding:0; border:none; background:none; float:none; clear:none; z-index:0"></div>
+<script type="text/javascript" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/common.js"></script>
+<script type="text/javascript">window.roosevelt_params_queue = window.roosevelt_params_queue || [{channel_id: 'dk', channel_label: '{tistory}'}]</script>
+<script type="text/javascript" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/roosevelt_dk_bt.js" async="async"></script>
+
+                
+                <script>window.tiara = {"svcDomain":"user.tistory.com","section":"글뷰","trackPage":"글뷰_보기","page":"글뷰","key":"2740303-59","customProps":{"userId":"0","blogId":"2740303","entryId":"59","role":"guest","trackPage":"글뷰_보기","filterTarget":false},"entry":{"entryId":"59","entryTitle":"Scouter APM 설치 및 기본 사용 + Scouter-Paper","entryType":"POST","categoryName":"Infrastructure","categoryId":"1253269","serviceCategoryName":"IT 인터넷","serviceCategoryId":401,"author":"3678613","authorNickname":"장성필(hackjap)","blogNmae":"장성필 기술블로그","image":"kage@eeDVgE/btsI3g0L05U/Uqo7NOO1ZD2qYZbWj8fPw0","plink":"/59","tags":["APM","scouter"]},"kakaoAppKey":"3e6ddd834b023f24221217e370daed18","appUserId":"null"}</script>
+<script type="module" src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/index(1).js"></script>
+<script src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/polyfills-legacy(1).js" nomodule="true" defer="true"></script>
+<script src="./Scouter APM 설치 및 기본 사용 + Scouter-Paper — 장성필 기술블로그_files/index-legacy(1).js" nomodule="true" defer="true"></script>
+
+                
+
+<div id="__phocus__" class="__phocus__" tabindex="-1"></div><div id="shortcutLayer" class="doc_help" style="display: none;"><button class="btn_doc_close">닫기</button>
+  <h2 class="title">단축키</h2>
+  <div class="content mac_platform">
+    <div class="container">
+      <h3 class="item_title">내 블로그</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>내 블로그 - 관리자 홈 전환</th>
+      <td>
+        <div class="pc">
+          <kbd>Q</kbd>
+        </div>
+        <div class="mac">
+          <kbd>Q</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>새 글 쓰기</th>
+      <td>
+        <div class="pc">
+          <kbd>W</kbd>
+        </div>
+        <div class="mac">
+          <kbd>W</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+      <h3 class="item_title">블로그 게시글</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>글 수정 (권한 있는 경우)</th>
+      <td>
+        <div class="pc">
+          <kbd>E</kbd>
+        </div>
+        <div class="mac">
+          <kbd>E</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>댓글 영역으로 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>C</kbd>
+        </div>
+        <div class="mac">
+          <kbd>C</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+    <div class="container">
+      <h3 class="item_title">모든 영역</h3>
+      <table class="item">
+        <tbody>
+        
+    <tr>
+      <th>이 페이지의 URL 복사</th>
+      <td>
+        <div class="pc">
+          <kbd>S</kbd>
+        </div>
+        <div class="mac">
+          <kbd>S</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>맨 위로 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>T</kbd>
+        </div>
+        <div class="mac">
+          <kbd>T</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>티스토리 홈 이동</th>
+      <td>
+        <div class="pc">
+          <kbd>H</kbd>
+        </div>
+        <div class="mac">
+          <kbd>H</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        
+    <tr>
+      <th>단축키 안내</th>
+      <td>
+        <div class="pc">
+          <kbd>Shift</kbd> + <kbd>/</kbd>
+        </div>
+        <div class="mac">
+          <kbd>⇧</kbd> + <kbd>/</kbd>
+        </div>
+      </td>
+    </tr>
+  
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <p class="info">* 단축키는 한글/영문 대소문자로 이용 가능하며, 티스토리 기본 도메인에서만 동작합니다.</p>
+  </div><div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200" x-show="sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebar = false" style="display: none;"></div></body></html>
